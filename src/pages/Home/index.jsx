@@ -60,7 +60,7 @@ function HomePage() {
         
         <div className={styles.buttonContainer}>
           
-          <Link to="/contato" className={styles.actionButton}>
+          <Link to="/" className={styles.actionButton}>
             Realize a sua inscrição
           </Link>
         </div>

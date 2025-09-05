@@ -106,7 +106,7 @@
   display: none;
 }
 
-/* --- ESTILOS DAS NOVAS SEÇÕES --- */
+/* Estilos Gerais das Seções */
 .section {
   max-width: 90%;
   margin: 4rem auto;
@@ -119,6 +119,14 @@
   color: #00a651;
   margin-bottom: 2rem;
   text-align: center;
+}
+
+.sectionSubtitle {
+  max-width: 600px;
+  margin: -1.5rem auto 2.5rem auto;
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
 }
 
 /* Grid da Estrutura do Evento */
@@ -203,43 +211,6 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-
-/* --- Media Queries para Responsividade --- */
-@media (max-width: 992px) {
-  .homeLayout {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .carouselWrapper, .content {
-    max-width: 90%;
-    margin: 0 auto;
-  }
-  .content { text-align: center; }
-  .buttonContainer { justify-content: center; }
-  .benefitsSection { flex-direction: column-reverse; } /* Imagem vai para cima no mobile */
-}
-
-@media (max-width: 576px) {
-  .content h1 { font-size: 2rem; }
-  .content p { font-size: 1rem; }
-  .actionButton { padding: 0.8rem 2rem; font-size: 0.9rem; }
-  .carouselWrapper :global(.carousel) :global(.slide) img { height: 300px; }
-  .carouselWrapper :global(.carousel) :global(.slide) :global(.legend) { font-size: 1.2rem; }
-  .sectionTitle { font-size: 1.8rem; }
-}
-
-/* Adicione ou atualize os estilos abaixo no seu arquivo Home.module.css */
-
-/* --- ESTILOS DAS NOVAS SEÇÕES --- */
-
-.sectionSubtitle {
-  max-width: 600px;
-  margin: -1.5rem auto 2.5rem auto;
-  font-size: 1.1rem;
-  color: #666;
-  line-height: 1.6;
-}
-
 /* Seção de Data e Local */
 .eventInfoSection {
   display: flex;
@@ -307,19 +278,26 @@
   border-top: 5px solid #00a651;
 }
 
-.orgLogoPlaceholder {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #e9e9e9;
-  color: #999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.orgLogo {
+  height: 80px;
+  width: auto;
+  max-width: 150px;
   margin: 0 auto 1.5rem auto;
-  font-weight: bold;
-  font-size: 0.9rem;
-  /* Quando tiver a imagem, troque por um <img> */
+}
+
+.orgLogoCombined {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 auto 1.5rem auto;
+  height: 80px;
+}
+
+.orgLogoSmall {
+  height: 60px;
+  width: auto;
+  max-width: 100px;
 }
 
 .responsibilityCard h3 {
@@ -342,12 +320,12 @@
 
 /* Seção da Imagem da Estrutura */
 .fullWidthSection {
-  max-width: 100%; /* Permite que a seção ocupe mais espaço */
+  max-width: 100%;
   background-color: #f4f8f6;
 }
 
 .structureImageContainer {
-  max-width: 1200px; /* Limita a largura da imagem em telas muito grandes */
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -368,10 +346,16 @@
 .downloadSection {
   background-color: #0073a6;
   text-align: center;
+  /* Aumento do espaçamento vertical */
+  padding: 4rem 2rem; 
 }
 
 .downloadSection .sectionTitle, .downloadSection p {
   color: #fff;
+}
+
+.downloadSection p {
+  margin-bottom: 2rem; /* Espaço entre o parágrafo e o botão */
 }
 
 .downloadSection .actionButton {
@@ -386,24 +370,31 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-
-/* --- Media Queries Adicionais para Responsividade --- */
-
+/* --- Media Queries para Responsividade --- */
 @media (max-width: 992px) {
-  /* ... (media query existente) ... */
-  .eventInfoSection {
+  .homeLayout {
     flex-direction: column;
+    gap: 1.5rem;
   }
-  .eventInfoContent .sectionTitle {
-    text-align: center;
+  .carouselWrapper, .content {
+    max-width: 90%;
+    margin: 0 auto;
   }
+  .content { text-align: center; }
+  .buttonContainer { justify-content: center; }
+  .benefitsSection { flex-direction: column-reverse; }
+  .eventInfoSection { flex-direction: column; }
+  .eventInfoContent .sectionTitle { text-align: center; }
 }
 
 @media (max-width: 576px) {
-  /* ... (media query existente) ... */
-  .sectionSubtitle {
-    font-size: 1rem;
-  }
+  .content h1 { font-size: 2rem; }
+  .content p { font-size: 1rem; }
+  .actionButton { padding: 0.8rem 2rem; font-size: 0.9rem; }
+  .carouselWrapper :global(.carousel) :global(.slide) img { height: 300px; }
+  .carouselWrapper :global(.carousel) :global(.slide) :global(.legend) { font-size: 1.2rem; }
+  .sectionTitle { font-size: 1.8rem; }
+  .sectionSubtitle { font-size: 1rem; }
 }
 
 /* Para telas de TV e Monitores Grandes */

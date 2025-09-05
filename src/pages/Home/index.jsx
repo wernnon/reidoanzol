@@ -3,16 +3,17 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import styles from './Home.module.css';
 
+// --- IMAGENS PRINCIPAIS ---
 import pesca1 from '../../assets/pesca1.jpg';
 import pesca2 from '../../assets/pesca2.jpg';
 import pesca3 from '../../assets/pesca3.jpg';
 import pesca4 from '../../assets/pesca4.jpeg';
 
-// --- IMAGENS DAS NOVAS SEÇÕES (VOCÊ PRECISA ADICIONAR ESSAS IMAGENS NA PASTA assets) ---
+// --- IMAGENS DAS NOVAS SEÇÕES ---
 import sopescarLogo from '../../assets/sopescar-logo.png';
 import semtelLogo from '../../assets/semtel-logo.png';
-import localEventoImg from '../../assets/local-evento.jpg'; // Adicione uma imagem representativa do local
-import estruturaLayoutImg from '../../assets/estrutura-layout.jpg'; // Adicione a imagem da implantação da estrutura (página 8 do PDF)
+import localEventoImg from '../../assets/local-evento.jpg';
+import estruturaLayoutImg from '../../assets/estrutura-layout.jpg';
 
 
 function HomePage() {
@@ -68,7 +69,7 @@ function HomePage() {
         </div>
       </div>
 
-      {/* --- NOVA SEÇÃO: ESTRUTURA DO EVENTO --- */}
+      {/* Seção Estrutura do Evento */}
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Estrutura Completa Para Você</h2>
         <div className={styles.featuresGrid}>
@@ -95,7 +96,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* --- NOVA SEÇÃO: BENEFÍCIOS DO FESTIVAL --- */}
+      {/* Seção Benefícios do Festival */}
       <section className={`${styles.section} ${styles.benefitsSection}`}>
         <div className={styles.benefitContent}>
           <h2 className={styles.sectionTitle}>Um Evento que Fortalece a Nossa Região</h2>
@@ -111,10 +112,9 @@ function HomePage() {
         </div>
       </section>
 
-      {/* --- NOVA SEÇÃO: DATA E LOCAL --- */}
+      {/* Seção Data e Local */}
       <section className={`${styles.section} ${styles.eventInfoSection}`}>
         <div className={styles.eventInfoImage}>
-          {/* Adicione a imagem 'local-evento.jpg' na sua pasta assets */}
           <img src={localEventoImg} alt="Vila Nova de Teotônio, local do evento" />
         </div>
         <div className={styles.eventInfoContent}>
@@ -133,14 +133,13 @@ function HomePage() {
         </div>
       </section>
 
-      {/* --- NOVA SEÇÃO: RESPONSÁVEIS --- */}
+      {/* Seção Responsáveis */}
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Organização e Responsabilidades</h2>
         <p className={styles.sectionSubtitle}>A realização do festival é fruto da união de esforços entre parceiros.</p>
         <div className={styles.responsibilitiesGrid}>
           <div className={styles.responsibilityCard}>
-            {/* Adicione a imagem 'sopescar-logo.png' na pasta assets */}
-            <div className={styles.orgLogoPlaceholder}>SOPESCAR</div>
+            <img src={sopescarLogo} alt="Logo SOPESCAR" className={styles.orgLogo} />
             <h3>SOPESCAR</h3>
             <ul>
               <li>Regras e Inscrições</li>
@@ -149,8 +148,7 @@ function HomePage() {
             </ul>
           </div>
           <div className={styles.responsibilityCard}>
-            {/* Adicione a imagem 'semtel-logo.png' na pasta assets */}
-            <div className={styles.orgLogoPlaceholder}>SEMTEL</div>
+            <img src={semtelLogo} alt="Logo SEMTEL" className={styles.orgLogo} />
             <h3>SEMTEL</h3>
             <ul>
               <li>Atrações regionais</li>
@@ -158,7 +156,10 @@ function HomePage() {
             </ul>
           </div>
           <div className={styles.responsibilityCard}>
-            <div className={styles.orgLogoPlaceholder}>SEMTEL & SOPESCAR</div>
+            <div className={styles.orgLogoCombined}>
+              <img src={semtelLogo} alt="Logo SEMTEL" className={styles.orgLogoSmall} />
+              <img src={sopescarLogo} alt="Logo SOPESCAR" className={styles.orgLogoSmall} />
+            </div>
             <h3>SEMTEL / SOPESCAR</h3>
             <ul>
               <li>Divulgação do evento</li>
@@ -167,17 +168,16 @@ function HomePage() {
         </div>
       </section>
 
-      {/* --- NOVA SEÇÃO: IMAGEM DA ESTRUTURA --- */}
+      {/* Seção Imagem da Estrutura */}
       <section className={`${styles.section} ${styles.fullWidthSection}`}>
         <h2 className={styles.sectionTitle}>Conheça o Espaço do Festival</h2>
         <div className={styles.structureImageContainer}>
-          {/* Adicione a imagem 'estrutura-layout.jpg' na sua pasta assets */}
           <img src={estruturaLayoutImg} alt="Implantação da estrutura do evento PVH Pesca Show" />
           <p>Layout funcional com a disposição de todos os espaços para uma melhor experiência.</p>
         </div>
       </section>
 
-      {/* --- NOVA SEÇÃO: DOWNLOAD PDF --- */}
+      {/* Seção Download PDF */}
       <section className={`${styles.section} ${styles.downloadSection}`}>
         <h2 className={styles.sectionTitle}>Regulamento e Informações Completas</h2>
         <p>Acesse a apresentação completa do evento para conferir todos os detalhes, regras e oportunidades.</p>

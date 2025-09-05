@@ -18,7 +18,7 @@ function Navbar() {
     <nav className={styles.navbar}>
       <Link to="/" className={styles.brand}>
         <img src={logo} alt="Logo Rei do Anzol" className={styles.logo} />
-        Rei do Anzol
+        SóPescar
       </Link>
       
       {/* 3. Adiciona o botão do menu hambúrguer */}

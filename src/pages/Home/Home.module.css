@@ -1,10 +1,11 @@
+/* Estilos Gerais */
 .homeContainer {
   text-align: center;
   width: 100%;
   padding: 2rem 0;
 }
 
-/* Novo layout flex para alinhar carrossel e texto */
+/* Layout Principal (Carrossel + Texto) */
 .homeLayout {
   display: flex;
   align-items: center;
@@ -12,21 +13,21 @@
   gap: 2.5rem;
   max-width: 90%;
   margin: 0 auto;
-  flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+  flex-wrap: wrap;
 }
 
 .content {
-  flex: 1; /* Permite que o conteúdo ocupe o espaço disponível */
+  flex: 1;
   max-width: 500px;
   padding: 2rem 1.5rem;
   background-color: #ffffff;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: left; /* Alinha o texto à esquerda */
+  text-align: left;
 }
 
 .content h1 {
-  font-size: 2.5rem; /* Tamanho do título ajustado */
+  font-size: 2.5rem;
   font-weight: 700;
   color: #00a651;
   margin-bottom: 1.5rem;
@@ -34,7 +35,7 @@
 }
 
 .content p {
-  font-size: 1.1rem; /* Tamanho da fonte ajustado */
+  font-size: 1.1rem;
   color: #555;
   line-height: 1.6;
   margin-bottom: 1rem;
@@ -43,8 +44,7 @@
 .buttonContainer {
   margin-top: 2rem;
   display: flex;
-  justify-content: flex-start; /* Alinha o botão à esquerda */
-  align-items: center;
+  justify-content: flex-start;
 }
 
 .actionButton {
@@ -67,10 +67,10 @@
   box-shadow: 0 6px 20px rgba(0, 115, 166, 0.4);
 }
 
-/* Estilos para o Carrossel (Wrapper foi redimensionado) */
+/* Estilos para o Carrossel */
 .carouselWrapper {
-  flex: 1; /* Permite que o carrossel ocupe o espaço disponível */
-  max-width: 600px; /* Largura máxima reduzida */
+  flex: 1;
+  max-width: 600px;
   border-radius: 15px; 
   overflow: hidden; 
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
@@ -79,14 +79,14 @@
 
 .carouselWrapper :global(.carousel) :global(.slide) img {
   width: 100%;
-  height: 450px; /* Altura da imagem reduzida */
+  height: 450px;
   object-fit: cover;
 }
 
 .carouselWrapper :global(.carousel) :global(.slide) :global(.legend) {
   background-color: rgba(0, 0, 0, 0.4); 
   color: #fff;
-  font-size: 1.5rem; /* Tamanho da legenda ajustado */
+  font-size: 1.5rem;
   font-weight: 700;
   padding: 1rem 1.5rem;
   text-align: left;
@@ -106,51 +106,124 @@
   display: none;
 }
 
-/* Adicione este bloco ao final do seu arquivo CSS */
-
-/* --- Media Queries para Responsividade Fina --- */
-
-/* Para tablets e celulares em modo paisagem (telas até 992px) */
-@media (max-width: 992px) {
-  .homeLayout {
-    flex-direction: column; /* Força os itens a ficarem um sobre o outro */
-    gap: 1.5rem;
-  }
-
-  .carouselWrapper, .content {
-    max-width: 90%; /* Permite que ocupem a largura da tela */
-    margin: 0 auto;
-  }
-  
-  .content {
-    text-align: center; /* Centraliza o texto quando empilhado */
-  }
-
-  .buttonContainer {
-    justify-content: center; /* Centraliza o botão */
-  }
+/* --- ESTILOS DAS NOVAS SEÇÕES --- */
+.section {
+  max-width: 90%;
+  margin: 4rem auto;
+  padding: 2rem;
+  border-radius: 15px;
 }
 
-/* Para celulares (telas até 576px) */
+.sectionTitle {
+  font-size: 2.2rem;
+  color: #00a651;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Grid da Estrutura do Evento */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.featureCard {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.featureIcon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.featureCard h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.featureCard p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Seção de Benefícios */
+.benefitsSection {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: #f9f9f9;
+  flex-wrap: wrap;
+}
+
+.benefitContent, .benefitImage {
+  flex: 1;
+  min-width: 300px;
+}
+
+.benefitContent ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+}
+
+.benefitContent li {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.benefitContent li::before {
+  content: '✔';
+  color: #00a651;
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+.benefitImage img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 992px) {
+  .homeLayout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .carouselWrapper, .content {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .content { text-align: center; }
+  .buttonContainer { justify-content: center; }
+  .benefitsSection { flex-direction: column-reverse; } /* Imagem vai para cima no mobile */
+}
+
 @media (max-width: 576px) {
-  .content h1 {
-    font-size: 2rem; /* Diminui o tamanho do título em telas muito pequenas */
-  }
-
-  .content p {
-    font-size: 1rem; /* Ajusta o parágrafo para melhor leitura */
-  }
-
-  .actionButton {
-    padding: 0.8rem 2rem; /* Diminui um pouco o botão */
-    font-size: 0.9rem;
-  }
-
-  .carouselWrapper :global(.carousel) :global(.slide) img {
-    height: 300px; /* Reduz a altura da imagem do carrossel */
-  }
-
-  .carouselWrapper :global(.carousel) :global(.slide) :global(.legend) {
-    font-size: 1.2rem; /* Diminui o texto da legenda */
-  }
+  .content h1 { font-size: 2rem; }
+  .content p { font-size: 1rem; }
+  .actionButton { padding: 0.8rem 2rem; font-size: 0.9rem; }
+  .carouselWrapper :global(.carousel) :global(.slide) img { height: 300px; }
+  .carouselWrapper :global(.carousel) :global(.slide) :global(.legend) { font-size: 1.2rem; }
+  .sectionTitle { font-size: 1.8rem; }
 }

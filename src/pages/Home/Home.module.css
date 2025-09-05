@@ -227,3 +227,188 @@
   .carouselWrapper :global(.carousel) :global(.slide) :global(.legend) { font-size: 1.2rem; }
   .sectionTitle { font-size: 1.8rem; }
 }
+
+/* Adicione ou atualize os estilos abaixo no seu arquivo Home.module.css */
+
+/* --- ESTILOS DAS NOVAS SEÇÕES --- */
+
+.sectionSubtitle {
+  max-width: 600px;
+  margin: -1.5rem auto 2.5rem auto;
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Seção de Data e Local */
+.eventInfoSection {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.eventInfoImage, .eventInfoContent {
+  flex: 1;
+  min-width: 320px;
+}
+
+.eventInfoImage img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.eventInfoContent .sectionTitle {
+  text-align: left;
+}
+
+.infoBox {
+  background: #f9f9f9;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  border-left: 5px solid #00a651;
+}
+
+.infoBox h3 {
+  margin: 0 0 0.25rem 0;
+  color: #333;
+}
+
+.infoBox p {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.eventDescription {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Seção de Responsáveis */
+.responsibilitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.responsibilityCard {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  border-top: 5px solid #00a651;
+}
+
+.orgLogoPlaceholder {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #e9e9e9;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem auto;
+  font-weight: bold;
+  font-size: 0.9rem;
+  /* Quando tiver a imagem, troque por um <img> */
+}
+
+.responsibilityCard h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.responsibilityCard ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.responsibilityCard li {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Seção da Imagem da Estrutura */
+.fullWidthSection {
+  max-width: 100%; /* Permite que a seção ocupe mais espaço */
+  background-color: #f4f8f6;
+}
+
+.structureImageContainer {
+  max-width: 1200px; /* Limita a largura da imagem em telas muito grandes */
+  margin: 0 auto;
+}
+
+.structureImageContainer img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.structureImageContainer p {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #777;
+}
+
+/* Seção de Download */
+.downloadSection {
+  background-color: #0073a6;
+  text-align: center;
+}
+
+.downloadSection .sectionTitle, .downloadSection p {
+  color: #fff;
+}
+
+.downloadSection .actionButton {
+  background-color: #ffc107;
+  color: #333;
+  margin-top: 1rem;
+}
+
+.downloadSection .actionButton:hover {
+  background-color: #fff;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* --- Media Queries Adicionais para Responsividade --- */
+
+@media (max-width: 992px) {
+  /* ... (media query existente) ... */
+  .eventInfoSection {
+    flex-direction: column;
+  }
+  .eventInfoContent .sectionTitle {
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  /* ... (media query existente) ... */
+  .sectionSubtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Para telas de TV e Monitores Grandes */
+@media (min-width: 1600px) {
+  .section, .homeLayout {
+    max-width: 1400px;
+  }
+}

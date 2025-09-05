@@ -8,6 +8,13 @@ import pesca2 from '../../assets/pesca2.jpg';
 import pesca3 from '../../assets/pesca3.jpg';
 import pesca4 from '../../assets/pesca4.jpeg';
 
+// --- IMAGENS DAS NOVAS SEÇÕES (VOCÊ PRECISA ADICIONAR ESSAS IMAGENS NA PASTA assets) ---
+import sopescarLogo from '../../assets/sopescar-logo.png';
+import semtelLogo from '../../assets/semtel-logo.png';
+import localEventoImg from '../../assets/local-evento.jpg'; // Adicione uma imagem representativa do local
+import estruturaLayoutImg from '../../assets/estrutura-layout.jpg'; // Adicione a imagem da implantação da estrutura (página 8 do PDF)
+
+
 function HomePage() {
   return (
     <main className={styles.homeContainer}>
@@ -102,6 +109,85 @@ function HomePage() {
         <div className={styles.benefitImage}>
           <img src={pesca2} alt="Pescador exibindo um peixe tucunaré" />
         </div>
+      </section>
+
+      {/* --- NOVA SEÇÃO: DATA E LOCAL --- */}
+      <section className={`${styles.section} ${styles.eventInfoSection}`}>
+        <div className={styles.eventInfoImage}>
+          {/* Adicione a imagem 'local-evento.jpg' na sua pasta assets */}
+          <img src={localEventoImg} alt="Vila Nova de Teotônio, local do evento" />
+        </div>
+        <div className={styles.eventInfoContent}>
+          <h2 className={styles.sectionTitle}>Data e Local do Encontro</h2>
+          <div className={styles.infoBox}>
+            <h3>Data</h3>
+            <p>27 e 28 de Setembro</p>
+          </div>
+          <div className={styles.infoBox}>
+            <h3>Local</h3>
+            <p>Tradicional Vila Nova de Teotônio</p>
+          </div>
+          <p className={styles.eventDescription}>
+            O festival reunirá esporte, lazer, gastronomia e cultura regional em um único espaço, abrindo oficialmente as festividades de aniversário de Porto Velho.
+          </p>
+        </div>
+      </section>
+
+      {/* --- NOVA SEÇÃO: RESPONSÁVEIS --- */}
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>Organização e Responsabilidades</h2>
+        <p className={styles.sectionSubtitle}>A realização do festival é fruto da união de esforços entre parceiros.</p>
+        <div className={styles.responsibilitiesGrid}>
+          <div className={styles.responsibilityCard}>
+            {/* Adicione a imagem 'sopescar-logo.png' na pasta assets */}
+            <div className={styles.orgLogoPlaceholder}>SOPESCAR</div>
+            <h3>SOPESCAR</h3>
+            <ul>
+              <li>Regras e Inscrições</li>
+              <li>Organização do Campeonato</li>
+              <li>Premiação</li>
+            </ul>
+          </div>
+          <div className={styles.responsibilityCard}>
+            {/* Adicione a imagem 'semtel-logo.png' na pasta assets */}
+            <div className={styles.orgLogoPlaceholder}>SEMTEL</div>
+            <h3>SEMTEL</h3>
+            <ul>
+              <li>Atrações regionais</li>
+              <li>Estrutura do evento</li>
+            </ul>
+          </div>
+          <div className={styles.responsibilityCard}>
+            <div className={styles.orgLogoPlaceholder}>SEMTEL & SOPESCAR</div>
+            <h3>SEMTEL / SOPESCAR</h3>
+            <ul>
+              <li>Divulgação do evento</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* --- NOVA SEÇÃO: IMAGEM DA ESTRUTURA --- */}
+      <section className={`${styles.section} ${styles.fullWidthSection}`}>
+        <h2 className={styles.sectionTitle}>Conheça o Espaço do Festival</h2>
+        <div className={styles.structureImageContainer}>
+          {/* Adicione a imagem 'estrutura-layout.jpg' na sua pasta assets */}
+          <img src={estruturaLayoutImg} alt="Implantação da estrutura do evento PVH Pesca Show" />
+          <p>Layout funcional com a disposição de todos os espaços para uma melhor experiência.</p>
+        </div>
+      </section>
+
+      {/* --- NOVA SEÇÃO: DOWNLOAD PDF --- */}
+      <section className={`${styles.section} ${styles.downloadSection}`}>
+        <h2 className={styles.sectionTitle}>Regulamento e Informações Completas</h2>
+        <p>Acesse a apresentação completa do evento para conferir todos os detalhes, regras e oportunidades.</p>
+        <a 
+          href="/atualizada PVH - PESCA SHOW.pdf" 
+          download 
+          className={styles.actionButton}
+        >
+          Baixar Apresentação em PDF
+        </a>
       </section>
 
     </main>

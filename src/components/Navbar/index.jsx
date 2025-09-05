@@ -1,39 +1,67 @@
-// src/components/Navbar/index.jsx
-
-import { useState } from 'react'; // Importa o hook 'useState' para gerenciar o estado
 import { Link } from 'react-router-dom';
-import styles from './Navbar.module.css';
-import logo from '../../assets/logo.png'; 
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import { Carousel } from 'react-responsive-carousel';
+import styles from './Home.module.css';
 
-function Navbar() {
-  // 1. Cria um estado para controlar se o menu está aberto ou fechado
-  const [isOpen, setIsOpen] = useState(false);
+import pesca1 from '../../assets/pesca1.jpg';
+import pesca2 from '../../assets/pesca2.jpg';
+import pesca3 from '../../assets/pesca3.jpg';
+import pesca4 from '../../assets/pesca4.jpeg';
 
-  // 2. Função que muda o estado quando o botão é clicado
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
+function HomePage() {
   return (
-    <nav className={styles.navbar}>
-      <Link to="/" className={styles.brand}>
-        <img src={logo} alt="Logo Rei do Anzol" className={styles.logo} />
-        SóPescar
-      </Link>
+    <main className={styles.homeContainer}>
+      <title>PVH Pesca Show - O Festival de Pesca de Porto Velho</title>
       
-      {/* 3. Adiciona o botão do menu hambúrguer */}
-      <button className={styles.hamburger} onClick={toggleMenu}>
-        ☰
-      </button>
-
-      {/* 4. A classe 'active' é adicionada se o estado 'isOpen' for verdadeiro */}
-      <ul className={`${styles.navList} ${isOpen ? styles.active : ''}`}>
-        <li><Link to="/" className={styles.navButton} onClick={toggleMenu}>Inicio</Link></li>
-        <li><Link to="/sobre" className={styles.navButton} onClick={toggleMenu}>Sobre</Link></li>
-        <li><Link to="/" className={`${styles.navButton} ${styles.subscribeButton}`} onClick={toggleMenu}>Inscreva-se</Link></li>
-      </ul>
-    </nav>
+      {/* Novo contêiner para o layout flex */}
+      <div className={styles.homeLayout}>
+        <div className={styles.carouselWrapper}>
+          <Carousel 
+            autoPlay={true} 
+            infiniteLoop={true} 
+            showThumbs={false} 
+            showStatus={false}
+            showArrows={false}
+            interval={5000}
+          >
+            <div>
+              <img src={pesca1} alt="Homem pescando em um barco ao amanhecer" />
+              [cite_start]<p className="legend">PVH Pesca Show em Vila Nova de Teotônio [cite: 3]</p>
+            </div>
+            <div>
+              <img src={pesca2} alt="Peixe tucunaré sendo segurado por um pescador" />
+              <p className="legend">A Emoção da Pesca Esportiva</p>
+            </div>
+            <div>
+              <img src={pesca3} alt="Paisagem de um rio amazônico com céu azul" />
+              [cite_start]<p className="legend">Valorizando a Cultura Ribeirinha [cite: 68]</p>
+            </div>
+            <div>
+              <img src={pesca4} alt="Pescador arremessando a linha na água" />
+              <p className="legend">Técnicas e Estratégias de Pesca</p>
+            </div>
+          </Carousel>
+        </div>
+        
+        <div className={styles.content}>
+          [cite_start]<h1>PVH Pesca Show: Mais que um Torneio, uma Celebração! [cite: 204]</h1>
+          <p>
+            [cite_start]O Festival de Pesca Esportiva foi criado para fomentar o turismo, valorizar a cultura local e incentivar a prática sustentável da pesca[cite: 11]. 
+            [cite_start]É uma celebração da nossa cultura, gastronomia e do turismo de base comunitária, fortalecendo a economia e as tradições da nossa região[cite: 12, 68].
+          </p>
+          <p>
+            Não fique de fora deste grande evento! Mostre sua paixão pela pesca, junte-se a nós e faça parte desta experiência única.
+          </p>
+          
+          <div className={styles.buttonContainer}>
+            <Link to="/" className={styles.actionButton}>
+              Inscreva-se agora no Torneio
+            </Link>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }
 
-export default Navbar;
+export default HomePage;

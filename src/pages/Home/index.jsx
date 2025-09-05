@@ -190,6 +190,80 @@ function HomePage() {
         </a>
       </section>
 
+      {/* --- NOVA SEÇÃO: REGRAS DO TORNEIO --- */}
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>Regras do Torneio (XIII TOPAS)</h2>
+        <div className={styles.rulesGrid}>
+          
+          <div className={styles.ruleCard}>
+            <h3>📅 Datas e Local</h3>
+            <p><strong>Data:</strong> 27 e 28 de setembro de 2025.</p>
+            <p><strong>Local:</strong> Vila Nova Teotônio, nas águas do rio Madeira e afluentes, entre a Usina de Santo Antônio até a região de Morrinhos.</p>
+          </div>
+
+          <div className={styles.ruleCard}>
+            <h3>🎣 Modalidades e Cronograma</h3>
+            <ul>
+              <li><strong>27/09 (Sábado):</strong> Caiaque Individual, das 07h30 às 12h30, no lago à margem esquerda da Vila.</li>
+              <li><strong>28/09 (Domingo):</strong> Embarcada, com largada às 07h30 e término às 12h30.</li>
+              <li>Ambas com tolerância de 30 minutos. Apuração e premiação à tarde.</li>
+            </ul>
+          </div>
+
+          <div className={styles.ruleCard}>
+            <h3>👥 Equipes e Participantes</h3>
+            <ul>
+              <li>Até 4 pessoas por embarcação.</li>
+              <li>Menores de idade devem estar acompanhados por responsável legal.</li>
+              <li><strong>Obrigatório:</strong> Todos devem possuir Carteira de Pesca válida.</li>
+              <li><strong>Obrigatório:</strong> Uso de coletes salva-vidas durante o trajeto.</li>
+              <li>O condutor da embarcação deve ter habilitação fluvial (ARRAIS).</li>
+            </ul>
+          </div>
+
+          <div className={styles.ruleCard}>
+            <h3>📏 Pontuação e Validação</h3>
+            <ul>
+              <li>A pontuação é baseada nos centímetros do peixe, com valores diferentes por espécie. Apenas um exemplar de cada espécie pontua.</li>
+              <li>A captura, medição e soltura devem ser registradas em um <strong>vídeo de até 90 segundos, sem cortes.</strong></li>
+              <li>A medição deve usar a régua oficial do evento.</li>
+              <li>Vídeos de má qualidade ou que não mostrem a sobrevivência do peixe na soltura serão invalidados.</li>
+            </ul>
+          </div>
+
+          <div className={styles.ruleCard}>
+            <h3>🛠️ Equipamentos</h3>
+            <p><strong>Permitidos:</strong> Carretilhas, molinetes, linha de mão, varas, iscas artificiais/naturais (conforme lei) e puçá.</p>
+            <p><strong>Proibidos:</strong> Redes, tarrafas, espinhéis e garatéias. O uso destes itens causa <strong>desclassificação imediata</strong>.</p>
+          </div>
+
+          <div className={styles.ruleCard}>
+            <h3>🏆 Premiação</h3>
+            <ul>
+              <li><strong>1º Lugar:</strong> Barco de alumínio 5,5m com motor 15 HP.</li>
+              <li><strong>2º Lugar:</strong> Barco de alumínio 5,5m.</li>
+              <li><strong>3º Lugar:</strong> Kit com 4 varas e carretilhas.</li>
+              <li><strong>4º Lugar:</strong> 4 barracas de camping.</li>
+              <li><strong>5º Lugar:</strong> 4 caixas de pesca.</li>
+              <li>Haverá sorteio de brindes para competidores e público.</li>
+            </ul>
+          </div>
+
+          <div className={styles.ruleCard}>
+            <h3>📝 Inscrições</h3>
+            <p><strong>Período:</strong> De 05 a 20 de setembro de 2025.</p>
+            <p><strong>Como:</strong> Gratuitas, online em <strong>reidoanzolpvh.com</strong> ou em lojas de pesca credenciadas.</p>
+            <p><strong>Brinde:</strong> Equipes inscritas até 20/09 garantem uma camiseta do torneio.</p>
+          </div>
+
+          <div className={styles.ruleCard}>
+            <h3>⚖️ Critério de Desempate</h3>
+            <p>Em caso de empate na pontuação, o critério para desempate será a <strong>maior variedade de espécies</strong> capturadas pela equipe.</p>
+          </div>
+
+        </div>
+      </section>
+
     </main>
   );
 }

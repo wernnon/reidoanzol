@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/sobre" element={<AboutPage />} />
-          <Route path="/contato" element={<FormularioPage />} /> {/* Rota do formulário */}
+          <Route path="/formulario" element={<FormularioPage />} /> {/* Rota do formulário */}
         </Routes>
       </div>
       <Footer />

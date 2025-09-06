@@ -98,7 +98,7 @@ function FormularioPage() {
     };
 
     try {
-      const response = await fetch("http://localhost:3001/api/register-team", {
+      const response = await fetch("https://reidoanzol-api.vercel.app/api/register-team", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(submissionData),

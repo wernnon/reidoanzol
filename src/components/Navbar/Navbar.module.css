@@ -41,7 +41,7 @@
 }
 
 .logo {
-  height: 50px; /* Tamanho do logo principal ajustado */
+  height: 70px; /* Tamanho do logo principal ajustado */
 }
 
 /* --- NOVOS ESTILOS PARA LOGOS CENTRAIS --- */
@@ -54,7 +54,7 @@
 }
 
 .centerLogos img {
-  height: 40px; /* Tamanho padronizado para todos os logos */
+  height: 70px; /* Tamanho padronizado para todos os logos */
   width: auto;
   object-fit: contain;
 }

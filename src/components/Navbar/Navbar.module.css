@@ -9,10 +9,11 @@
   z-index: 1000;
   color: #ffffff;
   padding: 0.5rem 2rem;
+  /* Layout de 3 colunas para Desktop */
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .navbar::before {
@@ -34,24 +35,23 @@
 }
 
 .logo {
-  /* TAMANHO AUMENTADO PARA NOTEBOOKS E PCS */
   height: 80px;
-  transition: height 0.3s ease; /* Adiciona uma transição suave */
+  transition: height 0.3s ease;
 }
 
+/* Logos centrais para Desktop */
 .centerLogos {
   display: flex;
   align-items: center;
-  gap: 2.5rem; /* Espaço aumentado entre os logos */
-  justify-self: center;
+  gap: 2.5rem;
+  justify-self: center; /* Centraliza na grid */
 }
 
 .centerLogos img {
-  /* TAMANHO AUMENTADO PARA NOTEBOOKS E PCS */
-  height: 70px; 
+  height: 70px;
   width: auto;
   object-fit: contain;
-  transition: height 0.3s ease; /* Adiciona uma transição suave */
+  transition: height 0.3s ease;
 }
 
 .navRight {
@@ -65,10 +65,6 @@
   gap: 1rem;
   margin: 0;
   padding: 0;
-}
-
-.navList a {
-    text-decoration: none;
 }
 
 .navButton {
@@ -89,77 +85,81 @@
 }
 
 .subscribeButton {
-    background-color: #a0e6ff;
-    border-color: #a0e6ff;
-    color: #001f5c;
+  background-color: #a0e6ff;
+  border-color: #a0e6ff;
+  color: #001f5c;
 }
 
 .subscribeButton:hover {
-    background-color: #82d8f5;
-    border-color: #82d8f5;
-    color: #001f5c;
+  background-color: #82d8f5;
+  border-color: #82d8f5;
+  color: #001f5c;
 }
 
-/* --- RESPONSIVIDADE ATUALIZADA --- */
 
-/* Por padrão, a versão mobile dos logos fica escondida */
+/* --- RESPONSIVIDADE ATUALIZADA E CORRIGIDA --- */
+
+/* Esconde a versão mobile dos logos por padrão */
 .mobileOnly {
   display: none;
 }
 
-/* Telas de Tablet e Celular */
+/* Transição para Tablet/Celular */
 @media (max-width: 992px) {
   .navbar {
+    /* Layout simplificado para mobile: logo à esquerda, menu à direita */
     display: flex;
     justify-content: space-between;
   }
 
   .logo {
-    height: 60px; /* Tamanho grande para dispositivos menores */
+    height: 60px; /* Tamanho ajustado para mobile */
   }
 
-  /* Esconde os logos centrais da versão desktop */
+  /* Esconde a versão desktop dos logos centrais */
   .desktopOnly {
     display: none;
   }
 
-  /* Mostra os logos centrais da versão mobile (dentro da lista) */
+  /* Mostra a versão mobile dos logos (dentro do menu dropdown) */
   .mobileOnly {
     display: flex;
-    padding: 1rem 0;
     justify-content: center;
     gap: 1.5rem;
+    width: 100%;
+    padding-top: 1.5rem; /* Espaço acima dos logos */
+    margin-top: 1.5rem; /* Espaço extra */
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha separadora */
   }
-
-  /* Deixa os logos do menu mobile do mesmo tamanho do logo principal */
+  
   .mobileOnly img {
-    height: 60px; 
+    height: 45px; /* Tamanho ajustado para os logos parceiros no mobile */
   }
-}
 
-/* Telas de Celular (ajustes finos) */
-@media (max-width: 768px) {
   .navRight {
     display: flex;
     align-items: center;
   }
   
   .navList {
-    display: none;
+    /* Layout do menu dropdown */
+    display: none; /* Escondido por padrão */
     position: absolute;
     top: 100%;
     left: 0;
-    flex-direction: column;
     width: 100%;
-    text-align: center;
-    gap: 1rem;
     background-color: rgba(0, 31, 92, 0.95);
-    padding: 1.5rem 0;
+    padding: 2rem 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+    /* Flexbox para alinhar os itens */
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
   }
   
   .navList.active {
-    display: flex;
+    display: flex; /* Mostra o menu quando ativo */
   }
 
   .hamburger {
@@ -172,19 +172,19 @@
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 993px) {
   .hamburger {
     display: none;
   }
 }
 
-/* NOVO: Media Query para telas extra grandes (TVs, monitores maiores) */
+/* Telas muito grandes */
 @media (min-width: 1400px) {
   .logo {
-    height: 100px; /* Tamanho ainda maior */
+    height: 100px;
   }
 
   .centerLogos img {
-    height: 85px; /* Tamanho ainda maior */
+    height: 85px;
   }
 }

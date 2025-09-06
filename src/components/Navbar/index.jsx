@@ -5,7 +5,7 @@ import styles from './Navbar.module.css';
 // Logo principal à esquerda
 import logoPrincipal from '../../assets/logo-festival.png';
 
-// Logos parceiros (adicione estes arquivos na sua pasta 'assets')
+// Logos parceiros
 import logoSopescar from '../../assets/sopescar-logo.png';
 import logoSemtel from '../../assets/semtel-logo.png';
 import logoDataRo from '../../assets/dataro-logo.png';
@@ -37,15 +37,17 @@ function Navbar() {
           ☰
         </button>
         <ul className={`${styles.navList} ${isOpen ? styles.active : ''}`}>
+          {/* BOTÕES DE NAVEGAÇÃO PRIMEIRO */}
           <li><Link to="/" className={styles.navButton} onClick={toggleMenu}>Home</Link></li>
           <li><Link to="/sobre" className={styles.navButton} onClick={toggleMenu}>Sobre</Link></li>
-          {/* Item de lista especial para os logos no MOBILE */}
+          <li><Link to="/inscricao" className={`${styles.navButton} ${styles.subscribeButton}`} onClick={toggleMenu}>Inscreva-se</Link></li>
+          
+          {/* LOGOS PARCEIROS DEPOIS (somente no menu mobile) */}
           <li className={`${styles.centerLogos} ${styles.mobileOnly}`}>
             <img src={logoSopescar} alt="Logo SOPESCAR" />
             <img src={logoSemtel} alt="Logo SEMTEL" />
             <img src={logoDataRo} alt="Logo DATA-RO" />
           </li>
-          <li><Link to="/inscricao" className={`${styles.navButton} ${styles.subscribeButton}`} onClick={toggleMenu}>Inscreva-se</Link></li>
         </ul>
       </div>
     </nav>

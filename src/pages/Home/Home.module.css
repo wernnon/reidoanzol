@@ -51,7 +51,7 @@
 }
 
 .actionButton {
-  background-color: #0073a6;
+  background-color: #00a608;
   color: white;
   border: none;
   padding: 1rem 2.5rem;
@@ -349,7 +349,7 @@
 
 /* Seção de Downloads */
 .downloadSection {
-  background-color: #cee40d;
+  background-color: #0073a6;
   text-align: center;
   padding: 4rem 2rem;
 }

@@ -1,10 +1,10 @@
 import styles from './About.module.css';
 
 // ADICIONE AS IMAGENS NA SUA PASTA 'src/assets'
-import heroImage from '../../assets/sopescar-hero.jpg'; // Imagem principal para o topo
-import eventImage1 from '../../assets/evento-foto-1.jpg'; // Foto de um evento passado
-import eventImage2 from '../../assets/evento-foto-2.jpg'; // Foto de um evento passado
-import eventImage3 from '../../assets/evento-foto-3.jpg'; // Foto de um evento passado
+import heroImage from '../../assets/local-evento.jpg'; // Imagem principal para o topo
+import eventImage1 from '../../assets/evento-foto-1.jpeg'; // Foto de um evento passado
+import eventImage2 from '../../assets/evento-foto-2.jpeg'; // Foto de um evento passado
+import eventImage3 from '../../assets/evento-foto-3.jpeg'; // Foto de um evento passado
 
 function AboutPage() {
   return (

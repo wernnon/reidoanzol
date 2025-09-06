@@ -42,7 +42,7 @@ function HomePage() {
           >
             <div>
               <img src={localEventoImg} alt="1º FESTIVAL DE PESCA - VILA NOVA DE TEOTÔNIO" />
-               <p className="legend">1º FESTIVAL DE PESCA - VILA NOVA DE TEOTÔNIO</p>
+              [cite_start]<p className="legend">1º FESTIVAL DE PESCA - VILA NOVA DE TEOTÔNIO [cite: 3]</p>
             </div>
             <div>
               <img src={pesca2} alt="Peixe tucunaré sendo segurado por um pescador" />
@@ -50,11 +50,11 @@ function HomePage() {
             </div>
             <div>
               <img src={pesca3} alt="Paisagem de um rio amazônico com céu azul" />
-              <p className="legend">Valorizando a Cultura Ribeirinha</p>
+              [cite_start]<p className="legend">Valorizando a Cultura Ribeirinha [cite: 68]</p>
             </div>
             <div>
               <img src={pesca4} alt="Pescador arremessando a linha na água" />
-               <p className="legend">Técnicas e Estratégias de Pesca</p>
+              <p className="legend">Técnicas e Estratégias de Pesca</p>
             </div>
           </Carousel>
         </div>
@@ -62,7 +62,7 @@ function HomePage() {
         <div className={styles.content}>
           <h1>PVH Pesca Show: Mais que um Torneio, uma Celebração!</h1>
           <p className={styles.justifiedText}>
-            O festival PVH Pesca Show foi pensado como uma iniciativa para fomentar o turismo, valorizar a cultura local e incentivar a prática sustentável da pesca no município de Porto Velho. É uma celebração da nossa cultura, gastronomia, do turismo e da pesca da nossa capital.
+            [cite_start]O festival PVH Pesca Show foi pensado como uma iniciativa para fomentar o turismo [cite: 11, 68][cite_start], valorizar a cultura local [cite: 11, 68] [cite_start]e incentivar a prática sustentável da pesca no município de Porto Velho[cite: 11]. É uma celebração da nossa cultura, gastronomia, do turismo e da pesca da nossa capital.
           </p>
           
           <div className={styles.buttonContainer}>
@@ -73,45 +73,42 @@ function HomePage() {
         </div>
       </div>
 
-     {/* Seção Estrutura do Evento */}
-<section className={styles.section}>
-  <h2 className={styles.sectionTitle}>Estrutura Completa Para Você</h2>
-  <div className={styles.featuresGrid}>
-    <div className={styles.featureCard}>
-      {/* A MUDANÇA É AQUI: 
-        Trocamos 'styles.featureIcon' por 'styles.featureImageIcon' 
-      */}
-      <img src={gastronomiaIcon} alt="Ícone da Área Gastronômica" className={styles.featureImageIcon} />
-      <h3>Área Gastronômica</h3>
-      <p>Barracas com pratos típicos da região, com destaque para o pescado.</p>
-    </div>
-    <div className={styles.featureCard}>
-      <span className={styles.featureIcon}>🎨</span>
-      <h3>Espaço do Artesanato</h3>
-      <p>Tendas para exposição e venda de produtos artesanais que representam a cultura local.</p>
-    </div>
-    <div className={styles.featureCard}>
-      <span className={styles.featureIcon}>🎶</span>
-      <h3>Palco Principal</h3>
-      <p>Apresentações musicais e culturais com os melhores artistas regionais.</p>
-    </div>
-    <div className={styles.featureCard}>
-      <span className={styles.featureIcon}>🎣</span>
-      <h3>Área de Competição</h3>
-      <p>Espaço seguro e delimitado para o torneio, com suporte de equipe técnica especializada.</p>
-    </div>
-  </div>
-</section>
+      {/* Seção Estrutura do Evento */}
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>Estrutura Completa Para Você</h2>
+        <div className={styles.featuresGrid}>
+          <div className={styles.featureCard}>
+            <img src={gastronomiaIcon} alt="Ícone da Área Gastronômica" className={styles.featureImageIcon} />
+            <h3>Área Gastronômica</h3>
+            [cite_start]<p>Barracas com pratos típicos da região, com destaque para o pescado. [cite: 23]</p>
+          </div>
+          <div className={styles.featureCard}>
+            <span className={styles.featureIcon}>🎨</span>
+            <h3>Espaço do Artesanato</h3>
+            [cite_start]<p>Tendas para exposição e venda de produtos artesanais locais. [cite: 22]</p>
+          </div>
+          <div className={styles.featureCard}>
+            <span className={styles.featureIcon}>🎶</span>
+            <h3>Palco Principal</h3>
+            [cite_start]<p>Para apresentações musicais e culturais com artistas regionais. [cite: 33]</p>
+          </div>
+          <div className={styles.featureCard}>
+            <span className={styles.featureIcon}>🎣</span>
+            <h3>Área de Competição</h3>
+            [cite_start]<p>Espaço delimitado para o torneio de pesca, com segurança e equipe técnica. [cite: 18]</p>
+          </div>
+        </div>
+      </section>
 
       {/* Seção Benefícios do Festival */}
       <section className={`${styles.section} ${styles.benefitsSection}`}>
         <div className={styles.benefitContent}>
           <h2 className={styles.sectionTitle}>Um Evento que Fortalece a Nossa Região</h2>
           <ul>
-            <li>Fomenta o turismo e movimenta a economia local.</li>
-            <li>Valoriza a cultura ribeirinha e a tradição pesqueira.</li>
-            <li>Oferece ampla visibilidade para parceiros e patrocinadores.</li>
-            <li>Reúne esporte, lazer, cultura e gastronomia em um só lugar.</li>
+            [cite_start]<li>Fomenta o turismo e movimenta a economia local. [cite: 68]</li>
+            [cite_start]<li>Valoriza a cultura ribeirinha. [cite: 68]</li>
+            [cite_start]<li>Oferece ampla visibilidade. [cite: 68]</li>
+            [cite_start]<li>Reúne esporte, lazer, cultura e gastronomia em um só lugar. [cite: 60]</li>
           </ul>
         </div>
         <div className={styles.benefitImage}>
@@ -132,10 +129,10 @@ function HomePage() {
           </div>
           <div className={styles.infoBox}>
             <h3>Local</h3>
-            <p>Tradicional Vila Nova de Teotônio / Porto Velho - Rondônia</p>
+            [cite_start]<p>Tradicional Vila Nova de Teotônio / Porto Velho - Rondônia [cite: 60]</p>
           </div>
           <p className={styles.eventDescription}>
-            O festival reunirá esporte, lazer, gastronomia e cultura regional em um único espaço, abrindo oficialmente as festividades de aniversário de Porto Velho.
+            [cite_start]O festival reunirá esporte, lazer, gastronomia e cultura regional em um único espaço, abrindo oficialmente as festividades de aniversário de Porto Velho. [cite: 60]
           </p>
         </div>
       </section>
@@ -143,23 +140,23 @@ function HomePage() {
       {/* Seção Responsáveis */}
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Organização e Responsabilidades</h2>
-        <p className={styles.sectionSubtitle}>A realização do festival é fruto da união de esforços entre parceiros.</p>
+        [cite_start]<p className={styles.sectionSubtitle}>A realização do festival é fruto da união de esforços entre parceiros. [cite: 41]</p>
         <div className={styles.responsibilitiesGrid}>
           <div className={styles.responsibilityCard}>
             <img src={sopescarLogo} alt="Logo SOPESCAR" className={styles.orgLogo} />
             <h3>SOPESCAR</h3>
             <ul>
-              <li>Regras e Inscrições</li>
-              <li>Organização do Campeonato</li>
-              <li>Premiação</li>
+              [cite_start]<li>Regras e Inscrições [cite: 46]</li>
+              [cite_start]<li>Organização do Campeonato [cite: 46]</li>
+              [cite_start]<li>Premiação [cite: 46]</li>
             </ul>
           </div>
           <div className={styles.responsibilityCard}>
             <img src={semtelLogo} alt="Logo SEMTEL" className={styles.orgLogo} />
             <h3>SEMTEL</h3>
             <ul>
-              <li>Atrações regionais</li>
-              <li>Estrutura do evento</li>
+              [cite_start]<li>Atrações regionais [cite: 48]</li>
+              [cite_start]<li>Estrutura do evento [cite: 48]</li>
             </ul>
           </div>
           <div className={styles.responsibilityCard}>
@@ -169,7 +166,7 @@ function HomePage() {
             </div>
             <h3>SEMTEL / SOPESCAR</h3>
             <ul>
-              <li>Divulgação do evento</li>
+              [cite_start]<li>Divulgação do evento [cite: 50]</li>
             </ul>
           </div>
         </div>
@@ -180,7 +177,7 @@ function HomePage() {
         <h2 className={styles.sectionTitle}>Conheça o Espaço do Festival</h2>
         <div className={styles.structureImageContainer}>
           <img src={estruturaLayoutImg} alt="Implantação da estrutura do evento PVH Pesca Show" />
-          <p>Layout funcional com a disposição de todos os espaços para uma melhor experiência.</p>
+          [cite_start]<p>Layout funcional com a disposição de todos os espaços para uma melhor experiência. [cite: 74]</p>
         </div>
       </section>
 
@@ -210,7 +207,6 @@ function HomePage() {
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Regras do Torneio (XIII TOPAS)</h2>
         <div className={styles.rulesGrid}>
-          {/* REGRAS RESTAURADAS E COMPLETAS ABAIXO */}
           <div className={styles.ruleCard}>
             <h3>🏆 Premiação</h3>
             <ul>
@@ -242,8 +238,8 @@ function HomePage() {
           </div>
           <div className={styles.ruleCard}>
             <h3>📅 Datas e Local</h3>
-            <p><strong>Data:</strong> 27 e 28 de setembro.</p>
-            <p><strong>Local:</strong> Vila Nova Teotônio, no rio Madeira e afluentes.</p>
+            [cite_start]<p><strong>Data:</strong> 27 e 28 de setembro. [cite: 59]</p>
+            [cite_start]<p><strong>Local:</strong> Vila Nova Teotônio, no rio Madeira e afluentes. [cite: 60]</p>
           </div>
           <div className={styles.ruleCard}>
             <h3>📏 Pontuação e Validação</h3>

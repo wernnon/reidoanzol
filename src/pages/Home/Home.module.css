@@ -1,7 +1,7 @@
 /* Estilos Gerais */
 .homeContainer {
   text-align: center;
-   width: 100%;
+  width: 100%;
   padding: 2rem 0;
   box-sizing: border-box;
 }
@@ -161,6 +161,13 @@
   margin-bottom: 1rem;
 }
 
+.featureImageIcon {
+  height: 50px; /* Tamanho Fixo para a Imagem */
+  width: 50px;  /* Tamanho Fixo para a Imagem */
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+
 .featureCard h3 {
   font-size: 1.4rem;
   color: #333;
@@ -171,14 +178,6 @@
   font-size: 1rem;
   color: #666;
   line-height: 1.5;
-}
-
-/* ADICIONE ESTE NOVO ESTILO. Ele serve apenas para a imagem. */
-.featureImageIcon {
-  height: 6vh; /* Define a altura da imagem do ícone */
-  width: 6vh;  /* Define a largura da imagem do ícone */
-  margin-bottom: 1rem; /* Mantém o mesmo espaçamento de antes */
-  object-fit: contain; /* Garante que a imagem se ajuste sem distorcer */
 }
 
 /* Seção de Benefícios */
@@ -311,7 +310,7 @@
   height: 95px;
   width: auto;
   max-width: 150px;
-   margin: 0 auto 1.5rem auto;
+  margin: 0 auto 1.5rem auto;
 }
 
 .responsibilityCard h3 {
@@ -534,6 +533,6 @@
     grid-template-columns: 1fr;
   }
   .ruleCard {
-     padding: 1.5rem;
+      padding: 1.5rem;
   }
 }

@@ -40,8 +40,8 @@ function HomePage() {
             interval={5000}
           >
             <div>
-              <img src={pesca1} alt="Homem pescando em um barco ao amanhecer" />
-               <p className="legend">PVH Pesca Show em Vila Nova de Teotônio</p>
+              <img src={localEventoImg} alt="1º FESTIVAL DE PESCA - VILA NOVA DE TEOTÔNIO" />
+               <p className="legend">1º FESTIVAL DE PESCA - VILA NOVA DE TEOTÔNIO</p>
             </div>
             <div>
               <img src={pesca2} alt="Peixe tucunaré sendo segurado por um pescador" />

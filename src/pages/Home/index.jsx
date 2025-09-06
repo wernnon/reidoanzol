@@ -41,7 +41,7 @@ function HomePage() {
           >
             <div>
               <img src={pesca1} alt="Homem pescando em um barco ao amanhecer" />
-              <p className="legend">PVH Pesca Show em Vila Nova de Teotônio</p>
+               <p className="legend">PVH Pesca Show em Vila Nova de Teotônio</p>
             </div>
             <div>
               <img src={pesca2} alt="Peixe tucunaré sendo segurado por um pescador" />

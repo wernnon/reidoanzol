@@ -3,6 +3,7 @@
   text-align: center;
   width: 100%;
   padding: 2rem 0;
+  box-sizing: border-box;
 }
 
 /* Layout Principal (Carrossel + Texto) */
@@ -11,7 +12,8 @@
   align-items: center;
   justify-content: center;
   gap: 2.5rem;
-  max-width: 90%;
+  width: 90%;
+  max-width: 1400px; /* Largura máxima para telas grandes/TVs */
   margin: 0 auto;
   flex-wrap: wrap;
 }
@@ -34,11 +36,12 @@
   line-height: 1.2;
 }
 
-.content p {
+.justifiedText {
   font-size: 1.1rem;
   color: #555;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  text-align: justify;
 }
 
 .buttonContainer {
@@ -71,9 +74,9 @@
 .carouselWrapper {
   flex: 1;
   max-width: 600px;
-  border-radius: 15px; 
-  overflow: hidden; 
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   position: relative;
 }
 
@@ -84,7 +87,7 @@
 }
 
 .carouselWrapper :global(.carousel) :global(.slide) :global(.legend) {
-  background-color: rgba(0, 0, 0, 0.4); 
+  background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
   font-size: 1.5rem;
   font-weight: 700;
@@ -98,7 +101,7 @@
   margin: 0;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .carouselWrapper :global(.carousel) :global(.control-arrow),
@@ -108,10 +111,12 @@
 
 /* Estilos Gerais das Seções */
 .section {
-  max-width: 90%;
+  width: 90%;
+  max-width: 1400px; /* Garante consistência em telas grandes */
   margin: 4rem auto;
   padding: 2rem;
   border-radius: 15px;
+  box-sizing: border-box;
 }
 
 .sectionTitle {
@@ -342,12 +347,11 @@
   color: #777;
 }
 
-/* Seção de Download */
+/* Seção de Downloads */
 .downloadSection {
   background-color: #0073a6;
   text-align: center;
-  /* Aumento do espaçamento vertical */
-  padding: 4rem 2rem; 
+  padding: 4rem 2rem;
 }
 
 .downloadSection .sectionTitle, .downloadSection p {
@@ -355,22 +359,28 @@
 }
 
 .downloadSection p {
-  margin-bottom: 2rem; /* Espaço entre o parágrafo e o botão */
+  margin-bottom: 2rem;
 }
 
-.downloadSection .actionButton {
-  background-color: #ffc107;
-  color: #333;
-  margin-top: 1rem;
+.downloadButtonsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.downloadSection .actionButton:hover {
-  background-color: #fff;
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+.secondaryButton {
+  background-color: transparent;
+  border: 2px solid #ffffff;
 }
 
-/* --- ESTILOS DA NOVA SEÇÃO DE REGRAS --- */
+.secondaryButton:hover {
+  background-color: #ffffff;
+  color: #0073a6;
+}
+
+/* Seção Regras do Torneio */
 .rulesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -412,36 +422,109 @@
   color: #333;
 }
 
+/* Seção de Patrocinadores */
+.sponsorsSection {
+  background-color: #34495e;
+}
+
+.sponsorsSection .sectionTitle {
+  color: #ffffff;
+}
+
+.sponsorsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.sponsorItem {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 150px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sponsorItem img {
+  height: 60px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+}
+
+.sponsorItem p {
+  margin: 0;
+  font-weight: 600;
+  color: #34495e;
+}
+
 /* --- Media Queries para Responsividade --- */
+
+/* Telas de Tablet */
 @media (max-width: 992px) {
   .homeLayout {
     flex-direction: column;
     gap: 1.5rem;
   }
   .carouselWrapper, .content {
-    max-width: 90%;
-    margin: 0 auto;
+    max-width: 100%;
   }
-  .content { text-align: center; }
-  .buttonContainer { justify-content: center; }
-  .benefitsSection { flex-direction: column-reverse; }
-  .eventInfoSection { flex-direction: column; }
-  .eventInfoContent .sectionTitle { text-align: center; }
+  .content {
+    text-align: center;
+  }
+  .justifiedText {
+    text-align: left;
+  }
+  .buttonContainer {
+    justify-content: center;
+  }
+  .benefitsSection {
+    flex-direction: column-reverse;
+  }
+  .eventInfoSection {
+    flex-direction: column;
+  }
+  .eventInfoContent .sectionTitle {
+    text-align: center;
+  }
 }
 
+/* Telas de Celular */
 @media (max-width: 576px) {
-  .content h1 { font-size: 2rem; }
-  .content p { font-size: 1rem; }
-  .actionButton { padding: 0.8rem 2rem; font-size: 0.9rem; }
-  .carouselWrapper :global(.carousel) :global(.slide) img { height: 300px; }
-  .carouselWrapper :global(.carousel) :global(.slide) :global(.legend) { font-size: 1.2rem; }
-  .sectionTitle { font-size: 1.8rem; }
-  .sectionSubtitle { font-size: 1rem; }
-}
-
-/* Para telas de TV e Monitores Grandes */
-@media (min-width: 1600px) {
-  .section, .homeLayout {
-    max-width: 1400px;
+  .content h1 {
+    font-size: 2rem;
+  }
+  .justifiedText {
+    font-size: 1rem;
+  }
+  .actionButton {
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+  }
+  .carouselWrapper :global(.carousel) :global(.slide) img {
+    height: 300px;
+  }
+  .carouselWrapper :global(.carousel) :global(.slide) :global(.legend) {
+    font-size: 1.2rem;
+  }
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  .sectionSubtitle {
+    font-size: 1rem;
+  }
+  .rulesGrid {
+    grid-template-columns: 1fr;
+  }
+  .ruleCard {
+    padding: 1.5rem;
   }
 }

@@ -1,39 +1,47 @@
-// src/components/Navbar/index.jsx
-
-import { useState } from 'react'; // Importa o hook 'useState' para gerenciar o estado
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
-import logo from '../../assets/logo.png'; 
-import logo2 from '../../assets/logo-festival.png'
+
+// Logo principal à esquerda
+import logoPrincipal from '../../assets/logo-festival.png';
+
+// Logos centrais (adicione estes arquivos na sua pasta 'assets')
+import logoSopescar from '../../assets/sopescar-logo.png';
+import logoSemtel from '../../assets/semtel-logo.png';
+import logoDataRo from '../../assets/dataro-logo.png';
 
 function Navbar() {
-  // 1. Cria um estado para controlar se o menu está aberto ou fechado
   const [isOpen, setIsOpen] = useState(false);
 
-  // 2. Função que muda o estado quando o botão é clicado
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   return (
     <nav className={styles.navbar}>
+      {/* 1. Logotipo Principal (Esquerda) */}
       <Link to="/" className={styles.brand}>
-        <img src={logo2} alt="Logo Rei do Anzol" className={styles.logo} />
-        Só Pescar & Semtel & DATA-RO 
+        <img src={logoPrincipal} alt="Logo PVH Pesca Show" className={styles.logo} />
       </Link>
       
-      {/* 3. Adiciona o botão do menu hambúrguer */}
-      <button className={styles.hamburger} onClick={toggleMenu}>
-        ☰
-      </button>
+      {/* 2. Logos Centrais (Visível apenas em telas grandes) */}
+      <div className={styles.centerLogos}>
+        <img src={logoSopescar} alt="Logo SOPESCAR" />
+        <img src={logoSemtel} alt="Logo SEMTEL" />
+        <img src={logoDataRo} alt="Logo DATA-RO" />
+      </div>
 
-      {/* 4. A classe 'active' é adicionada se o estado 'isOpen' for verdadeiro */}
-      <ul className={`${styles.navList} ${isOpen ? styles.active : ''}`}>
-        <li><Link to="/" className={styles.navButton} onClick={toggleMenu}>Home</Link></li>
-        <li><Link to="/sobre" className={styles.navButton} onClick={toggleMenu}>Sobre</Link></li>
-        {/* O link foi alterado aqui para "Inscreva-se" e ganhou um estilo especial */}
-        <li><Link to="/contato" className={`${styles.navButton} ${styles.subscribeButton}`} onClick={toggleMenu}>Inscreva-se</Link></li>
-      </ul>
+      {/* 3. Links de Navegação e Menu Hambúrguer (Direita) */}
+      <div className={styles.navRight}>
+        <button className={styles.hamburger} onClick={toggleMenu}>
+          ☰
+        </button>
+        <ul className={`${styles.navList} ${isOpen ? styles.active : ''}`}>
+          <li><Link to="/" className={styles.navButton} onClick={toggleMenu}>Home</Link></li>
+          <li><Link to="/sobre" className={styles.navButton} onClick={toggleMenu}>Sobre</Link></li>
+          <li><Link to="/formulario" className={`${styles.navButton} ${styles.subscribeButton}`} onClick={toggleMenu}>Inscreva-se</Link></li>
+        </ul>
+      </div>
     </nav>
   );
 }

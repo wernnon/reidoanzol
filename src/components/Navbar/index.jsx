@@ -26,9 +26,15 @@ function Navbar() {
       
       {/* 2. Logos Centrais para DESKTOP (some em telas menores) */}
       <div className={`${styles.centerLogos} ${styles.desktopOnly}`}>
-        <img src={logoSopescar} alt="Logo SOPESCAR" />
-        <img src={logoSemtel} alt="Logo SEMTEL" />
-        <img src={logoDataRo} alt="Logo DATA-RO" />
+        <a href="https://www.instagram.com/so_pescar" target="_blank" rel="noopener noreferrer">
+          <img src={logoSopescar} alt="Logo SOPESCAR" />
+        </a>
+        <a href="https://www.instagram.com/semtel.pvh" target="_blank" rel="noopener noreferrer">
+          <img src={logoSemtel} alt="Logo SEMTEL" />
+        </a>
+        <a href="https://www.instagram.com/dataro_it" target="_blank" rel="noopener noreferrer">
+          <img src={logoDataRo} alt="Logo DATA-RO" />
+        </a>
       </div>
 
       {/* 3. Links de Navegação e Menu Hambúrguer (Direita) */}
@@ -37,16 +43,21 @@ function Navbar() {
           ☰
         </button>
         <ul className={`${styles.navList} ${isOpen ? styles.active : ''}`}>
-          {/* BOTÕES DE NAVEGAÇÃO PRIMEIRO */}
           <li><Link to="/" className={styles.navLink} onClick={toggleMenu}>Home</Link></li>
           <li><Link to="/sobre" className={styles.navLink} onClick={toggleMenu}>Sobre</Link></li>
           <li><Link to="/inscricao" className={`${styles.navLink} ${styles.subscribeLink}`} onClick={toggleMenu}>Inscreva-se</Link></li>
           
-          {/* LOGOS PARCEIROS DEPOIS (somente no menu mobile) */}
+          {/* LOGOS PARCEIROS DEPOIS (somente no menu mobile e com links) */}
           <li className={`${styles.centerLogos} ${styles.mobileOnly}`}>
-            <img src={logoSopescar} alt="Logo SOPESCAR" />
-            <img src={logoSemtel} alt="Logo SEMTEL" />
-            <img src={logoDataRo} alt="Logo DATA-RO" />
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <img src={logoSopescar} alt="Logo SOPESCAR" />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <img src={logoSemtel} alt="Logo SEMTEL" />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <img src={logoDataRo} alt="Logo DATA-RO" />
+            </a>
           </li>
         </ul>
       </div>

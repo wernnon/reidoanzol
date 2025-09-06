@@ -53,7 +53,7 @@ function HomePage() {
             </div>
             <div>
               <img src={pesca4} alt="Pescador arremessando a linha na água" />
-              <p className="legend">Técnicas e Estratégias de Pesca</p>
+               <p className="legend">Técnicas e Estratégias de Pesca</p>
             </div>
           </Carousel>
         </div>

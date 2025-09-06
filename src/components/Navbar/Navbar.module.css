@@ -10,8 +10,7 @@
   color: #ffffff;
   padding: 0.5rem 2rem;
   
-  /* --- LAYOUT AJUSTADO PARA CENTRALIZAÇÃO PERFEITA --- */
-  /* Colunas de tamanho igual nas laterais (1fr) forçam o conteúdo do meio (auto) a ficar no centro exato */
+  /* Layout de 3 colunas para Desktop */
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
@@ -33,7 +32,7 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  justify-self: start; /* Alinha à esquerda na sua coluna da grid */
+  justify-self: start;
 }
 
 .logo {
@@ -45,7 +44,7 @@
   display: flex;
   align-items: center;
   gap: 2.5rem;
-  justify-self: center; /* Garante a centralização na coluna do meio */
+  justify-self: center;
 }
 
 .centerLogos img {
@@ -56,39 +55,48 @@
 }
 
 .navRight {
-  justify-self: end; /* Alinha à direita na sua coluna da grid */
+  justify-self: end;
 }
 
 .navList {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 2rem; /* Espaço aumentado entre os links */
+  gap: 1rem; /* Espaço ajustado para os botões */
   margin: 0;
   padding: 0;
 }
 
-/* --- ESTILOS DOS LINKS ATUALIZADOS (SEM BORDAS) --- */
+/* --- ESTILOS DOS LINKS COM BORDAS ARREDONDADAS --- */
 .navLink {
   color: #ffffff;
-  text-decoration: none;
+  background-color: transparent;
+  border: 2px solid #ffffff; /* Borda branca */
+  border-radius: 25px; /* Bordas arredondadas */
+  padding: 8px 16px; /* Preenchimento interno */
   font-weight: 700;
   font-size: 1.1rem;
-  transition: color 0.3s ease;
+  text-decoration: none; /* Remove a sublinha */
+  white-space: nowrap; /* Evita quebra de linha */
+  transition: all 0.3s ease; /* Transição suave para hover */
 }
 
 .navLink:hover {
-  color: #a0e6ff; /* Cor de destaque ao passar o mouse */
+  background-color: #ffffff; /* Fundo branco no hover */
+  color: #001f5c; /* Texto azul escuro no hover */
 }
 
-/* Link "Inscreva-se" com cor diferente para chamar atenção */
+/* Link "Inscreva-se" com cor diferente */
 .subscribeLink {
-  color: #a0e6ff; 
-  font-weight: bold;
+  background-color: #a0e6ff; /* Fundo azul claro */
+  border-color: #a0e6ff; /* Borda azul claro */
+  color: #001f5c; /* Texto azul escuro */
 }
 
 .subscribeLink:hover {
-  color: #ffffff;
+  background-color: #82d8f5; /* Fundo mais escuro no hover */
+  border-color: #82d8f5;
+  color: #001f5c;
 }
 
 
@@ -142,7 +150,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.5rem; /* Ajustado para espaçamento vertical dos botões */
   }
   
   .navList.active {

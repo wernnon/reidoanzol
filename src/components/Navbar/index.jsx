@@ -4,6 +4,7 @@ import { useState } from 'react'; // Importa o hook 'useState' para gerenciar o 
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import logo from '../../assets/logo.png'; 
+import logo2 from '../../assets/logo-festival.png'
 
 function Navbar() {
   // 1. Cria um estado para controlar se o menu está aberto ou fechado
@@ -17,8 +18,8 @@ function Navbar() {
   return (
     <nav className={styles.navbar}>
       <Link to="/" className={styles.brand}>
-        <img src={logo} alt="Logo Rei do Anzol" className={styles.logo} />
-        SóPescar
+        <img src={logo2} alt="Logo Rei do Anzol" className={styles.logo} />
+        Só Pescar & Semtel & DATA-RO 
       </Link>
       
       {/* 3. Adiciona o botão do menu hambúrguer */}

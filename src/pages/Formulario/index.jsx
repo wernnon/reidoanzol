@@ -227,11 +227,11 @@ function FormularioPage() {
               <legend>3. Termos e Acordos</legend>
               <div className={styles.checkboxGroup}>
                 <input type="checkbox" id="termsImage" name="termsImage" checked={formData.termsImage} onChange={handleCheckboxChange} required />
-                [cite_start]<label htmlFor="termsImage">Declaro que a equipe está ciente e concorda com o uso de imagens durante e após a realização do XIII TOPAS. </label>
+                <label htmlFor="termsImage">Declaro que a equipe está ciente e concorda com o uso de imagens durante e após a realização do XIII TOPAS. </label>
               </div>
               <div className={styles.checkboxGroup}>
                 <input type="checkbox" id="termsRules" name="termsRules" checked={formData.termsRules} onChange={handleCheckboxChange} required />
-                [cite_start]<label htmlFor="termsRules">Declaro que todos os integrantes da equipe leram e concordam com o regulamento do torneio, incluindo a obrigatoriedade do uso de coletes salva-vidas. </label>
+                <label htmlFor="termsRules">Declaro que todos os integrantes da equipe leram e concordam com o regulamento do torneio, incluindo a obrigatoriedade do uso de coletes salva-vidas. </label>
               </div>
             </fieldset>
 

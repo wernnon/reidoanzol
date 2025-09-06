@@ -11,6 +11,8 @@ function FormularioPage() {
   const initialFormState = {
     teamName: '',
     leaderName: '',
+    leaderPhone: '',
+    leaderEmail: '',
     members: [initialMemberState],
     termsImage: false,
     termsRules: false,
@@ -121,6 +123,30 @@ function FormularioPage() {
                     required
                   />
                 </div>
+                <div className={styles.formGroup}>
+                  <label htmlFor="leaderPhone">Telefone do Líder</label>
+                  <input
+                    type="tel"
+                    id="leaderPhone"
+                    name="leaderPhone"
+                    placeholder="(99) 99999-9999"
+                    value={formData.leaderPhone}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div className={styles.formGroup}>
+                  <label htmlFor="leaderEmail">Email do Líder</label>
+                  <input
+                    type="email"
+                    id="leaderEmail"
+                    name="leaderEmail"
+                    placeholder="seuemail@exemplo.com"
+                    value={formData.leaderEmail}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="registrationCode">Código de Inscrição (Guarde este código)</label>
@@ -161,7 +187,7 @@ function FormularioPage() {
                     />
                   </div>
                   <div className={styles.formGroup}>
-                    <label htmlFor={`license-${index}`}>Nº da Carteira de Pesca (Amadora, Esportiva ou Profissional) [cite: 1]</label>
+                    <label htmlFor={`license-${index}`}>Nº da Carteira de Pesca (Amadora, Esportiva ou Profissional)</label>
                     <input
                       type="text"
                       id={`license-${index}`}
@@ -185,7 +211,7 @@ function FormularioPage() {
 
                   {member.isDriver && (
                     <div className={styles.formGroup} style={{ marginLeft: '2rem' }}>
-                      <label htmlFor={`arrais-${index}`}>Nº da Habilitação Fluvial (ARRAIS Amadora ou Profissional) [cite: 1]</label>
+                      <label htmlFor={`arrais-${index}`}>Nº da Habilitação Fluvial (ARRAIS Amadora ou Profissional)</label>
                       <input
                         type="text"
                         id={`arrais-${index}`}
@@ -210,7 +236,7 @@ function FormularioPage() {
 
                   {member.isMinor && (
                     <div className={styles.minorWarning}>
-                      <strong>ATENÇÃO:</strong> É obrigatório apresentar no dia do torneio a autorização por escrito do responsável legal para a participação do menor na competição, que deverá estar acompanhado pelo mesmo na embarcação. 
+                      <strong>ATENÇÃO:</strong> É obrigatório apresentar no dia do torneio a autorização por escrito do responsável legal para a participação do menor na competição, que deverá estar acompanhado pelo mesmo na embarcação.
                     </div>
                   )}
                 </div>
@@ -227,11 +253,11 @@ function FormularioPage() {
               <legend>3. Termos e Acordos</legend>
               <div className={styles.checkboxGroup}>
                 <input type="checkbox" id="termsImage" name="termsImage" checked={formData.termsImage} onChange={handleCheckboxChange} required />
-                <label htmlFor="termsImage">Declaro que a equipe está ciente e concorda com o uso de imagens durante e após a realização do XIII TOPAS. </label>
+                <label htmlFor="termsImage">Declaro que a equipe está ciente e concorda com o uso de imagens durante e após a realização do XIII TOPAS.</label>
               </div>
               <div className={styles.checkboxGroup}>
                 <input type="checkbox" id="termsRules" name="termsRules" checked={formData.termsRules} onChange={handleCheckboxChange} required />
-                <label htmlFor="termsRules">Declaro que todos os integrantes da equipe leram e concordam com o regulamento do torneio, incluindo a obrigatoriedade do uso de coletes salva-vidas. </label>
+                <label htmlFor="termsRules">Declaro que todos os integrantes da equipe leram e concordam com o regulamento do torneio, incluindo a obrigatoriedade do uso de coletes salva-vidas.</label>
               </div>
             </fieldset>
 

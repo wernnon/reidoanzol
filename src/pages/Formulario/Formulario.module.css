@@ -129,7 +129,9 @@
   color: #555;
 }
 
-.formGroup input[type="text"] {
+.formGroup input[type="text"],
+.formGroup input[type="tel"],
+.formGroup input[type="email"] {
   padding: 0.8rem 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -137,7 +139,9 @@
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.formGroup input[type="text"]:focus {
+.formGroup input[type="text"]:focus,
+.formGroup input[type="tel"]:focus,
+.formGroup input[type="email"]:focus {
   outline: none;
   border-color: #00a651;
   box-shadow: 0 0 0 3px rgba(0, 166, 81, 0.15);
@@ -258,7 +262,7 @@
 }
 
 .submitButton:hover {
-  transform: translateY(-5px);
+  transform: translateY(-px);
   box-shadow: 0 6px 20px rgba(0, 115, 166, 0.4);
 }
 

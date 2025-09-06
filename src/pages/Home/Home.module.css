@@ -481,7 +481,7 @@
     text-align: center;
   }
   .justifiedText {
-    text-align: left;
+    text-align: left; /* Justificado não funciona bem em colunas estreitas */
   }
   .buttonContainer {
     justify-content: center;

@@ -14,6 +14,7 @@ import sopescarLogo from '../../assets/sopescar-logo.png';
 import semtelLogo from '../../assets/semtel-logo.png';
 import localEventoImg from '../../assets/local-evento.jpg';
 import estruturaLayoutImg from '../../assets/estrutura-layout.jpg';
+import gastronomiaIcon from '../../assets/gastronomia-icon.png';
 
 // --- IMAGENS DOS PATROCINADORES ---
 import logoPatrocinador from '../../assets/logo-patrocinador.png';
@@ -77,10 +78,11 @@ function HomePage() {
         <h2 className={styles.sectionTitle}>Estrutura Completa Para Você</h2>
         <div className={styles.featuresGrid}>
           <div className={styles.featureCard}>
-            <span className={styles.featureIcon}>🍽️</span>
-            <h3>Área Gastronômica</h3>
-            <p>Barracas com pratos típicos da região, com destaque para o pescado.</p>
-          </div>
+
+  <img src={gastronomiaIcon} alt="Ícone da Área Gastronômica" className={styles.featureIcon} />
+  <h3>Área Gastronômica</h3>
+  <p>Barracas com pratos típicos da região, com destaque para o pescado.</p>
+</div>
           <div className={styles.featureCard}>
             <span className={styles.featureIcon}>🎨</span>
             <h3>Espaço do Artesanato</h3>
@@ -124,11 +126,11 @@ function HomePage() {
           <h2 className={styles.sectionTitle}>Data e Local do Encontro</h2>
           <div className={styles.infoBox}>
             <h3>Data</h3>
-            <p>27 e 28 de setembro</p>
+            <p>27 e 28 de setembro de 2025</p>
           </div>
           <div className={styles.infoBox}>
             <h3>Local</h3>
-            <p>Tradicional Vila Nova de Teotônio</p>
+            <p>Tradicional Vila Nova de Teotônio / Porto Velho - Rondônia</p>
           </div>
           <p className={styles.eventDescription}>
             O festival reunirá esporte, lazer, gastronomia e cultura regional em um único espaço, abrindo oficialmente as festividades de aniversário de Porto Velho.

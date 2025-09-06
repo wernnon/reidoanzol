@@ -1,101 +1,145 @@
 /* Navbar.module.css */
 
 .navbar {
-  /* Gradiente de fundo */
-  background: linear-gradient(to right, #001f5c, #004d40);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* Sombra sutil para dar elevação */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* --- NOVO FUNDO COM IMAGEM --- */
+  background-image: url('../../assets/background-image.png'); 
+  background-size: cover;
+  background-position: center;
+  
   position: sticky;
   top: 0;
   z-index: 1000;
   color: #ffffff;
+  padding: 0.5rem 2rem;
+  
+  /* Layout de 3 colunas: [brand] [center logos] [nav links] */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* --- NOVA SOBREPOSIÇÃO SEMI-TRANSPARENTE --- */
+/* Cria uma camada de cor por cima da imagem de fundo */
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 31, 92, 0.75); /* Cor azul escuro com 75% de opacidade */
+  z-index: -1;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ffffff;
   text-decoration: none;
+  /* Alinha a marca à esquerda */
+  justify-self: start;
 }
 
 .logo {
-  height: 10vh;
+  height: 50px; /* Tamanho do logo principal ajustado */
+}
+
+/* --- NOVOS ESTILOS PARA LOGOS CENTRAIS --- */
+.centerLogos {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  /* Centraliza este container na grid */
+  justify-self: center;
+}
+
+.centerLogos img {
+  height: 40px; /* Tamanho padronizado para todos os logos */
+  width: auto;
+  object-fit: contain;
+}
+
+/* Container para a navegação da direita */
+.navRight {
+  /* Alinha os itens à direita */
+  justify-self: end;
 }
 
 .navList {
   list-style: none;
   display: flex;
-  align-items: center; /* Centraliza os botões verticalmente */
-  gap: 1.5rem; /* Aumenta o espaço entre os botões */
+  align-items: center;
+  gap: 1rem;
   margin: 0;
   padding: 0;
 }
 
-/* Removemos o estilo antigo de 'a' e criamos um estilo de botão */
 .navList a {
     text-decoration: none;
 }
 
-/* NOVO ESTILO PARA OS BOTÕES */
 .navButton {
   color: #ffffff;
   background-color: transparent;
-  border: 2px solid #ffffff; /* Borda branca */
-  border-radius: 25px; /* Deixa as bordas bem arredondadas */
-  padding: 8px 16px; /* Espaçamento interno para criar o formato do botão */
+  border: 2px solid #ffffff;
+  border-radius: 25px;
+  padding: 8px 16px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease; /* Transição suave para o efeito hover */
+  transition: all 0.3s ease;
+  white-space: nowrap; /* Impede que o texto quebre linha */
 }
 
-/* EFEITO AO PASSAR O MOUSE */
 .navButton:hover {
   background-color: #ffffff;
-  color: #001f5c; /* Cor do texto muda para a cor do fundo */
+  color: #001f5c;
 }
 
-/* ESTILO DE DESTAQUE PARA O BOTÃO "INSCREVA-SE" */
 .subscribeButton {
-    background-color: #a0e6ff; /* Cor de destaque azul claro */
-    border-color: #a0e6ff; /* Mesma cor para a borda */
-    color: #001f5c; /* Texto escuro para melhor contraste */
+    background-color: #a0e6ff;
+    border-color: #a0e6ff;
+    color: #001f5c;
 }
 
 .subscribeButton:hover {
-    background-color: #82d8f5; /* Um pouco mais escuro ao passar o mouse */
+    background-color: #82d8f5;
     border-color: #82d8f5;
     color: #001f5c;
 }
 
-/* ... O RESTANTE DO SEU CSS PODE CONTINUAR ABAIXO ... */
-
-/* Responsividade - Media Query para Telas Menores */
-@media (max-width: 768px) {
+/* --- RESPONSIVIDADE ATUALIZADA --- */
+@media (max-width: 992px) {
   .navbar {
-    flex-wrap: wrap;
-    padding: 1rem;
-    gap: 1rem;
+    /* Em telas menores, voltamos para um layout flex simples */
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Esconde os logos centrais para não poluir a tela */
+  .centerLogos {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .navRight {
+    /* Garante que o menu hambúrguer funcione bem */
+    display: flex;
+    align-items: center;
   }
   
-  .brand {
-    flex-grow: 1;
-  }
-
   .navList {
     display: none;
+    position: absolute;
+    top: 100%; /* Posiciona abaixo da navbar */
+    left: 0;
     flex-direction: column;
     width: 100%;
     text-align: center;
-    gap: 1.5rem; /* Espaçamento para o menu mobile */
-    background-color: #001f5c;
+    gap: 1.5rem;
+    background-color: rgba(0, 31, 92, 0.95); /* Fundo do menu mobile com transparência */
     padding: 2rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
   .navList.active {

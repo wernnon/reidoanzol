@@ -9,11 +9,18 @@ import pesca2 from '../../assets/pesca2.jpg';
 import pesca3 from '../../assets/pesca3.jpg';
 import pesca4 from '../../assets/pesca4.jpeg';
 
-// --- IMAGENS DAS NOVAS SEÇÕES ---
+// --- IMAGENS DAS SEÇÕES ---
 import sopescarLogo from '../../assets/sopescar-logo.png';
 import semtelLogo from '../../assets/semtel-logo.png';
 import localEventoImg from '../../assets/local-evento.jpg';
 import estruturaLayoutImg from '../../assets/estrutura-layout.jpg';
+
+// --- IMAGEM DE EXEMPLO PARA PATROCINADOR ---
+import logoPatrocinador from '../../assets/logo-patrocinador.png';
+import logoPatrocinador2 from '../../assets/logo-patrocinador2.png';
+import logoPatrocinador3 from '../../assets/logo-patrocinador3.png';
+import logoPatrocinador4 from '../../assets/logo-patrocinador4.png';
+import logoPatrocinador5 from '../../assets/logo-patrocinador5.png';
 
 
 function HomePage() {
@@ -34,7 +41,7 @@ function HomePage() {
           >
             <div>
               <img src={pesca1} alt="Homem pescando em um barco ao amanhecer" />
-              <p className="legend">PVH Pesca Show em Vila Nova de Teotônio</p>
+              [cite_start]<p className="legend">PVH Pesca Show em Vila Nova de Teotônio [cite: 60]</p>
             </div>
             <div>
               <img src={pesca2} alt="Peixe tucunaré sendo segurado por um pescador" />
@@ -42,7 +49,7 @@ function HomePage() {
             </div>
             <div>
               <img src={pesca3} alt="Paisagem de um rio amazônico com céu azul" />
-              <p className="legend">Valorizando a Cultura Ribeirinha</p>
+              [cite_start]<p className="legend">Valorizando a Cultura Ribeirinha [cite: 68]</p>
             </div>
             <div>
               <img src={pesca4} alt="Pescador arremessando a linha na água" />
@@ -53,16 +60,12 @@ function HomePage() {
         
         <div className={styles.content}>
           <h1>PVH Pesca Show: Mais que um Torneio, uma Celebração!</h1>
-          <p>
-            O Festival de Pesca Esportiva foi criado para fomentar o turismo, valorizar a cultura local e incentivar a prática sustentável da pesca. 
-            É uma celebração da nossa cultura, gastronomia e do turismo de base comunitária.
-          </p>
-          <p>
-            Não fique de fora deste grande evento! Mostre sua paixão pela pesca, junte-se a nós e faça parte desta experiência única.
+          <p className={styles.justifiedText}>
+            O festival PVH Pesca Show foi pensado como uma iniciativa para fomentar o turismo, valorizar a cultura local e incentivar a prática sustentável da pesca no município de Porto Velho. [cite_start]É uma celebração da nossa cultura, gastronomia, do turismo e da pesca da nossa capital. [cite: 11, 60, 68]
           </p>
           
           <div className={styles.buttonContainer}>
-            <Link to="/" className={styles.actionButton}>
+            <Link to="/formulario" className={styles.actionButton}>
               Inscreva-se agora no Torneio
             </Link>
           </div>
@@ -76,22 +79,22 @@ function HomePage() {
           <div className={styles.featureCard}>
             <span className={styles.featureIcon}>🍽️</span>
             <h3>Área Gastronômica</h3>
-            <p>Barracas com pratos típicos da região, com destaque para o pescado fresco.</p>
+            [cite_start]<p>Barracas com pratos típicos da região, com destaque para o pescado. [cite: 23]</p>
           </div>
           <div className={styles.featureCard}>
             <span className={styles.featureIcon}>🎨</span>
             <h3>Espaço do Artesanato</h3>
-            <p>Tendas para exposição e venda de produtos artesanais que representam a cultura local.</p>
+            [cite_start]<p>Tendas para exposição e venda de produtos artesanais que representam a cultura local. [cite: 22]</p>
           </div>
           <div className={styles.featureCard}>
             <span className={styles.featureIcon}>🎶</span>
             <h3>Palco Principal</h3>
-            <p>Apresentações musicais e culturais com os melhores artistas regionais.</p>
+            [cite_start]<p>Apresentações musicais e culturais com os melhores artistas regionais. [cite: 33]</p>
           </div>
           <div className={styles.featureCard}>
             <span className={styles.featureIcon}>🎣</span>
             <h3>Área de Competição</h3>
-            <p>Espaço seguro e delimitado para o torneio, com suporte de equipe técnica especializada.</p>
+            [cite_start]<p>Espaço seguro e delimitado para o torneio, com suporte de equipe técnica especializada. [cite: 18]</p>
           </div>
         </div>
       </section>
@@ -101,10 +104,10 @@ function HomePage() {
         <div className={styles.benefitContent}>
           <h2 className={styles.sectionTitle}>Um Evento que Fortalece a Nossa Região</h2>
           <ul>
-            <li>Fomenta o turismo e movimenta a economia local.</li>
-            <li>Valoriza a cultura ribeirinha e a tradição pesqueira.</li>
-            <li>Oferece ampla visibilidade para parceiros e patrocinadores.</li>
-            <li>Reúne esporte, lazer, cultura e gastronomia em um só lugar.</li>
+            [cite_start]<li>Fomenta o turismo e movimenta a economia local. [cite: 68]</li>
+            [cite_start]<li>Valoriza a cultura ribeirinha e a tradição pesqueira. [cite: 68]</li>
+            [cite_start]<li>Oferece ampla visibilidade para parceiros e patrocinadores. [cite: 68]</li>
+            [cite_start]<li>Reúne esporte, lazer, cultura e gastronomia em um só lugar. [cite: 60]</li>
           </ul>
         </div>
         <div className={styles.benefitImage}>
@@ -121,14 +124,14 @@ function HomePage() {
           <h2 className={styles.sectionTitle}>Data e Local do Encontro</h2>
           <div className={styles.infoBox}>
             <h3>Data</h3>
-            <p>27 e 28 de Setembro</p>
+            [cite_start]<p>27 e 28 de setembro [cite: 59]</p>
           </div>
           <div className={styles.infoBox}>
             <h3>Local</h3>
-            <p>Tradicional Vila Nova de Teotônio</p>
+            [cite_start]<p>Tradicional Vila Nova de Teotônio [cite: 60]</p>
           </div>
           <p className={styles.eventDescription}>
-            O festival reunirá esporte, lazer, gastronomia e cultura regional em um único espaço, abrindo oficialmente as festividades de aniversário de Porto Velho.
+            [cite_start]O festival reunirá esporte, lazer, gastronomia e cultura regional em um único espaço, abrindo oficialmente as festividades de aniversário de Porto Velho. [cite: 60]
           </p>
         </div>
       </section>
@@ -136,23 +139,23 @@ function HomePage() {
       {/* Seção Responsáveis */}
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Organização e Responsabilidades</h2>
-        <p className={styles.sectionSubtitle}>A realização do festival é fruto da união de esforços entre parceiros.</p>
+        [cite_start]<p className={styles.sectionSubtitle}>A realização do festival é fruto da união de esforços entre parceiros. [cite: 41]</p>
         <div className={styles.responsibilitiesGrid}>
           <div className={styles.responsibilityCard}>
             <img src={sopescarLogo} alt="Logo SOPESCAR" className={styles.orgLogo} />
             <h3>SOPESCAR</h3>
             <ul>
-              <li>Regras e Inscrições</li>
-              <li>Organização do Campeonato</li>
-              <li>Premiação</li>
+              [cite_start]<li>Regras e Inscrições [cite: 46]</li>
+              [cite_start]<li>Organização do Campeonato [cite: 46]</li>
+              [cite_start]<li>Premiação [cite: 46]</li>
             </ul>
           </div>
           <div className={styles.responsibilityCard}>
             <img src={semtelLogo} alt="Logo SEMTEL" className={styles.orgLogo} />
             <h3>SEMTEL</h3>
             <ul>
-              <li>Atrações regionais</li>
-              <li>Estrutura do evento</li>
+              [cite_start]<li>Atrações regionais [cite: 48]</li>
+              [cite_start]<li>Estrutura do evento [cite: 48]</li>
             </ul>
           </div>
           <div className={styles.responsibilityCard}>
@@ -162,7 +165,7 @@ function HomePage() {
             </div>
             <h3>SEMTEL / SOPESCAR</h3>
             <ul>
-              <li>Divulgação do evento</li>
+              [cite_start]<li>Divulgação do evento [cite: 50]</li>
             </ul>
           </div>
         </div>
@@ -173,70 +176,36 @@ function HomePage() {
         <h2 className={styles.sectionTitle}>Conheça o Espaço do Festival</h2>
         <div className={styles.structureImageContainer}>
           <img src={estruturaLayoutImg} alt="Implantação da estrutura do evento PVH Pesca Show" />
-          <p>Layout funcional com a disposição de todos os espaços para uma melhor experiência.</p>
+          [cite_start]<p>Layout funcional com a disposição de todos os espaços para uma melhor experiência. [cite: 74]</p>
         </div>
       </section>
 
-      {/* Seção Download PDF */}
+      {/* Seção de Downloads */}
       <section className={`${styles.section} ${styles.downloadSection}`}>
-        <h2 className={styles.sectionTitle}>Regulamento e Informações Completas</h2>
-        <p>Acesse a apresentação completa do evento para conferir todos os detalhes, regras e oportunidades.</p>
-        <a 
-          href="/atualizada PVH - PESCA SHOW.pdf" 
-          download 
-          className={styles.actionButton}
-        >
-          Baixar Apresentação em PDF
-        </a>
+        <h2 className={styles.sectionTitle}>Informações Completas</h2>
+        <p>Acesse a apresentação e o regulamento do evento para conferir todos os detalhes.</p>
+        <div className={styles.downloadButtonsContainer}>
+          <a 
+            href="/atualizada PVH - PESCA SHOW.pdf" 
+            download 
+            className={styles.actionButton}
+          >
+            Baixar Apresentação
+          </a>
+          <a 
+            href="/regulamento-torneio.pdf" /* Coloque o arquivo do regulamento na pasta 'public' */
+            download 
+            className={`${styles.actionButton} ${styles.secondaryButton}`}
+          >
+            Baixar Regulamento
+          </a>
+        </div>
       </section>
 
-      {/* --- NOVA SEÇÃO: REGRAS DO TORNEIO --- */}
+      {/* Seção Regras do Torneio */}
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Regras do Torneio (XIII TOPAS)</h2>
         <div className={styles.rulesGrid}>
-          
-          <div className={styles.ruleCard}>
-            <h3>📅 Datas e Local</h3>
-            <p><strong>Data:</strong> 27 e 28 de setembro de 2025.</p>
-            <p><strong>Local:</strong> Vila Nova Teotônio, nas águas do rio Madeira e afluentes, entre a Usina de Santo Antônio até a região de Morrinhos.</p>
-          </div>
-
-          <div className={styles.ruleCard}>
-            <h3>🎣 Modalidades e Cronograma</h3>
-            <ul>
-              <li><strong>27/09 (Sábado):</strong> Caiaque Individual, das 07h30 às 12h30, no lago à margem esquerda da Vila.</li>
-              <li><strong>28/09 (Domingo):</strong> Embarcada, com largada às 07h30 e término às 12h30.</li>
-              <li>Ambas com tolerância de 30 minutos. Apuração e premiação à tarde.</li>
-            </ul>
-          </div>
-
-          <div className={styles.ruleCard}>
-            <h3>👥 Equipes e Participantes</h3>
-            <ul>
-              <li>Até 4 pessoas por embarcação.</li>
-              <li>Menores de idade devem estar acompanhados por responsável legal.</li>
-              <li><strong>Obrigatório:</strong> Todos devem possuir Carteira de Pesca válida.</li>
-              <li><strong>Obrigatório:</strong> Uso de coletes salva-vidas durante o trajeto.</li>
-              <li>O condutor da embarcação deve ter habilitação fluvial (ARRAIS).</li>
-            </ul>
-          </div>
-
-          <div className={styles.ruleCard}>
-            <h3>📏 Pontuação e Validação</h3>
-            <ul>
-              <li>A pontuação é baseada nos centímetros do peixe, com valores diferentes por espécie. Apenas um exemplar de cada espécie pontua.</li>
-              <li>A captura, medição e soltura devem ser registradas em um <strong>vídeo de até 90 segundos, sem cortes.</strong></li>
-              <li>A medição deve usar a régua oficial do evento.</li>
-              <li>Vídeos de má qualidade ou que não mostrem a sobrevivência do peixe na soltura serão invalidados.</li>
-            </ul>
-          </div>
-
-          <div className={styles.ruleCard}>
-            <h3>🛠️ Equipamentos</h3>
-            <p><strong>Permitidos:</strong> Carretilhas, molinetes, linha de mão, varas, iscas artificiais/naturais (conforme lei) e puçá.</p>
-            <p><strong>Proibidos:</strong> Redes, tarrafas, espinhéis e garatéias. O uso destes itens causa <strong>desclassificação imediata</strong>.</p>
-          </div>
-
           <div className={styles.ruleCard}>
             <h3>🏆 Premiação</h3>
             <ul>
@@ -248,22 +217,72 @@ function HomePage() {
               <li>Haverá sorteio de brindes para competidores e público.</li>
             </ul>
           </div>
-
           <div className={styles.ruleCard}>
-            <h3>📝 Inscrições</h3>
-            <p><strong>Período:</strong> De 05 a 20 de setembro de 2025.</p>
-            <p><strong>Como:</strong> Gratuitas, online em <strong>reidoanzolpvh.com</strong> ou em lojas de pesca credenciadas.</p>
-            <p><strong>Brinde:</strong> Equipes inscritas até 20/09 garantem uma camiseta do torneio.</p>
+            <h3>🎣 Modalidades e Cronograma</h3>
+            <ul>
+              <li><strong>27/09 (Sábado):</strong> Caiaque Individual, das 07h30 às 12h30.</li>
+              <li><strong>28/09 (Domingo):</strong> Embarcada, das 07h30 às 12h30.</li>
+              <li>Ambas com tolerância de 30 minutos. Apuração e premiação à tarde.</li>
+            </ul>
+          </div>
+          <div className={styles.ruleCard}>
+            <h3>👥 Equipes e Participantes</h3>
+            <ul>
+              <li>Até 4 pessoas por embarcação.</li>
+              <li>Menores de idade devem estar acompanhados por responsável legal.</li>
+              <li><strong>Obrigatório:</strong> Possuir Carteira de Pesca válida.</li>
+              <li><strong>Obrigatório:</strong> Uso de coletes salva-vidas.</li>
+              <li>O condutor deve ter habilitação fluvial (ARRAIS).</li>
+            </ul>
+          </div>
+          <div className={styles.ruleCard}>
+            <h3>📅 Datas e Local</h3>
+            [cite_start]<p><strong>Data:</strong> 27 e 28 de setembro. [cite: 59]</p>
+            [cite_start]<p><strong>Local:</strong> Vila Nova Teotônio, no rio Madeira e afluentes. [cite: 60]</p>
+          </div>
+        </div>
+      </section>
+      
+      {/* --- NOVA SEÇÃO DE PATROCINADORES --- */}
+      <section className={`${styles.section} ${styles.sponsorsSection}`}>
+        <h2 className={styles.sectionTitle}>Nossos Patrocinadores</h2>
+        <div className={styles.sponsorsGrid}>
+          {/* TEMPLATE PARA ADICIONAR PATROCINADORES:
+            1. Importe a imagem do logo no topo do arquivo. Ex: import logoFiero from '../../assets/fiero-logo.png';
+            2. Descomente e duplique o bloco abaixo para cada patrocinador.
+            3. Substitua 'logoFiero' pelo nome da variável do logo e 'Nome do Patrocinador' pelo nome.
+          */}
+
+          
+
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador} alt="Logo FERO" />
+            <p>Empório de Pescados</p>
           </div>
 
-          <div className={styles.ruleCard}>
-            <h3>⚖️ Critério de Desempate</h3>
-            <p>Em caso de empate na pontuação, o critério para desempate será a <strong>maior variedade de espécies</strong> capturadas pela equipe.</p>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador2} alt="Logo Amazon Roosevelt" />
+            <p>Ademicon Consórcio e Investimento</p>
           </div>
+
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador3} alt="Logo Amazon Roosevelt" />
+            <p>Lounge Sushi Bar</p>
+          </div>
+
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador4} alt="Logo Amazon Roosevelt" />
+            <p>Marquinhos Variedades</p>
+          </div>
+
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador5} alt="Logo Amazon Roosevelt" />
+            <p>Ponce Energia</p>
+          </div>
+          
 
         </div>
       </section>
-
     </main>
   );
 }

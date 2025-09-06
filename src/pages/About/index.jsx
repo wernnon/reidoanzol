@@ -35,19 +35,19 @@ function AboutPage() {
         <div className={styles.activitiesGrid}>
           <div className={styles.activityCard}>
             <h3>Organização de Campeonatos</h3>
-            [cite_start]<p>Planejamos e executamos torneios de pesca esportiva, como o famoso TOPAS, cuidando de toda a logística para uma experiência impecável[cite: 46].</p>
+            <p>Planejamos e executamos torneios de pesca esportiva, como o famoso TOPAS, cuidando de toda a logística para uma experiência impecável[cite: 46].</p>
           </div>
           <div className={styles.activityCard}>
             <h3>Regras e Inscrições</h3>
-            [cite_start]<p>Somos responsáveis por definir o regulamento das competições e gerenciar todo o processo de inscrição das equipes participantes[cite: 46].</p>
+            <p>Somos responsáveis por definir o regulamento das competições e gerenciar todo o processo de inscrição das equipes participantes[cite: 46].</p>
           </div>
           <div className={styles.activityCard}>
             <h3>Premiação e Reconhecimento</h3>
-            [cite_start]<p>Garantimos uma premiação justa e atraente para os vencedores, celebrando o talento e a dedicação dos melhores pescadores[cite: 46].</p>
+            <p>Garantimos uma premiação justa e atraente para os vencedores, celebrando o talento e a dedicação dos melhores pescadores[cite: 46].</p>
           </div>
           <div className={styles.activityCard}>
             <h3>Divulgação do Esporte</h3>
-            [cite_start]<p>Em parceria com entidades como a SEMTEL, trabalhamos na divulgação dos eventos para fortalecer o turismo e a comunidade pesqueira local[cite: 50].</p>
+            <p>Em parceria com entidades como a SEMTEL, trabalhamos na divulgação dos eventos para fortalecer o turismo e a comunidade pesqueira local[cite: 50].</p>
           </div>
         </div>
       </section>

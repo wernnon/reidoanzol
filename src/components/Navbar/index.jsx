@@ -45,7 +45,7 @@ function Navbar() {
             <img src={logoSemtel} alt="Logo SEMTEL" />
             <img src={logoDataRo} alt="Logo DATA-RO" />
           </li>
-          <li><Link to="/formulario" className={`${styles.navButton} ${styles.subscribeButton}`} onClick={toggleMenu}>Inscreva-se</Link></li>
+          <li><Link to="/inscricao" className={`${styles.navButton} ${styles.subscribeButton}`} onClick={toggleMenu}>Inscreva-se</Link></li>
         </ul>
       </div>
     </nav>

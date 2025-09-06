@@ -284,7 +284,7 @@
 }
 
 .orgLogo {
-  height: 80px;
+  height: 90px;
   width: auto;
   max-width: 150px;
   margin: 0 auto 1.5rem auto;
@@ -296,11 +296,11 @@
   align-items: center;
   gap: 1rem;
   margin: 0 auto 1.5rem auto;
-  height: 80px;
+  height: 90px;
 }
 
 .orgLogoSmall {
-  height: 60px;
+  height: 70px;
   width: auto;
   max-width: 100px;
 }
@@ -349,7 +349,7 @@
 
 /* Seção de Downloads */
 .downloadSection {
-  background-color: #0073a6;
+  background-color: #e4dd0d;
   text-align: center;
   padding: 4rem 2rem;
 }
@@ -377,7 +377,7 @@
 
 .secondaryButton:hover {
   background-color: #ffffff;
-  color: #0073a6;
+  color: #00a62c;
 }
 
 /* Seção Regras do Torneio */

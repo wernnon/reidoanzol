@@ -66,7 +66,7 @@ function HomePage() {
           </p>
           
           <div className={styles.buttonContainer}>
-            <Link to="/formulario" className={styles.actionButton}>
+            <Link to="/inscricao" className={styles.actionButton}>
               Inscreva-se agora no Torneio
             </Link>
           </div>
@@ -193,7 +193,7 @@ function HomePage() {
           >
             Baixar Apresentação
           </a>
-          // 
+          
 <a 
   href="/regulamento-torneio.pdf"
   download="regulamento-torneio.pdf"  // <-- ADICIONE O NOME DO ARQUIVO AQUI

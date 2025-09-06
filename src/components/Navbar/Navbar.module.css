@@ -1,26 +1,20 @@
 /* Navbar.module.css */
 
 .navbar {
-  /* --- NOVO FUNDO COM IMAGEM --- */
   background-image: url('../../assets/background-image.png'); 
   background-size: cover;
   background-position: center;
-  
   position: sticky;
   top: 0;
   z-index: 1000;
   color: #ffffff;
   padding: 0.5rem 2rem;
-  
-  /* Layout de 3 colunas: [brand] [center logos] [nav links] */
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 1rem;
 }
 
-/* --- NOVA SOBREPOSIÇÃO SEMI-TRANSPARENTE --- */
-/* Cria uma camada de cor por cima da imagem de fundo */
 .navbar::before {
   content: '';
   position: absolute;
@@ -28,7 +22,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 31, 92, 0.75); /* Cor azul escuro com 75% de opacidade */
+  background-color: rgba(0, 31, 92, 0.75);
   z-index: -1;
 }
 
@@ -36,32 +30,27 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  /* Alinha a marca à esquerda */
   justify-self: start;
 }
 
 .logo {
-  height: 110px; /* Tamanho do logo principal ajustado */
+  height: 50px;
 }
 
-/* --- NOVOS ESTILOS PARA LOGOS CENTRAIS --- */
 .centerLogos {
   display: flex;
   align-items: center;
   gap: 2rem;
-  /* Centraliza este container na grid */
   justify-self: center;
 }
 
 .centerLogos img {
-  height: 110px; /* Tamanho padronizado para todos os logos */
+  height: 40px; /* Tamanho padrão para desktop */
   width: auto;
   object-fit: contain;
 }
 
-/* Container para a navegação da direita */
 .navRight {
-  /* Alinha os itens à direita */
   justify-self: end;
 }
 
@@ -87,7 +76,7 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
-  white-space: nowrap; /* Impede que o texto quebre linha */
+  white-space: nowrap;
 }
 
 .navButton:hover {
@@ -108,22 +97,38 @@
 }
 
 /* --- RESPONSIVIDADE ATUALIZADA --- */
+
+/* Por padrão, a versão mobile dos logos fica escondida */
+.mobileOnly {
+  display: none;
+}
+
 @media (max-width: 992px) {
   .navbar {
-    /* Em telas menores, voltamos para um layout flex simples */
     display: flex;
     justify-content: space-between;
   }
 
-  /* Esconde os logos centrais para não poluir a tela */
-  .centerLogos {
+  /* Esconde os logos centrais da versão desktop */
+  .desktopOnly {
     display: none;
+  }
+
+  /* Mostra os logos centrais da versão mobile (dentro da lista) */
+  .mobileOnly {
+    display: flex;
+    padding: 1rem 0;
+    justify-content: center; /* Centraliza os logos no menu */
+  }
+
+  /* **AQUI ESTÁ A MÁGICA**: Deixa os logos do menu mobile do mesmo tamanho do logo principal */
+  .mobileOnly img {
+    height: 50px; /* Mesmo tamanho de .logo */
   }
 }
 
 @media (max-width: 768px) {
   .navRight {
-    /* Garante que o menu hambúrguer funcione bem */
     display: flex;
     align-items: center;
   }
@@ -131,14 +136,14 @@
   .navList {
     display: none;
     position: absolute;
-    top: 100%; /* Posiciona abaixo da navbar */
+    top: 100%;
     left: 0;
     flex-direction: column;
     width: 100%;
     text-align: center;
-    gap: 1.5rem;
-    background-color: rgba(0, 31, 92, 0.95); /* Fundo do menu mobile com transparência */
-    padding: 2rem 0;
+    gap: 1rem; /* Espaço reduzido para acomodar os logos */
+    background-color: rgba(0, 31, 92, 0.95);
+    padding: 1.5rem 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   

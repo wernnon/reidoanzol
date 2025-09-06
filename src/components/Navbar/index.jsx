@@ -5,7 +5,7 @@ import styles from './Navbar.module.css';
 // Logo principal à esquerda
 import logoPrincipal from '../../assets/logo-festival.png';
 
-// Logos centrais (adicione estes arquivos na sua pasta 'assets')
+// Logos parceiros (adicione estes arquivos na sua pasta 'assets')
 import logoSopescar from '../../assets/sopescar-logo.png';
 import logoSemtel from '../../assets/semtel-logo.png';
 import logoDataRo from '../../assets/dataro-logo.png';
@@ -24,8 +24,8 @@ function Navbar() {
         <img src={logoPrincipal} alt="Logo PVH Pesca Show" className={styles.logo} />
       </Link>
       
-      {/* 2. Logos Centrais (Visível apenas em telas grandes) */}
-      <div className={styles.centerLogos}>
+      {/* 2. Logos Centrais para DESKTOP (some em telas menores) */}
+      <div className={`${styles.centerLogos} ${styles.desktopOnly}`}>
         <img src={logoSopescar} alt="Logo SOPESCAR" />
         <img src={logoSemtel} alt="Logo SEMTEL" />
         <img src={logoDataRo} alt="Logo DATA-RO" />
@@ -39,6 +39,12 @@ function Navbar() {
         <ul className={`${styles.navList} ${isOpen ? styles.active : ''}`}>
           <li><Link to="/" className={styles.navButton} onClick={toggleMenu}>Home</Link></li>
           <li><Link to="/sobre" className={styles.navButton} onClick={toggleMenu}>Sobre</Link></li>
+          {/* Item de lista especial para os logos no MOBILE */}
+          <li className={`${styles.centerLogos} ${styles.mobileOnly}`}>
+            <img src={logoSopescar} alt="Logo SOPESCAR" />
+            <img src={logoSemtel} alt="Logo SEMTEL" />
+            <img src={logoDataRo} alt="Logo DATA-RO" />
+          </li>
           <li><Link to="/formulario" className={`${styles.navButton} ${styles.subscribeButton}`} onClick={toggleMenu}>Inscreva-se</Link></li>
         </ul>
       </div>

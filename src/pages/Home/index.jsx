@@ -73,33 +73,35 @@ function HomePage() {
         </div>
       </div>
 
-      {/* Seção Estrutura do Evento */}
-      <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>Estrutura Completa Para Você</h2>
-        <div className={styles.featuresGrid}>
-          <div className={styles.featureCard}>
-
-  <img src={gastronomiaIcon} alt="Ícone da Área Gastronômica" className={styles.featureIcon} />
-  <h3>Área Gastronômica</h3>
-  <p>Barracas com pratos típicos da região, com destaque para o pescado.</p>
-</div>
-          <div className={styles.featureCard}>
-            <span className={styles.featureIcon}>🎨</span>
-            <h3>Espaço do Artesanato</h3>
-            <p>Tendas para exposição e venda de produtos artesanais que representam a cultura local.</p>
-          </div>
-          <div className={styles.featureCard}>
-            <span className={styles.featureIcon}>🎶</span>
-            <h3>Palco Principal</h3>
-            <p>Apresentações musicais e culturais com os melhores artistas regionais.</p>
-          </div>
-          <div className={styles.featureCard}>
-            <span className={styles.featureIcon}>🎣</span>
-            <h3>Área de Competição</h3>
-            <p>Espaço seguro e delimitado para o torneio, com suporte de equipe técnica especializada.</p>
-          </div>
-        </div>
-      </section>
+     {/* Seção Estrutura do Evento */}
+<section className={styles.section}>
+  <h2 className={styles.sectionTitle}>Estrutura Completa Para Você</h2>
+  <div className={styles.featuresGrid}>
+    <div className={styles.featureCard}>
+      {/* A MUDANÇA É AQUI: 
+        Trocamos 'styles.featureIcon' por 'styles.featureImageIcon' 
+      */}
+      <img src={gastronomiaIcon} alt="Ícone da Área Gastronômica" className={styles.featureImageIcon} />
+      <h3>Área Gastronômica</h3>
+      <p>Barracas com pratos típicos da região, com destaque para o pescado.</p>
+    </div>
+    <div className={styles.featureCard}>
+      <span className={styles.featureIcon}>🎨</span>
+      <h3>Espaço do Artesanato</h3>
+      <p>Tendas para exposição e venda de produtos artesanais que representam a cultura local.</p>
+    </div>
+    <div className={styles.featureCard}>
+      <span className={styles.featureIcon}>🎶</span>
+      <h3>Palco Principal</h3>
+      <p>Apresentações musicais e culturais com os melhores artistas regionais.</p>
+    </div>
+    <div className={styles.featureCard}>
+      <span className={styles.featureIcon}>🎣</span>
+      <h3>Área de Competição</h3>
+      <p>Espaço seguro e delimitado para o torneio, com suporte de equipe técnica especializada.</p>
+    </div>
+  </div>
+</section>
 
       {/* Seção Benefícios do Festival */}
       <section className={`${styles.section} ${styles.benefitsSection}`}>

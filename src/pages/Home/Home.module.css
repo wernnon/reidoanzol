@@ -173,6 +173,14 @@
   line-height: 1.5;
 }
 
+/* ADICIONE ESTE NOVO ESTILO. Ele serve apenas para a imagem. */
+.featureImageIcon {
+  height: 50px; /* Define a altura da imagem do ícone */
+  width: 50px;  /* Define a largura da imagem do ícone */
+  margin-bottom: 1rem; /* Mantém o mesmo espaçamento de antes */
+  object-fit: contain; /* Garante que a imagem se ajuste sem distorcer */
+}
+
 /* Seção de Benefícios */
 .benefitsSection {
   display: flex;

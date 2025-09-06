@@ -300,9 +300,10 @@
 }
 
 .orgLogoSmall {
-  height: 70px;
+  height: 90px;
   width: auto;
-  max-width: 100px;
+  max-width: 150px;
+   margin: 0 auto 1.5rem auto;
 }
 
 .responsibilityCard h3 {

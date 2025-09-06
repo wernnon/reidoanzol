@@ -175,8 +175,8 @@
 
 /* ADICIONE ESTE NOVO ESTILO. Ele serve apenas para a imagem. */
 .featureImageIcon {
-  height: 50px; /* Define a altura da imagem do ícone */
-  width: 50px;  /* Define a largura da imagem do ícone */
+  height: 6vh; /* Define a altura da imagem do ícone */
+  width: 6vh;  /* Define a largura da imagem do ícone */
   margin-bottom: 1rem; /* Mantém o mesmo espaçamento de antes */
   object-fit: contain; /* Garante que a imagem se ajuste sem distorcer */
 }

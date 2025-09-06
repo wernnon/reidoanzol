@@ -193,13 +193,14 @@ function HomePage() {
           >
             Baixar Apresentação
           </a>
-          <a 
-            href="/regulamento-torneio.pdf"
-            download 
-            className={`${styles.actionButton} ${styles.secondaryButton}`}
-          >
-            Baixar Regulamento
-          </a>
+          // 
+<a 
+  href="/regulamento-torneio.pdf"
+  download="regulamento-torneio.pdf"  // <-- ADICIONE O NOME DO ARQUIVO AQUI
+  className={`${styles.actionButton} ${styles.secondaryButton}`}
+>
+  Baixar Regulamento
+</a>
         </div>
       </section>
 

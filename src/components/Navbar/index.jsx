@@ -38,9 +38,9 @@ function Navbar() {
         </button>
         <ul className={`${styles.navList} ${isOpen ? styles.active : ''}`}>
           {/* BOTÕES DE NAVEGAÇÃO PRIMEIRO */}
-          <li><Link to="/" className={styles.navButton} onClick={toggleMenu}>Home</Link></li>
-          <li><Link to="/sobre" className={styles.navButton} onClick={toggleMenu}>Sobre</Link></li>
-          <li><Link to="/inscricao" className={`${styles.navButton} ${styles.subscribeButton}`} onClick={toggleMenu}>Inscreva-se</Link></li>
+          <li><Link to="/" className={styles.navLink} onClick={toggleMenu}>Home</Link></li>
+          <li><Link to="/sobre" className={styles.navLink} onClick={toggleMenu}>Sobre</Link></li>
+          <li><Link to="/inscricao" className={`${styles.navLink} ${styles.subscribeLink}`} onClick={toggleMenu}>Inscreva-se</Link></li>
           
           {/* LOGOS PARCEIROS DEPOIS (somente no menu mobile) */}
           <li className={`${styles.centerLogos} ${styles.mobileOnly}`}>

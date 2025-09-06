@@ -9,11 +9,13 @@
   z-index: 1000;
   color: #ffffff;
   padding: 0.5rem 2rem;
-  /* Layout de 3 colunas para Desktop */
+  
+  /* --- LAYOUT AJUSTADO PARA CENTRALIZAÇÃO PERFEITA --- */
+  /* Colunas de tamanho igual nas laterais (1fr) forçam o conteúdo do meio (auto) a ficar no centro exato */
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .navbar::before {
@@ -31,7 +33,7 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  justify-self: start;
+  justify-self: start; /* Alinha à esquerda na sua coluna da grid */
 }
 
 .logo {
@@ -39,101 +41,89 @@
   transition: height 0.3s ease;
 }
 
-/* Logos centrais para Desktop */
 .centerLogos {
   display: flex;
   align-items: center;
   gap: 2.5rem;
-  justify-self: center; /* Centraliza na grid */
+  justify-self: center; /* Garante a centralização na coluna do meio */
 }
 
 .centerLogos img {
-  height: 70px;
+  height: 70px; 
   width: auto;
   object-fit: contain;
   transition: height 0.3s ease;
 }
 
 .navRight {
-  justify-self: end;
+  justify-self: end; /* Alinha à direita na sua coluna da grid */
 }
 
 .navList {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem; /* Espaço aumentado entre os links */
   margin: 0;
   padding: 0;
 }
 
-.navButton {
+/* --- ESTILOS DOS LINKS ATUALIZADOS (SEM BORDAS) --- */
+.navLink {
   color: #ffffff;
-  background-color: transparent;
-  border: 2px solid #ffffff;
-  border-radius: 25px;
-  padding: 8px 16px;
+  text-decoration: none;
   font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  white-space: nowrap;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
 }
 
-.navButton:hover {
-  background-color: #ffffff;
-  color: #001f5c;
+.navLink:hover {
+  color: #a0e6ff; /* Cor de destaque ao passar o mouse */
 }
 
-.subscribeButton {
-  background-color: #a0e6ff;
-  border-color: #a0e6ff;
-  color: #001f5c;
+/* Link "Inscreva-se" com cor diferente para chamar atenção */
+.subscribeLink {
+  color: #a0e6ff; 
+  font-weight: bold;
 }
 
-.subscribeButton:hover {
-  background-color: #82d8f5;
-  border-color: #82d8f5;
-  color: #001f5c;
+.subscribeLink:hover {
+  color: #ffffff;
 }
 
 
-/* --- RESPONSIVIDADE ATUALIZADA E CORRIGIDA --- */
+/* --- RESPONSIVIDADE --- */
 
-/* Esconde a versão mobile dos logos por padrão */
 .mobileOnly {
   display: none;
 }
 
-/* Transição para Tablet/Celular */
 @media (max-width: 992px) {
   .navbar {
-    /* Layout simplificado para mobile: logo à esquerda, menu à direita */
     display: flex;
     justify-content: space-between;
   }
 
   .logo {
-    height: 60px; /* Tamanho ajustado para mobile */
+    height: 60px;
   }
 
-  /* Esconde a versão desktop dos logos centrais */
   .desktopOnly {
     display: none;
   }
 
-  /* Mostra a versão mobile dos logos (dentro do menu dropdown) */
   .mobileOnly {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
     width: 100%;
-    padding-top: 1.5rem; /* Espaço acima dos logos */
-    margin-top: 1.5rem; /* Espaço extra */
-    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha separadora */
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
   
   .mobileOnly img {
-    height: 45px; /* Tamanho ajustado para os logos parceiros no mobile */
+    height: 45px;
   }
 
   .navRight {
@@ -142,8 +132,7 @@
   }
   
   .navList {
-    /* Layout do menu dropdown */
-    display: none; /* Escondido por padrão */
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -151,15 +140,13 @@
     background-color: rgba(0, 31, 92, 0.95);
     padding: 2rem 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    
-    /* Flexbox para alinhar os itens */
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
   }
   
   .navList.active {
-    display: flex; /* Mostra o menu quando ativo */
+    display: flex;
   }
 
   .hamburger {
@@ -178,7 +165,6 @@
   }
 }
 
-/* Telas muito grandes */
 @media (min-width: 1400px) {
   .logo {
     height: 100px;

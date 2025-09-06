@@ -161,7 +161,7 @@ function FormularioPage() {
                     />
                   </div>
                   <div className={styles.formGroup}>
-                    [cite_start]<label htmlFor={`license-${index}`}>Nº da Carteira de Pesca (Amadora, Esportiva ou Profissional) [cite: 1]</label>
+                    <label htmlFor={`license-${index}`}>Nº da Carteira de Pesca (Amadora, Esportiva ou Profissional) [cite: 1]</label>
                     <input
                       type="text"
                       id={`license-${index}`}
@@ -185,7 +185,7 @@ function FormularioPage() {
 
                   {member.isDriver && (
                     <div className={styles.formGroup} style={{ marginLeft: '2rem' }}>
-                      [cite_start]<label htmlFor={`arrais-${index}`}>Nº da Habilitação Fluvial (ARRAIS Amadora ou Profissional) [cite: 1]</label>
+                      <label htmlFor={`arrais-${index}`}>Nº da Habilitação Fluvial (ARRAIS Amadora ou Profissional) [cite: 1]</label>
                       <input
                         type="text"
                         id={`arrais-${index}`}
@@ -210,7 +210,7 @@ function FormularioPage() {
 
                   {member.isMinor && (
                     <div className={styles.minorWarning}>
-                      [cite_start]<strong>ATENÇÃO:</strong> É obrigatório apresentar no dia do torneio a autorização por escrito do responsável legal para a participação do menor na competição, que deverá estar acompanhado pelo mesmo na embarcação. [cite: 1]
+                      <strong>ATENÇÃO:</strong> É obrigatório apresentar no dia do torneio a autorização por escrito do responsável legal para a participação do menor na competição, que deverá estar acompanhado pelo mesmo na embarcação. 
                     </div>
                   )}
                 </div>
@@ -227,11 +227,11 @@ function FormularioPage() {
               <legend>3. Termos e Acordos</legend>
               <div className={styles.checkboxGroup}>
                 <input type="checkbox" id="termsImage" name="termsImage" checked={formData.termsImage} onChange={handleCheckboxChange} required />
-                [cite_start]<label htmlFor="termsImage">Declaro que a equipe está ciente e concorda com o uso de imagens durante e após a realização do XIII TOPAS. [cite: 1]</label>
+                [cite_start]<label htmlFor="termsImage">Declaro que a equipe está ciente e concorda com o uso de imagens durante e após a realização do XIII TOPAS. </label>
               </div>
               <div className={styles.checkboxGroup}>
                 <input type="checkbox" id="termsRules" name="termsRules" checked={formData.termsRules} onChange={handleCheckboxChange} required />
-                [cite_start]<label htmlFor="termsRules">Declaro que todos os integrantes da equipe leram e concordam com o regulamento do torneio, incluindo a obrigatoriedade do uso de coletes salva-vidas. [cite: 1]</label>
+                [cite_start]<label htmlFor="termsRules">Declaro que todos os integrantes da equipe leram e concordam com o regulamento do torneio, incluindo a obrigatoriedade do uso de coletes salva-vidas. </label>
               </div>
             </fieldset>
 

@@ -4,7 +4,7 @@
 import express from 'express';
 import cors from 'cors';
 import { pool, testConnection } from './database.js';
-import adminRoutes from "./routes/admin.js";
+import teamRoutes from './routes/team.js'; // Importa as rotas de equipe
 
 
 const app = express();
@@ -19,7 +19,8 @@ app.use(express.json()); // Permite receber JSON no body das requisições
 // Testar conexão
 testConnection();
 
-app.use("/api", adminRoutes);
+app.use('/api', teamRoutes); // Usa as rotas de equipe com prefixo /api
+
 // Exemplo de rota que consulta o banco
 app.get('/users', async (req, res) => {
   try {

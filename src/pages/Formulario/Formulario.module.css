@@ -266,9 +266,35 @@
   box-shadow: 0 6px 20px rgba(0, 115, 166, 0.4);
 }
 
+.linkButton {
+  background: none;        /* sem fundo */
+  border: none;            /* sem borda */
+  color: #007bff;          /* cor azul de link */
+  text-decoration: underline; /* sublinhado */
+  cursor: pointer;         /* cursor de link */
+  padding: 0;              /* remove padding */
+  font-size: 0.9rem;       /* tamanho da fonte levemente menor */
+  margin-left: 0.3rem;     /* pequeno espaçamento */
+  font-family: inherit;    /* mantém a mesma fonte do label */
+}
 
+.linkButton:hover {
+  color: #0056b3;          /* azul mais escuro ao passar o mouse */
+}
 /* --- Media Queries para Responsividade --- */
-
+.modalContentTerms {
+  overflow-y: auto;
+  background-color: white;
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: fadeIn 0.3s ease-out;
+  max-width: 90%;
+  width: 800px;
+  text-align: justify;
+  max-height: 600px;
+}
 /* Telas de Tablet */
 @media (max-width: 768px) {
   .formWrapper {

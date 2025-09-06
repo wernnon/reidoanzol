@@ -14,11 +14,12 @@ const formatPhone = (value) => {
 };
 
 function FormularioPage() {
-  const initialMemberState = { fullName: '', phone: '', isDriver: false, arrais: '', isMinor: false };
+  const initialMemberState = { fullName: '', phone: '', cpf: '', isDriver: false, arrais: '', isMinor: false };
   const initialFormState = {
     teamName: '',
     leaderName: '',
     leaderPhone: '',
+    leaderCpf: '',
     leaderEmail: '',
     members: [initialMemberState],
     termsImage: false,
@@ -33,9 +34,13 @@ function FormularioPage() {
   // --- Funções de input ---
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+    let formattedValue = value;
+    if (name === 'leaderPhone') {
+      formattedValue = formatPhone(value);
+    }
     setFormData(prev => ({
       ...prev,
-      [name]: name === 'leaderPhone' ? formatPhone(value) : value
+      [name]: formattedValue
     }));
   };
 
@@ -47,7 +52,13 @@ function FormularioPage() {
   const handleMemberChange = (index, event) => {
     const { name, value, type, checked } = event.target;
     const newMembers = [...formData.members];
-    newMembers[index][name] = type === 'checkbox' ? checked : (name === 'phone' ? formatPhone(value) : value);
+    let formattedValue = value;
+    if (type === 'checkbox') {
+      formattedValue = checked;
+    } else if (name === 'phone') {
+      formattedValue = formatPhone(value);
+    }
+    newMembers[index][name] = formattedValue;
     setFormData(prev => ({ ...prev, members: newMembers }));
   };
 
@@ -88,17 +99,19 @@ function FormularioPage() {
         nome: formData.leaderName,
         email: formData.leaderEmail,
         telefone: formData.leaderPhone,
+        cpf: formData.leaderCpf,
       },
       members: formData.members.map((m) => ({
         nome: m.fullName,
         telefone: m.phone,
+        cpf: m.cpf,
         isDriver: m.isDriver,
       })),
       registrationCode,
     };
 
     try {
-      const response = await fetch("https://reidoanzol-api.vercel.app/api/register-team", {
+      const response = await fetch("http://localhost:3001/api/register-team", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(submissionData),
@@ -125,7 +138,6 @@ function FormularioPage() {
   // --- JSX do Formulário ---
   return (
     <>
-      {/* Modal de inscrição concluída */}
       {isModalVisible && (
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
@@ -137,54 +149,53 @@ function FormularioPage() {
         </div>
       )}
 
-      {/* Modal de termos de uso de imagens */}
       {isTermsModalVisible && (
         <div className={styles.modalOverlay}>
           <div className={styles.modalContentTerms}>
             <h1>Termos de Uso de Imagem e Dados</h1>
         
-        <h2>1. Escopo e Propósito</h2>
-        <p>Este documento estabelece os termos para a coleta, processamento, armazenamento e uso de dados, incluindo imagens, para fins de <strong>Business Intelligence (BI)</strong> e gestão de <strong>Data Center</strong>. O objetivo é garantir a transparência e a conformidade legal, protegendo a privacidade dos indivíduos.</p>
-        
-        <h2>2. Uso de Imagens</h2>
-        <ul>
-            <li><strong>Finalidade:</strong> As imagens serão utilizadas exclusivamente para análise de BI e otimização de operações de Data Center, como:
-                <ul>
-                    <li>Monitoramento e segurança do ambiente físico.</li>
-                    <li>Análise de fluxo de pessoas para otimizar layout e recursos.</li>
-                    <li>Verificação do bom funcionamento de equipamentos.</li>
-                </ul>
-            </li>
-            <li><strong>Restrições:</strong> As imagens não serão utilizadas para reconhecimento facial ou identificação individual sem consentimento expresso e separado, em conformidade com as leis de proteção de dados.</li>
-        </ul>
-        
-        <h2>3. Uso de Dados</h2>
-        <ul>
-            <li><strong>Coleta:</strong> A empresa coleta dados de diversas fontes (sistemas internos, registros de acesso, sensores, etc.).</li>
-            <li><strong>Finalidade:</strong> Os dados serão processados para:
-                <ul>
-                    <li>Geração de relatórios e painéis de controle.</li>
-                    <li>Análise preditiva para otimizar o desempenho.</li>
-                    <li>Otimização da alocação de recursos em tempo real.</li>
-                    <li>Tomada de decisões estratégicas de negócio.</li>
-                </ul>
-            </li>
-            <li><strong>Anonimização:</strong> Sempre que possível, os dados serão anonimizados ou pseudonimizados para proteger a privacidade dos indivíduos.</li>
-        </ul>
-        
-        <h2>4. Segurança e Armazenamento</h2>
-        <p>Todos os dados e imagens serão armazenados em um ambiente de Data Center seguro, com medidas de proteção robustas, incluindo criptografia, controle de acesso restrito e auditorias regulares para prevenir acessos não autorizados e vazamentos de dados.</p>
-        
-        <h2>5. Direitos do Titular dos Dados</h2>
-        <p>Em conformidade com a legislação aplicável (como a <strong>LGPD</strong>), o titular dos dados tem o direito de:</p>
-        <ul>
-            <li>Acessar os seus dados.</li>
-            <li>Solicitar a correção ou exclusão dos dados.</li>
-            <li>Revogar o consentimento a qualquer momento.</li>
-        </ul>
-        
-        <h2>6. Aceitação dos Termos</h2>
-        <p>O uso continuado dos nossos serviços implica na aceitação destes termos. A empresa se reserva o direito de atualizar este documento, com as alterações sendo comunicadas aos usuários.</p>
+            <h2>1. Escopo e Propósito</h2>
+            <p>Este documento estabelece os termos para a coleta, processamento, armazenamento e uso de dados, incluindo imagens, para fins de <strong>Business Intelligence (BI)</strong> e gestão de <strong>Data Center</strong>. O objetivo é garantir a transparência e a conformidade legal, protegendo a privacidade dos indivíduos.</p>
+            
+            <h2>2. Uso de Imagens</h2>
+            <ul>
+              <li><strong>Finalidade:</strong> As imagens serão utilizadas exclusivamente para análise de BI e otimização de operações de Data Center, como:
+                  <ul>
+                      <li>Monitoramento e segurança do ambiente físico.</li>
+                      <li>Análise de fluxo de pessoas para otimizar layout e recursos.</li>
+                      <li>Verificação do bom funcionamento de equipamentos.</li>
+                  </ul>
+              </li>
+              <li><strong>Restrições:</strong> As imagens não serão utilizadas para reconhecimento facial ou identificação individual sem consentimento expresso e separado, em conformidade com as leis de proteção de dados.</li>
+            </ul>
+            
+            <h2>3. Uso de Dados</h2>
+            <ul>
+              <li><strong>Coleta:</strong> A empresa coleta dados de diversas fontes (sistemas internos, registros de acesso, sensores, etc.).</li>
+              <li><strong>Finalidade:</strong> Os dados serão processados para:
+                  <ul>
+                      <li>Geração de relatórios e painéis de controle.</li>
+                      <li>Análise preditiva para otimizar o desempenho.</li>
+                      <li>Otimização da alocação de recursos em tempo real.</li>
+                      <li>Tomada de decisões estratégicas de negócio.</li>
+                  </ul>
+              </li>
+              <li><strong>Anonimização:</strong> Sempre que possível, os dados serão anonimizados ou pseudonimizados para proteger a privacidade dos indivíduos.</li>
+            </ul>
+            
+            <h2>4. Segurança e Armazenamento</h2>
+            <p>Todos os dados e imagens serão armazenados em um ambiente de Data Center seguro, com medidas de proteção robustas, incluindo criptografia, controle de acesso restrito e auditorias regulares para prevenir acessos não autorizados e vazamentos de dados.</p>
+            
+            <h2>5. Direitos do Titular dos Dados</h2>
+            <p>Em conformidade com a legislação aplicável (como a <strong>LGPD</strong>), o titular dos dados tem o direito de:</p>
+            <ul>
+                <li>Acessar os seus dados.</li>
+                <li>Solicitar a correção ou exclusão dos dados.</li>
+                <li>Revogar o consentimento a qualquer momento.</li>
+            </ul>
+            
+            <h2>6. Aceitação dos Termos</h2>
+            <p>O uso continuado dos nossos serviços implica na aceitação destes termos. A empresa se reserva o direito de atualizar este documento, com as alterações sendo comunicadas aos usuários.</p>
             <button onClick={closeTermsModal} className={styles.modalButton}>Fechar</button>
           </div>
         </div>
@@ -214,6 +225,10 @@ function FormularioPage() {
                 <div className={styles.formGroup}>
                   <label htmlFor="leaderPhone">Telefone do Líder</label>
                   <input type="tel" id="leaderPhone" name="leaderPhone" placeholder="(99) 99999-9999" value={formData.leaderPhone} onChange={handleInputChange} required />
+                </div>
+                <div className={styles.formGroup}>
+                  <label htmlFor="leaderCpf">CPF do Líder</label>
+                  <input type="text" id="leaderCpf" name="leaderCpf" placeholder="99999999999" value={formData.leaderCpf} onChange={handleInputChange} required maxLength="11" />
                 </div>
                 <div className={styles.formGroup}>
                   <label htmlFor="leaderEmail">Email do Líder</label>
@@ -246,6 +261,11 @@ function FormularioPage() {
                   <div className={styles.formGroup}>
                     <label htmlFor={`phone-${index}`}>Número de Celular do Integrante</label>
                     <input type="tel" id={`phone-${index}`} name="phone" placeholder="(99) 99999-9999" value={member.phone || ''} onChange={e => handleMemberChange(index, e)} required />
+                  </div>
+                  
+                  <div className={styles.formGroup}>
+                    <label htmlFor={`cpf-${index}`}>CPF do Integrante</label>
+                    <input type="text" id={`cpf-${index}`} name="cpf" placeholder="99999999999" value={member.cpf || ''} onChange={e => handleMemberChange(index, e)} required maxLength="11" />
                   </div>
 
                   <div className={styles.checkboxGroup}>
@@ -281,16 +301,10 @@ function FormularioPage() {
             <fieldset className={styles.formSection}>
               <legend>3. Termos e Acordos</legend>
               <div className={styles.checkboxGroup}>
-                <input type="checkbox" id="termsImage" name="termsImage" checked={formData.termsImage} onChange={handleCheckboxChange} required />
-                <label htmlFor="termsImage">
-                  Declaro que a equipe está ciente e concorda com o uso de imagens e dados durante e após a realização do XIII TOPAS.{' '}
-                  <button type="button" className={styles.linkButton} onClick={openTermsModal}>Ver termos</button>
-                </label>
-              </div>
-              <div className={styles.checkboxGroup}>
                 <input type="checkbox" id="termsRules" name="termsRules" checked={formData.termsRules} onChange={handleCheckboxChange} required />
                 <label htmlFor="termsRules">
                   Declaro que todos os integrantes da equipe leram e concordam com o regulamento do torneio, incluindo a obrigatoriedade do uso de coletes salva-vidas.
+                  <button type="button" className={styles.linkButton} onClick={openTermsModal}>Ver termos</button>
                 </label>
               </div>
             </fieldset>

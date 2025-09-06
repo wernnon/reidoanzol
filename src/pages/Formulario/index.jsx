@@ -1,346 +1,203 @@
-import { useState } from "react";
-import styles from "./Formulario.module.css";
-import Modal from '../../components/Modal';
-
-// Utilitário para formatar CPF - Versão Corrigida
-const formatCPF = (value) => {
-  if (!value) return "";
-  const cleaned = value.replace(/\D/g, "");
-  return cleaned
-    .replace(/(\d{3})(\d)/, "$1.$2")
-    .replace(/(\d{3})(\d)/, "$1.$2")
-    .replace(/(\d{3})(\d{1,2})/, "$1-$2")
-    .replace(/(-\d{2})\d+?$/, "$1");
-};
-
-// Utilitário para formatar CEP
-const formatCEP = (value) => {
-    if (!value) return "";
-    const cleaned = value.replace(/\D/g, "").slice(0, 8);
-    return cleaned
-        .replace(/(\d{5})(\d)/, "$1-$2");
-}
+import React, { useState } from 'react';
+import styles from './Formulario.module.css';
 
 function FormularioPage() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    fullName: "",
-    cpf: "",
-    birthdate: "",
-    address: "",
-    city: "",
-    uf: "",
-    cep: "",
-    membros: [{ nome: "", birthdate: "", cpf: "" }],
-    consent: false,
-  });
+  const [teamName, setTeamName] = useState('');
+  const [leaderName, setLeaderName] = useState('');
+  const [members, setMembers] = useState([
+    { fullName: '', license: '', isDriver: false, arrais: '', isMinor: false }
+  ]);
+  const [termsImage, setTermsImage] = useState(false);
+  const [termsRules, setTermsRules] = useState(false);
 
-  const [loading, setLoading] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
-  const [successMsg, setSuccessMsg] = useState("");
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    }));
+  const handleMemberChange = (index, event) => {
+    const values = [...members];
+    const { name, value, type, checked } = event.target;
+    values[index][name] = type === 'checkbox' ? checked : value;
+    setMembers(values);
   };
 
-  const handleCPFChange = (e) => {
-    const formatted = formatCPF(e.target.value);
-    setFormData((prev) => ({ ...prev, cpf: formatted }));
-  };
-
-  const handleCEPChange = (e) => {
-    const formatted = formatCEP(e.target.value);
-    setFormData((prev) => ({ ...prev, cep: formatted }));
-  };
-
-  const handleUFChange = (e) => {
-    const value = e.target.value.toUpperCase().slice(0, 2);
-    setFormData((prev) => ({ ...prev, uf: value }));
-  };
-
-  const handleMembroChange = (index, field, value) => {
-    const newMembros = [...formData.membros];
-    newMembros[index][field] = field === "cpf" ? formatCPF(value) : value;
-    setFormData((prev) => ({ ...prev, membros: newMembros }));
-  };
-
-  const addMembro = () => {
-    if (formData.membros.length < 3) {
-      setFormData((prev) => ({
-        ...prev,
-        membros: [...prev.membros, { nome: "", birthdate: "", cpf: "" }],
-      }));
+  const addMember = () => {
+    if (members.length < 4) {
+      setMembers([...members, { fullName: '', license: '', isDriver: false, arrais: '', isMinor: false }]);
+    } else {
+      alert('A equipe pode ter no máximo 4 integrantes.');
     }
   };
 
-  const removeMembro = (index) => {
-    const newMembros = formData.membros.filter((_, i) => i !== index);
-    setFormData((prev) => ({ ...prev, membros: newMembros }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setErrorMsg("");
-    setSuccessMsg("");
-
-    if (!formData.consent) {
-      setErrorMsg("Você precisa autorizar o uso dos seus dados.");
-      setLoading(false);
-      return;
+  const removeMember = (index) => {
+    if (members.length > 1) {
+      const values = [...members];
+      values.splice(index, 1);
+      setMembers(values);
+    } else {
+      alert('A equipe deve ter no mínimo 1 integrante.');
     }
-
-    setSuccessMsg("✅ Envio de dados desativado para testes.");
-    setIsModalOpen(true);
-    setLoading(false);
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Aqui você enviaria os dados para um servidor
+    console.log({
+      teamName,
+      leaderName,
+      members,
+      terms: {
+        imageUse: termsImage,
+        rulesAgreement: termsRules,
+      }
+    });
+    alert('Inscrição realizada com sucesso! (Verifique o console para ver os dados)');
+  };
+
 
   return (
-    <>
-    <main className={styles.formContainer} style={{textAlign: 'center', padding: '50px', fontSize: '24px'}}>
-      As Inscrições Estarão Disponíveis em Breve!
-      </main>
-    </>
-    // Para comentar o JSX, você deve usar o formato de comentário do JavaScript
-    // { /* ... todo o seu código JSX */ }
-    // Este código não será renderizado
-    /*
-    <main className={styles.formContainer}>
-      <form className={styles.form} onSubmit={handleSubmit}>
+    <main className={styles.registrationContainer}>
+      <title>Inscrição - PVH Pesca Show</title>
+      <div className={styles.formWrapper}>
         <div className={styles.formHeader}>
-          <h1>Criar Conta / Equipe</h1>
-          {errorMsg && <p className={styles.error}>{errorMsg}</p>}
+          <h1>Formulário de Inscrição</h1>
+          <p>Preencha os dados abaixo para garantir a vaga da sua equipe no torneio.</p>
         </div>
 
-        <fieldset className={styles.fieldset} disabled={loading}>
-          <legend>Informações de Acesso</legend>
-          <div className={styles.inputGroup}>
-            <div className={styles.inputWithIcon}>
-              <span className={styles.icon}>✉️</span>
-              <input
-                type="email"
-                name="email"
-                placeholder="Seu melhor email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-          </div>
-          <div className={styles.inputGroup}>
-            <div className={styles.inputWithIcon}>
-              <span className={styles.icon}>🔒</span>
-              <input
-                type="password"
-                name="password"
-                placeholder="Crie uma senha forte"
-                value={formData.password}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset className={styles.fieldset} disabled={loading}>
-          <legend>Dados Pessoais</legend>
-          <div className={styles.inputGroup}>
-            <div className={styles.inputWithIcon}>
-              <span className={styles.icon}>👤</span>
-              <input
-                type="text"
-                name="fullName"
-                placeholder="Nome completo"
-                value={formData.fullName}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-          </div>
-          <div className={styles.inputGroup}>
-            <div className={styles.inputWithIcon}>
-              <span className={styles.icon}>📁</span>
-              <input
-                type="text"
-                name="cpf"
-                placeholder="CPF"
-                value={formData.cpf}
-                onChange={handleCPFChange}
-                required
-              />
-            </div>
-          </div>
-          <div className={styles.inputGroup}>
-            <div className={styles.inputWithIcon}>
-              <span className={styles.icon}>🗓️</span>
-              <input
-                type="date"
-                name="birthdate"
-                value={formData.birthdate}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset className={styles.fieldset} disabled={loading}>
-          <legend>Endereço</legend>
-          <div className={styles.inputGroup}>
-            <div className={styles.inputWithIcon}>
-              <span className={styles.icon}>📍</span>
-              <input
-                type="text"
-                name="address"
-                placeholder="Endereço (Rua, Nº, Bairro)"
-                value={formData.address}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-          </div>
-          <div className={styles.inputRow}>
-            <div className={styles.inputGroup}>
-              <div className={styles.inputWithIcon}>
-                <span className={styles.icon}>🏙️</span>
+        <form onSubmit={handleSubmit}>
+          {/* --- 1. Informações da Equipe --- */}
+          <fieldset className={styles.formSection}>
+            <legend>1. Informações da Equipe</legend>
+            <div className={styles.formGrid}>
+              <div className={styles.formGroup}>
+                <label htmlFor="teamName">Nome da Equipe</label>
                 <input
                   type="text"
-                  name="city"
-                  placeholder="Cidade"
-                  value={formData.city}
-                  onChange={handleInputChange}
+                  id="teamName"
+                  name="teamName"
+                  value={teamName}
+                  onChange={(e) => setTeamName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className={styles.formGroup}>
+                <label htmlFor="leaderName">Nome do Líder da Equipe</label>
+                <input
+                  type="text"
+                  id="leaderName"
+                  name="leaderName"
+                  value={leaderName}
+                  onChange={(e) => setLeaderName(e.target.value)}
                   required
                 />
               </div>
             </div>
-            <div className={styles.inputGroup}>
-              <div className={styles.inputWithIcon}>
-                <span className={styles.icon}>🗺️</span>
-                <input
-                  type="text"
-                  name="uf"
-                  placeholder="UF"
-                  value={formData.uf}
-                  onChange={handleUFChange}
-                  required
-                  maxLength={2}
-                />
-              </div>
-            </div>
-          </div>
-          <div className={styles.inputGroup}>
-            <div className={styles.inputWithIcon}>
-              <span className={styles.icon}>🌐</span>
-              <input
-                type="text"
-                name="cep"
-                placeholder="CEP"
-                value={formData.cep}
-                onChange={handleCEPChange}
-                required
-              />
-            </div>
-          </div>
-        </fieldset>
+          </fieldset>
 
-        <fieldset className={styles.fieldset} disabled={loading}>
-          <legend>Novos Membros da Equipe</legend>
-          {formData.membros.map((membro, index) => (
-            <div key={index} className={styles.inputRow}>
-              <div className={styles.inputGroup}>
-                <div className={styles.inputWithIcon}>
-                  <span className={styles.icon}>👤</span>
+          {/* --- 2. Dados dos Integrantes --- */}
+          <fieldset className={styles.formSection}>
+            <legend>2. Dados dos Integrantes</legend>
+            {members.map((member, index) => (
+              <div key={index} className={styles.memberCard}>
+                <div className={styles.memberHeader}>
+                  <h4>Integrante {index + 1}</h4>
+                  {members.length > 1 && (
+                    <button type="button" className={styles.removeMemberButton} onClick={() => removeMember(index)}>
+                      Remover
+                    </button>
+                  )}
+                </div>
+
+                <div className={styles.formGroup}>
+                  <label htmlFor={`fullName-${index}`}>Nome Completo do Integrante</label>
                   <input
                     type="text"
-                    placeholder={`Nome do Membro ${index + 1}`}
-                    value={membro.nome}
-                    onChange={(e) => handleMembroChange(index, "nome", e.target.value)}
+                    id={`fullName-${index}`}
+                    name="fullName"
+                    value={member.fullName}
+                    onChange={e => handleMemberChange(index, e)}
+                    required
                   />
                 </div>
-              </div>
-              <div className={styles.inputGroup}>
-                <div className={styles.inputWithIcon}>
-                  <span className={styles.icon}>🗓️</span>
-                  <input
-                    type="date"
-                    value={membro.birthdate}
-                    onChange={(e) => handleMembroChange(index, "birthdate", e.target.value)}
-                  />
-                </div>
-              </div>
-              <div className={styles.inputGroup}>
-                <div className={styles.inputWithIcon}>
-                  <span className={styles.icon}>📁</span>
+                <div className={styles.formGroup}>
+                  <label htmlFor={`license-${index}`}>Nº da Carteira de Pesca (Amadora, Esportiva ou Profissional)</label>
                   <input
                     type="text"
-                    placeholder="CPF"
-                    value={membro.cpf}
-                    onChange={(e) => handleMembroChange(index, "cpf", e.target.value)}
+                    id={`license-${index}`}
+                    name="license"
+                    value={member.license}
+                    onChange={e => handleMemberChange(index, e)}
+                    required
                   />
                 </div>
+                
+                <div className={styles.checkboxGroup}>
+                  <input
+                    type="checkbox"
+                    id={`isDriver-${index}`}
+                    name="isDriver"
+                    checked={member.isDriver}
+                    onChange={e => handleMemberChange(index, e)}
+                  />
+                  <label htmlFor={`isDriver-${index}`}>É o condutor da embarcação?</label>
+                </div>
+
+                {member.isDriver && (
+                  <div className={styles.formGroup} style={{ marginLeft: '2rem' }}>
+                    <label htmlFor={`arrais-${index}`}>Nº da Habilitação Fluvial (ARRAIS Amadora ou Profissional)</label>
+                    <input
+                      type="text"
+                      id={`arrais-${index}`}
+                      name="arrais"
+                      value={member.arrais}
+                      onChange={e => handleMemberChange(index, e)}
+                      required
+                    />
+                  </div>
+                )}
+
+                <div className={styles.checkboxGroup}>
+                  <input
+                    type="checkbox"
+                    id={`isMinor-${index}`}
+                    name="isMinor"
+                    checked={member.isMinor}
+                    onChange={e => handleMemberChange(index, e)}
+                  />
+                  <label htmlFor={`isMinor-${index}`}>É menor de idade?</label>
+                </div>
+
+                {member.isMinor && (
+                  <div className={styles.minorWarning}>
+                    <strong>ATENÇÃO:</strong> É obrigatório apresentar no dia do torneio a autorização por escrito do responsável legal para a participação do menor na competição, que deverá estar acompanhado pelo mesmo na embarcação.
+                  </div>
+                )}
               </div>
-              {formData.membros.length > 1 && (
-                <button
-                  type="button"
-                  className={styles.memberButton}
-                  onClick={() => removeMembro(index)}
-                >
-                  ❌ Remover
-                </button>
-              )}
+            ))}
+            {members.length < 4 && (
+              <button type="button" className={styles.addMemberButton} onClick={addMember}>
+                + Adicionar Integrante
+              </button>
+            )}
+          </fieldset>
+
+          {/* --- 3. Termos e Acordos --- */}
+          <fieldset className={styles.formSection}>
+            <legend>3. Termos e Acordos</legend>
+            <div className={styles.checkboxGroup}>
+              <input type="checkbox" id="termsImage" checked={termsImage} onChange={e => setTermsImage(e.target.checked)} required />
+              <label htmlFor="termsImage">Declaro que a equipe está ciente e concorda com o uso de imagens durante e após a realização do XIII TOPAS.</label>
             </div>
-          ))}
-          {formData.membros.length < 3 && (
-            <button type="button" className={styles.memberButton} onClick={addMembro}>
-              ➕ Adicionar Membro
+            <div className={styles.checkboxGroup}>
+              <input type="checkbox" id="termsRules" checked={termsRules} onChange={e => setTermsRules(e.target.checked)} required />
+              <label htmlFor="termsRules">Declaro que todos os integrantes da equipe leram e concordam com o regulamento do torneio, incluindo a obrigatoriedade do uso de coletes salva-vidas.</label>
+            </div>
+          </fieldset>
+
+          <div className={styles.submitContainer}>
+            <button type="submit" className={styles.submitButton}>
+              Realizar Inscrição
             </button>
-          )}
-        </fieldset>
-
-        <div className={styles.checkboxContainer}>
-          <label className={styles.checkboxLabel}>
-            <input
-              type="checkbox"
-              name="consent"
-              checked={formData.consent}
-              onChange={handleInputChange}
-              required
-            />
-            Eu autorizo o uso dos meus dados conforme a política de privacidade.
-          </label>
-        </div>
-
-        <button type="submit" className={styles.submitButton} disabled={loading}>
-          {loading ? "SALVANDO..." : "FINALIZAR CADASTRO"}
-        </button>
-      </form>
-
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Cadastro realizado!">
-        <p>{successMsg}</p>
-        <button
-          onClick={() => setIsModalOpen(false)}
-          style={{
-            marginTop: "15px",
-            padding: "8px 16px",
-            border: "none",
-            borderRadius: "6px",
-            background: "green",
-            color: "white",
-            cursor: "pointer",
-          }}
-        >
-          OK
-        </button>
-      </Modal>
+          </div>
+        </form>
+      </div>
     </main>
-    */
   );
 }
 

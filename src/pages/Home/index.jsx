@@ -200,7 +200,7 @@ function HomePage() {
   download="REGULAMENTO-PVH-PESCA-SHOW.pdf"  // <-- ADICIONE O NOME DO ARQUIVO AQUI
   className={`${styles.actionButton} ${styles.secondaryButton}`}
 >
-  Baixar Regulamento
+          Baixar Regulamento
 </a>
         </div>
       </section>

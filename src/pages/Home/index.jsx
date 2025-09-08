@@ -12,6 +12,7 @@ import pesca4 from '../../assets/pesca4.jpeg';
 // --- IMAGENS DAS SEÇÕES ---
 import sopescarLogo from '../../assets/sopescar-logo.png';
 import semtelLogo from '../../assets/semtel-logo.png';
+import semtelLogo2 from '../../assets/semtel-logo2.png';
 import localEventoImg from '../../assets/local-evento.jpg';
 import estruturaLayoutImg from '../../assets/estrutura-layout.jpg';
 import gastronomiaIcon from '../../assets/gastronomia-icon.png';
@@ -152,7 +153,7 @@ function HomePage() {
             </ul>
           </div>
           <div className={styles.responsibilityCard}>
-            <img src={semtelLogo} alt="Logo SEMTEL" className={styles.orgLogo} />
+            <img src={semtelLogo2} alt="Logo SEMTEL" className={styles.orgLogo} />
             <h3>SEMTEL</h3>
             <ul>
               <li>Atrações regionais</li>
@@ -161,7 +162,7 @@ function HomePage() {
           </div>
           <div className={styles.responsibilityCard}>
             <div className={styles.orgLogoCombined}>
-              <img src={semtelLogo} alt="Logo SEMTEL" className={styles.orgLogoSmall} />
+              <img src={semtelLogo2} alt="Logo SEMTEL" className={styles.orgLogoSmall} />
               <img src={sopescarLogo} alt="Logo SOPESCAR" className={styles.orgLogoSmall} />
             </div>
             <h3>SEMTEL / SOPESCAR</h3>

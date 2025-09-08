@@ -188,7 +188,7 @@ function HomePage() {
         <p>Acesse a apresentação e o regulamento do evento para conferir todos os detalhes.</p>
         <div className={styles.downloadButtonsContainer}>
           <a 
-            href="/APRESENTAÇÃO PVH - PESCA SHOW" 
+            href="/APRESENTAÇÃO-PVH-PESCA-SHOW.pdf" 
             download 
             className={styles.actionButton}
           >
@@ -196,8 +196,8 @@ function HomePage() {
           </a>
           
 <a 
-  href="/REGULAMENTO PVH - PESCA SHOW"
-  download="REGULAMENTO PVH - PESCA SHOW"  // <-- ADICIONE O NOME DO ARQUIVO AQUI
+  href="/REGULAMENTO-PVH-PESCA-SHOW.pdf"
+  download="REGULAMENTO-PVH-PESCA-SHOW.pdf"  // <-- ADICIONE O NOME DO ARQUIVO AQUI
   className={`${styles.actionButton} ${styles.secondaryButton}`}
 >
   Baixar Regulamento

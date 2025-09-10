@@ -1,4 +1,8 @@
+// src/pages/About.jsx
+import React, { useEffect } from 'react'; // Importe useEffect para hooks
 import styles from './About.module.css';
+
+console.log('AboutPage.jsx carregado!'); // Log no carregamento do arquivo
 
 // ADICIONE AS IMAGENS NA SUA PASTA 'src/assets'
 import heroImage from '../../assets/local-evento.jpg'; // Imagem principal para o topo
@@ -7,12 +11,24 @@ import eventImage2 from '../../assets/evento-foto-2.jpeg'; // Foto de um evento 
 import eventImage3 from '../../assets/evento-foto-3.jpeg'; // Foto de um evento passado
 
 function AboutPage() {
+  console.log('O componente AboutPage foi renderizado!'); // Log na renderização
+
+  useEffect(() => {
+    console.log('O componente AboutPage foi montado!');
+    // Use este local para depurar dados que só são carregados uma vez
+    return () => {
+      console.log('O componente AboutPage será desmontado!');
+    };
+  }, []);
+
   return (
     <main className={styles.aboutContainer}>
+      {console.log('Iniciando renderização do JSX da AboutPage.')}
       <title>Sobre a SOPESCAR</title>
 
       {/* --- Seção Hero --- */}
       <header className={styles.heroSection} style={{ backgroundImage: `url(${heroImage})` }}>
+        {console.log('Renderizando a seção Hero...')}
         <div className={styles.heroOverlay}>
           <h1>SOPESCAR</h1>
           <p>Promovendo a Paixão pela Pesca Esportiva em Rondônia</p>
@@ -21,6 +37,7 @@ function AboutPage() {
 
       {/* --- Seção Quem Somos --- */}
       <section className={styles.section}>
+        {console.log('Renderizando a seção "Nossa Missão"...')}
         <div className={styles.missionContent}>
           <h2 className={styles.sectionTitle}>Nossa Missão</h2>
           <p>
@@ -31,6 +48,7 @@ function AboutPage() {
 
       {/* --- Seção O Que Fazemos --- */}
       <section className={`${styles.section} ${styles.activitiesSection}`}>
+        {console.log('Renderizando a seção "O Que Fazemos"...')}
         <h2 className={styles.sectionTitle}>O Que Fazemos</h2>
         <div className={styles.activitiesGrid}>
           <div className={styles.activityCard}>
@@ -54,6 +72,7 @@ function AboutPage() {
       
       {/* --- Seção de Galeria de Fotos --- */}
       <section className={styles.section}>
+        {console.log('Renderizando a seção "Galeria de Fotos"...')}
         <h2 className={styles.sectionTitle}>Momentos Inesquecíveis</h2>
         <p className={styles.sectionSubtitle}>Confira alguns registros de nossos últimos eventos.</p>
         <div className={styles.galleryGrid}>

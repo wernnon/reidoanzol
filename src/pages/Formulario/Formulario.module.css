@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+
 /* --- Estilos do Pop-up / Modal --- */
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.9); }
@@ -312,6 +318,7 @@
     padding: 1.5rem;
     width: 100%;
     border-radius: 0;
+    margin: 0;
   }
   .formHeader h1 {
     font-size: 2rem;

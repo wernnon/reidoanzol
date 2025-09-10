@@ -1,7 +1,11 @@
+// src/pages/Home.jsx
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react'; // Importe useEffect para hooks
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from 'react-responsive-carousel';
 import styles from './Home.module.css';
+
+console.log('HomePage.jsx carregado!'); // Log no carregamento do arquivo
 
 // --- IMAGENS PRINCIPAIS ---
 import pesca1 from '../../assets/pesca1.jpg';
@@ -26,12 +30,25 @@ import logoPatrocinador5 from '../../assets/logo-patrocinador5.png';
 
 
 function HomePage() {
+  console.log('O componente HomePage foi renderizado!'); // Log na renderização
+
+  useEffect(() => {
+    console.log('O componente HomePage foi montado!');
+    // Se o componente tivesse algum estado ou dado que mudasse,
+    // os logs poderiam ser adicionados aqui.
+    return () => {
+      console.log('O componente HomePage será desmontado!');
+    };
+  }, []);
+
   return (
     <main className={styles.homeContainer}>
+      {console.log('Iniciando renderização do JSX da HomePage.')}
       <title>PVH Pesca Show - O Festival de Pesca de Porto Velho</title>
       
       {/* Seção Principal com Carrossel e Texto */}
       <div className={styles.homeLayout}>
+        {console.log('Renderizando o Carrossel...')}
         <div className={styles.carouselWrapper}>
           <Carousel 
             autoPlay={true} 
@@ -67,6 +84,7 @@ function HomePage() {
           </p>
           
           <div className={styles.buttonContainer}>
+            {console.log('Renderizando botão de inscrição.')}
             <Link to="/inscricao" className={styles.actionButton}>
               Inscreva-se agora no Torneio
             </Link>
@@ -76,6 +94,7 @@ function HomePage() {
 
       {/* Seção Estrutura do Evento */}
       <section className={styles.section}>
+        {console.log('Renderizando seção "Estrutura do Evento"...')}
         <h2 className={styles.sectionTitle}>Estrutura Completa Para Você</h2>
         <div className={styles.featuresGrid}>
           <div className={styles.featureCard}>
@@ -103,6 +122,7 @@ function HomePage() {
 
       {/* Seção Benefícios do Festival */}
       <section className={`${styles.section} ${styles.benefitsSection}`}>
+        {console.log('Renderizando seção "Benefícios"...')}
         <div className={styles.benefitContent}>
           <h2 className={styles.sectionTitle}>Um Evento que Fortalece a Nossa Região</h2>
           <ul>
@@ -119,6 +139,7 @@ function HomePage() {
 
       {/* Seção Data e Local */}
       <section className={`${styles.section} ${styles.eventInfoSection}`}>
+        {console.log('Renderizando seção "Data e Local"...')}
         <div className={styles.eventInfoImage}>
           <img src={localEventoImg} alt="Vila Nova de Teotônio, local do evento" />
         </div>
@@ -140,6 +161,7 @@ function HomePage() {
 
       {/* Seção Responsáveis */}
       <section className={styles.section}>
+        {console.log('Renderizando seção "Organização"...')}
         <h2 className={styles.sectionTitle}>Organização e Responsabilidades</h2>
         <p className={styles.sectionSubtitle}>A realização do festival é fruto da união de esforços entre parceiros.</p>
         <div className={styles.responsibilitiesGrid}>
@@ -175,6 +197,7 @@ function HomePage() {
 
       {/* Seção Imagem da Estrutura */}
       <section className={`${styles.section} ${styles.fullWidthSection}`}>
+        {console.log('Renderizando seção "Layout do Evento"...')}
         <h2 className={styles.sectionTitle}>Conheça o Espaço do Festival</h2>
         <div className={styles.structureImageContainer}>
           <img src={estruturaLayoutImg} alt="Implantação da estrutura do evento PVH Pesca Show" />
@@ -184,6 +207,7 @@ function HomePage() {
 
       {/* Seção de Downloads */}
       <section className={`${styles.section} ${styles.downloadSection}`}>
+        {console.log('Renderizando seção de "Downloads"...')}
         <h2 className={styles.sectionTitle}>Informações Completas</h2>
         <p>Acesse a apresentação e o regulamento do evento para conferir todos os detalhes.</p>
         <div className={styles.downloadButtonsContainer}>
@@ -195,18 +219,19 @@ function HomePage() {
             Baixar Apresentação
           </a>
           
-<a 
-  href="/REGULAMENTO-PVH-PESCA-SHOW.pdf"
-  download="REGULAMENTO-PVH-PESCA-SHOW.pdf"  // <-- ADICIONE O NOME DO ARQUIVO AQUI
-  className={`${styles.actionButton} ${styles.secondaryButton}`}
->
-          Baixar Regulamento
-</a>
+          <a 
+            href="/REGULAMENTO-PVH-PESCA-SHOW.pdf"
+            download="REGULAMENTO-PVH-PESCA-SHOW.pdf"  
+            className={`${styles.actionButton} ${styles.secondaryButton}`}
+          >
+            Baixar Regulamento
+          </a>
         </div>
       </section>
 
       {/* Seção Regras do Torneio */}
       <section className={styles.section}>
+        {console.log('Renderizando seção "Regras do Torneio"...')}
         <h2 className={styles.sectionTitle}>Regras do Torneio (XIII TOPAS)</h2>
         <div className={styles.rulesGrid}>
           <div className={styles.ruleCard}>
@@ -272,6 +297,7 @@ function HomePage() {
       
       {/* Seção de Patrocinadores */}
       <section className={`${styles.section} ${styles.sponsorsSection}`}>
+        {console.log('Renderizando seção de "Patrocinadores"...')}
         <h2 className={styles.sectionTitle}>Nossos Patrocinadores</h2>
         <div className={styles.sponsorsGrid}>
           <div className={styles.sponsorItem}>

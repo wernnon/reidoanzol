@@ -60,7 +60,7 @@ function FormularioCompetidorPage() {
     console.log("📦 Dados enviados para API:", submissionData);
 
     try {
-      const response = await fetch("http://localhost:3001/api/kayak", {
+      const response = await fetch("https://reidoanzol.vercel.app/api/register-competidor", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(submissionData),

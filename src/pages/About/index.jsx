@@ -7,12 +7,19 @@ import eventImage2 from '../../assets/evento-foto-2.jpeg'; // Foto de um evento 
 import eventImage3 from '../../assets/evento-foto-3.jpeg'; // Foto de um evento passado
 
 function AboutPage() {
+  console.log("📄 AboutPage carregado");
+
   return (
     <main className={styles.aboutContainer}>
+      {console.log("🏷️ Definindo título da página: Sobre a SOPESCAR")}
       <title>Sobre a SOPESCAR</title>
 
       {/* --- Seção Hero --- */}
-      <header className={styles.heroSection} style={{ backgroundImage: `url(${heroImage})` }}>
+      {console.log("🎨 Renderizando seção Hero (imagem principal + overlay)")}
+      <header 
+        className={styles.heroSection} 
+        style={{ backgroundImage: `url(${heroImage})` }}
+      >
         <div className={styles.heroOverlay}>
           <h1>SOPESCAR</h1>
           <p>Promovendo a Paixão pela Pesca Esportiva em Rondônia</p>
@@ -20,6 +27,7 @@ function AboutPage() {
       </header>
 
       {/* --- Seção Quem Somos --- */}
+      {console.log("ℹ️ Renderizando seção Quem Somos / Nossa Missão")}
       <section className={styles.section}>
         <div className={styles.missionContent}>
           <h2 className={styles.sectionTitle}>Nossa Missão</h2>
@@ -30,6 +38,7 @@ function AboutPage() {
       </section>
 
       {/* --- Seção O Que Fazemos --- */}
+      {console.log("🛠️ Renderizando seção O Que Fazemos")}
       <section className={`${styles.section} ${styles.activitiesSection}`}>
         <h2 className={styles.sectionTitle}>O Que Fazemos</h2>
         <div className={styles.activitiesGrid}>
@@ -53,22 +62,25 @@ function AboutPage() {
       </section>
       
       {/* --- Seção de Galeria de Fotos --- */}
+      {console.log("📸 Renderizando seção Galeria de Fotos")}
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Momentos Inesquecíveis</h2>
         <p className={styles.sectionSubtitle}>Confira alguns registros de nossos últimos eventos.</p>
         <div className={styles.galleryGrid}>
           <div className={styles.galleryItem}>
+            {console.log("🖼️ Renderizando imagem: evento-foto-1.jpeg")}
             <img src={eventImage1} alt="Pescadores durante o torneio" />
           </div>
           <div className={styles.galleryItem}>
+            {console.log("🖼️ Renderizando imagem: evento-foto-2.jpeg")}
             <img src={eventImage2} alt="Premiação do evento de pesca" />
           </div>
           <div className={styles.galleryItem}>
+            {console.log("🖼️ Renderizando imagem: evento-foto-3.jpeg")}
             <img src={eventImage3} alt="Barcos alinhados para a largada" />
           </div>
         </div>
       </section>
-
     </main>
   );
 }

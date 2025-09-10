@@ -1,0 +1,319 @@
+/* --- Estilos do Pop-up / Modal --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: fadeIn 0.3s ease-out;
+  max-width: 90%;
+  width: 400px;
+}
+
+.modalIcon {
+  font-size: 3rem;
+  color: #00a651;
+}
+
+.modalContent h2 {
+  color: #333;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.modalContent p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.modalButton {
+  background-color: #0073a6;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modalButton:hover {
+  background-color: #005a82;
+}
+
+
+/* --- Estilos do Formulário --- */
+.registrationContainer {
+  width: 100%;
+  padding: 2rem 0;
+  background-color: #f4f8f6;
+  box-sizing: border-box;
+}
+
+.formWrapper {
+  /* A largura máxima aqui controla a responsividade em telas grandes e TVs */
+  max-width: 800px; 
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.formHeader {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.formHeader h1 {
+  font-size: 2.5rem;
+  color: #00a651;
+  margin-bottom: 0.5rem;
+}
+
+.formHeader p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.formSection {
+  border: none;
+  padding: 0;
+  margin-bottom: 2.5rem;
+}
+
+.formSection legend {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  border-bottom: 2px solid #00a651;
+  width: 100%;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.formGroup label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="tel"],
+.formGroup input[type="email"] {
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.formGroup input[type="text"]:focus,
+.formGroup input[type="tel"]:focus,
+.formGroup input[type="email"]:focus {
+  outline: none;
+  border-color: #00a651;
+  box-shadow: 0 0 0 3px rgba(0, 166, 81, 0.15);
+}
+
+.formGroup input.readOnlyInput {
+  background-color: #e9ecef;
+  font-weight: bold;
+  color: #495057;
+  cursor: not-allowed;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+/* Estilos dos Integrantes */
+.memberCard {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e0e0e0;
+}
+
+.memberHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.memberHeader h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #0073a6;
+}
+
+.removeMemberButton {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.removeMemberButton:hover {
+  background: #c0392b;
+}
+
+.addMemberButton {
+  background: #00a651;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  display: block;
+  width: 100%;
+}
+
+.addMemberButton:hover {
+  background: #008a43;
+}
+
+/* Estilos dos Checkboxes */
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.checkboxGroup input[type="checkbox"] {
+  margin-right: 0.75rem;
+  width: 18px;
+  height: 18px;
+  accent-color: #00a651;
+}
+
+.checkboxGroup label {
+  color: #555;
+  font-weight: 500;
+}
+
+.minorWarning {
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  color: #856404;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+/* Botão de Submissão */
+.submitContainer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.submitButton {
+  background-color: #0073a6;
+  color: white;
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 115, 166, 0.3);
+}
+
+.submitButton:hover {
+  transform: translateY(-px);
+  box-shadow: 0 6px 20px rgba(0, 115, 166, 0.4);
+}
+
+.linkButton {
+  background: none;        /* sem fundo */
+  border: none;            /* sem borda */
+  color: #007bff;          /* cor azul de link */
+  text-decoration: underline; /* sublinhado */
+  cursor: pointer;         /* cursor de link */
+  padding: 0;              /* remove padding */
+  font-size: 0.9rem;       /* tamanho da fonte levemente menor */
+  margin-left: 0.3rem;     /* pequeno espaçamento */
+  font-family: inherit;    /* mantém a mesma fonte do label */
+}
+
+.linkButton:hover {
+  color: #0056b3;          /* azul mais escuro ao passar o mouse */
+}
+/* --- Media Queries para Responsividade --- */
+.modalContentTerms {
+  overflow-y: auto;
+  background-color: white;
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: fadeIn 0.3s ease-out;
+  max-width: 90%;
+  width: 800px;
+  text-align: justify;
+  max-height: 600px;
+}
+/* Telas de Tablet */
+@media (max-width: 768px) {
+  .formWrapper {
+    padding: 2rem;
+    width: 90%;
+  }
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Telas de Celular */
+@media (max-width: 576px) {
+  .formWrapper {
+    padding: 1.5rem;
+    width: 100%;
+    border-radius: 0;
+  }
+  .formHeader h1 {
+    font-size: 2rem;
+  }
+}

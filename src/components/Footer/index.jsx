@@ -7,7 +7,7 @@ function Footer() {
     <footer className={styles.footer}>
       <p>&copy; {new Date().getFullYear()} Rei do Anzol - Todos os direitos reservados.</p>
       <p>Feito em <span>Porto Velho, Rondônia.</span></p>
-      <p>Desenvolvido por <a href="https://web-dataro.vercel.app/">DATA-RO</a></p>
+      <p>Desenvolvido por <a href="https://web-dataro.vercel.app/">DATA-RO</a> Dev Group</p>
     </footer>
   );
 }

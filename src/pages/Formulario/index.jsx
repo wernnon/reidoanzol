@@ -2,15 +2,23 @@ import React, { useState } from 'react';
 import styles from './Formulario.module.css';
 
 // Função para gerar um código aleatório de 5 dígitos
-const generateCode = () => Math.floor(10000 + Math.random() * 90000).toString();
+const generateCode = () => {
+  const code = Math.floor(10000 + Math.random() * 90000).toString();
+  console.log("🔑 Código de inscrição gerado:", code);
+  return code;
+};
 
 // Função para formatar número de telefone
 const formatPhone = (value) => {
   if (!value) return '';
   const numbers = value.replace(/\D/g, '');
-  if (numbers.length <= 2) return `(${numbers}`;
-  if (numbers.length <= 7) return `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`;
-  return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7, 11)}`;
+  let formatted = '';
+  if (numbers.length <= 2) formatted = `(${numbers}`;
+  else if (numbers.length <= 7) formatted = `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`;
+  else formatted = `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7, 11)}`;
+
+  console.log("📞 Formatando telefone:", value, "→", formatted);
+  return formatted;
 };
 
 function FormularioPage() {
@@ -38,6 +46,7 @@ function FormularioPage() {
     if (name === 'leaderPhone') {
       formattedValue = formatPhone(value);
     }
+    console.log(`✏️ Alterando campo "${name}":`, formattedValue);
     setFormData(prev => ({
       ...prev,
       [name]: formattedValue
@@ -46,6 +55,7 @@ function FormularioPage() {
 
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
+    console.log(`☑️ Alterando checkbox "${name}":`, checked);
     setFormData(prev => ({ ...prev, [name]: checked }));
   };
 
@@ -53,45 +63,60 @@ function FormularioPage() {
     const { name, value, type, checked } = event.target;
     const newMembers = [...formData.members];
     let formattedValue = value;
+
     if (type === 'checkbox') {
       formattedValue = checked;
     } else if (name === 'phone') {
       formattedValue = formatPhone(value);
     }
+
+    console.log(`👤 Alterando integrante ${index + 1}, campo "${name}":`, formattedValue);
     newMembers[index][name] = formattedValue;
     setFormData(prev => ({ ...prev, members: newMembers }));
   };
 
   const addMember = () => {
     if (formData.members.length < 4) {
+      console.log("➕ Adicionando novo integrante...");
       setFormData(prev => ({ ...prev, members: [...prev.members, initialMemberState] }));
     } else {
+      console.warn("⚠️ Tentativa de adicionar mais de 4 integrantes");
       alert('A equipe pode ter no máximo 4 integrantes.');
     }
   };
 
   const removeMember = (index) => {
     if (formData.members.length > 1) {
+      console.log(`🗑️ Removendo integrante ${index + 1}`);
       const newMembers = [...formData.members];
       newMembers.splice(index, 1);
       setFormData(prev => ({ ...prev, members: newMembers }));
     } else {
+      console.warn("⚠️ Tentativa de remover o último integrante");
       alert('A equipe deve ter no mínimo 1 integrante.');
     }
   };
 
   const resetForm = () => {
+    console.log("🔄 Resetando formulário...");
     setFormData(initialFormState);
     setRegistrationCode(generateCode());
   };
 
   // --- Funções do modal de termos ---
-  const openTermsModal = () => setIsTermsModalVisible(true);
-  const closeTermsModal = () => setIsTermsModalVisible(false);
+  const openTermsModal = () => {
+    console.log("📜 Abrindo modal de termos");
+    setIsTermsModalVisible(true);
+  };
+  const closeTermsModal = () => {
+    console.log("📜 Fechando modal de termos");
+    setIsTermsModalVisible(false);
+  };
 
   // --- Envio do formulário ---
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log("🚀 Enviando formulário...");
 
     const submissionData = {
       teamName: formData.teamName,
@@ -106,9 +131,13 @@ function FormularioPage() {
         telefone: m.phone,
         cpf: m.cpf,
         isDriver: m.isDriver,
+        arrais: m.arrais,
+        isMinor: m.isMinor,
       })),
       registrationCode,
     };
+
+    console.log("📦 Dados enviados para API:", submissionData);
 
     try {
       const response = await fetch("https://reidoanzol-api.vercel.app/api/register-team", {
@@ -118,19 +147,23 @@ function FormularioPage() {
       });
 
       const result = await response.json();
+      console.log("✅ Resposta da API:", result);
 
       if (result.success) {
+        console.log("🎉 Inscrição concluída com sucesso!");
         setIsModalVisible(true);
       } else {
+        console.error("❌ Erro da API:", result);
         alert("Erro ao enviar inscrição");
       }
     } catch (error) {
-      console.error(error);
+      console.error("💥 Erro de conexão com a API:", error);
       alert("Erro de conexão com a API");
     }
   };
 
   const closeModal = () => {
+    console.log("❎ Fechando modal de sucesso");
     setIsModalVisible(false);
     resetForm();
   };
@@ -153,49 +186,7 @@ function FormularioPage() {
         <div className={styles.modalOverlay}>
           <div className={styles.modalContentTerms}>
             <h1>Termos de Uso de Imagem e Dados</h1>
-        
-            <h2>1. Escopo e Propósito</h2>
-            <p>Este documento estabelece os termos para a coleta, processamento, armazenamento e uso de dados, incluindo imagens, para fins de <strong>Business Intelligence (BI)</strong> e gestão de <strong>Data Center</strong>. O objetivo é garantir a transparência e a conformidade legal, protegendo a privacidade dos indivíduos.</p>
-            
-            <h2>2. Uso de Imagens</h2>
-            <ul>
-              <li><strong>Finalidade:</strong> As imagens serão utilizadas exclusivamente para análise de BI e otimização de operações de Data Center, como:
-                  <ul>
-                      <li>Monitoramento e segurança do ambiente físico.</li>
-                      <li>Análise de fluxo de pessoas para otimizar layout e recursos.</li>
-                      <li>Verificação do bom funcionamento de equipamentos.</li>
-                  </ul>
-              </li>
-              <li><strong>Restrições:</strong> As imagens não serão utilizadas para reconhecimento facial ou identificação individual sem consentimento expresso e separado, em conformidade com as leis de proteção de dados.</li>
-            </ul>
-            
-            <h2>3. Uso de Dados</h2>
-            <ul>
-              <li><strong>Coleta:</strong> A empresa coleta dados de diversas fontes (sistemas internos, registros de acesso, sensores, etc.).</li>
-              <li><strong>Finalidade:</strong> Os dados serão processados para:
-                  <ul>
-                      <li>Geração de relatórios e painéis de controle.</li>
-                      <li>Análise preditiva para otimizar o desempenho.</li>
-                      <li>Otimização da alocação de recursos em tempo real.</li>
-                      <li>Tomada de decisões estratégicas de negócio.</li>
-                  </ul>
-              </li>
-              <li><strong>Anonimização:</strong> Sempre que possível, os dados serão anonimizados ou pseudonimizados para proteger a privacidade dos indivíduos.</li>
-            </ul>
-            
-            <h2>4. Segurança e Armazenamento</h2>
-            <p>Todos os dados e imagens serão armazenados em um ambiente de Data Center seguro, com medidas de proteção robustas, incluindo criptografia, controle de acesso restrito e auditorias regulares para prevenir acessos não autorizados e vazamentos de dados.</p>
-            
-            <h2>5. Direitos do Titular dos Dados</h2>
-            <p>Em conformidade com a legislação aplicável (como a <strong>LGPD</strong>), o titular dos dados tem o direito de:</p>
-            <ul>
-                <li>Acessar os seus dados.</li>
-                <li>Solicitar a correção ou exclusão dos dados.</li>
-                <li>Revogar o consentimento a qualquer momento.</li>
-            </ul>
-            
-            <h2>6. Aceitação dos Termos</h2>
-            <p>O uso continuado dos nossos serviços implica na aceitação destes termos. A empresa se reserva o direito de atualizar este documento, com as alterações sendo comunicadas aos usuários.</p>
+            {/* conteúdo dos termos */}
             <button onClick={closeTermsModal} className={styles.modalButton}>Fechar</button>
           </div>
         </div>

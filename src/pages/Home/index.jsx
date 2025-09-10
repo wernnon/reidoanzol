@@ -1,12 +1,8 @@
-// src/pages/Home.jsx
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react'; // Importe useEffect para hooks
+import React, { useState, useEffect } from 'react'; // Movido para o topo para organização
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from 'react-responsive-carousel';
 import styles from './Home.module.css';
-import React, { useState } from 'react';
-
-console.log('HomePage.jsx carregado!'); // Log no carregamento do arquivo
 
 // --- IMAGENS PRINCIPAIS ---
 import pesca1 from '../../assets/pesca1.jpg';
@@ -16,7 +12,6 @@ import pesca4 from '../../assets/pesca4.jpeg';
 
 // --- IMAGENS DAS SEÇÕES ---
 import sopescarLogo from '../../assets/sopescar-logo.png';
-import semtelLogo from '../../assets/semtel-logo.png';
 import semtelLogo2 from '../../assets/semtel-logo2.png';
 import localEventoImg from '../../assets/local-evento.jpg';
 import estruturaLayoutImg from '../../assets/estrutura-layout.jpg';
@@ -30,233 +25,7 @@ import logoPatrocinador4 from '../../assets/logo-patrocinador4.png';
 import logoPatrocinador5 from '../../assets/logo-patrocinador5.png';
 
 
-function HomePage() {
-  console.log('O componente HomePage foi renderizado!'); // Log na renderização
-
-  useEffect(() => {
-    console.log('O componente HomePage foi montado!');
-    // Se o componente tivesse algum estado ou dado que mudasse,
-    // os logs poderiam ser adicionados aqui.
-    return () => {
-      console.log('O componente HomePage será desmontado!');
-    };
-  }, []);
-
-  return (
-    <main className={styles.homeContainer}>
-      {console.log('Iniciando renderização do JSX da HomePage.')}
-      <title>PVH Pesca Show - O Festival de Pesca de Porto Velho</title>
-      
-      {/* Seção Principal com Carrossel e Texto */}
-      <div className={styles.homeLayout}>
-        {console.log('Renderizando o Carrossel...')}
-        <div className={styles.carouselWrapper}>
-          <Carousel 
-            autoPlay={true} 
-            infiniteLoop={true} 
-            showThumbs={false} 
-            showStatus={false}
-            showArrows={false}
-            interval={5000}
-          >
-            <div>
-              <img src={localEventoImg} alt="1º FESTIVAL DE PESCA - VILA NOVA DE TEOTÔNIO" />
-              <p className="legend">1º FESTIVAL DE PESCA - VILA NOVA DE TEOTÔNIO</p>
-            </div>
-            <div>
-              <img src={pesca2} alt="Peixe tucunaré sendo segurado por um pescador" />
-              <p className="legend">A Emoção da Pesca Esportiva</p>
-            </div>
-            <div>
-              <img src={pesca3} alt="Paisagem de um rio amazônico com céu azul" />
-              <p className="legend">Valorizando a Cultura Ribeirinha</p>
-            </div>
-            <div>
-              <img src={pesca4} alt="Pescador arremessando a linha na água" />
-              <p className="legend">Técnicas e Estratégias de Pesca</p>
-            </div>
-          </Carousel>
-        </div>
-        
-        <div className={styles.content}>
-          <h1>PVH Pesca Show: Mais que um Torneio, uma Celebração!</h1>
-          <p className={styles.justifiedText}>
-            O festival PVH Pesca Show foi pensado como uma iniciativa para fomentar o turismo, valorizar a cultura local e incentivar a prática sustentável da pesca no município de Porto Velho. É uma celebração da nossa cultura, gastronomia, do turismo e da pesca da nossa capital.
-          </p>
-          
-          <div className={styles.buttonContainer}>
-            {console.log('Renderizando botão de inscrição.')}
-            <Link to="/inscricao" className={styles.actionButton}>
-              Inscreva-se agora no Torneio
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Seção Estrutura do Evento */}
-      <section className={styles.section}>
-        {console.log('Renderizando seção "Estrutura do Evento"...')}
-        <h2 className={styles.sectionTitle}>Estrutura Completa Para Você</h2>
-        <div className={styles.featuresGrid}>
-          <div className={styles.featureCard}>
-            <img src={gastronomiaIcon} alt="Ícone da Área Gastronômica" className={styles.featureImageIcon} />
-            <h3>Área Gastronômica</h3>
-            <p>Barracas com pratos típicos da região, com destaque para o pescado.</p>
-          </div>
-          <div className={styles.featureCard}>
-            <span className={styles.featureIcon}>🎨</span>
-            <h3>Espaço do Artesanato</h3>
-            <p>Tendas para exposição e venda de produtos artesanais locais.</p>
-          </div>
-          <div className={styles.featureCard}>
-            <span className={styles.featureIcon}>🎶</span>
-            <h3>Palco Principal</h3>
-            <p>Para apresentações musicais e culturais com artistas regionais.</p>
-          </div>
-          <div className={styles.featureCard}>
-            <span className={styles.featureIcon}>🎣</span>
-            <h3>Área de Competição</h3>
-            <p>Espaço delimitado para o torneio de pesca, com segurança e equipe técnica.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Seção Benefícios do Festival */}
-      <section className={`${styles.section} ${styles.benefitsSection}`}>
-        {console.log('Renderizando seção "Benefícios"...')}
-        <div className={styles.benefitContent}>
-          <h2 className={styles.sectionTitle}>Um Evento que Fortalece a Nossa Região</h2>
-          <ul>
-            <li>Fomenta o turismo e movimenta a economia local.</li>
-            <li>Valoriza a cultura ribeirinha.</li>
-            <li>Oferece ampla visibilidade.</li>
-            <li>Reúne esporte, lazer, cultura e gastronomia em um só lugar.</li>
-          </ul>
-        </div>
-        <div className={styles.benefitImage}>
-          <img src={pesca2} alt="Pescador exibindo um peixe tucunaré" />
-        </div>
-      </section>
-
-      {/* Seção Data e Local */}
-      <section className={`${styles.section} ${styles.eventInfoSection}`}>
-        {console.log('Renderizando seção "Data e Local"...')}
-        <div className={styles.eventInfoImage}>
-          <img src={localEventoImg} alt="Vila Nova de Teotônio, local do evento" />
-        </div>
-        <div className={styles.eventInfoContent}>
-          <h2 className={styles.sectionTitle}>Data e Local do Encontro</h2>
-          <div className={styles.infoBox}>
-            <h3>Data</h3>
-            <p>27 e 28 de setembro de 2025</p>
-          </div>
-          <div className={styles.infoBox}>
-            <h3>Local</h3>
-            <p>Tradicional Vila Nova de Teotônio / Porto Velho - Rondônia</p>
-          </div>
-          <p className={styles.eventDescription}>
-            O festival reunirá esporte, lazer, gastronomia e cultura regional em um único espaço, abrindo oficialmente as festividades de aniversário de Porto Velho.
-          </p>
-        </div>
-      </section>
-
-      {/* Seção Responsáveis */}
-<section className={styles.section}>
-  <h2 className={styles.sectionTitle}>Organização e Responsabilidades</h2>
-  <p className={styles.sectionSubtitle}>A realização do festival é fruto da união de esforços entre parceiros.</p>
-  <div className={styles.responsibilitiesGrid}>
-    
-    {/* Card da SOPESCAR com link na imagem */}
-    <div className={styles.responsibilityCard}>
-      {/* Coloque o link do site da SOPESCAR no href="#" */}
-      <a href="#" target="_blank" rel="noopener noreferrer">
-        <img src={sopescarLogo} alt="Logo SOPESCAR" className={styles.orgLogo} />
-      </a>
-      <h3>SOPESCAR</h3>
-      <ul>
-        <li>Regras e Inscrições</li>
-        <li>Organização do Campeonato</li>
-        <li>Premiação</li>
-      </ul>
-    </div>
-    
-    {/* Card da SEMTEL com link na imagem */}
-    <div className={styles.responsibilityCard}>
-      {/* Coloque o link do site da SEMTEL no href="#" */}
-      <a href="https://www.portovelho.ro.gov.br/artigo/49898/reestruturacao-secretaria-municipal-de-turismo-esporte-e-lazer-chega-para-fortalecer-as-acoes-e-se-aproximar-da-populacao" target="_blank" rel="noopener noreferrer">
-        <img src={semtelLogo2} alt="Logo SEMTEL" className={styles.orgLogo} />
-      </a>
-      <h3>SEMTEL</h3>
-      <ul>
-        <li>Atrações regionais</li>
-        <li>Estrutura do evento</li>
-      </ul>
-    </div>
-    
-    {/* Card combinado (sem link, conforme solicitado) */}
-    <div className={styles.responsibilityCard}>
-      <div className={styles.orgLogoCombined}>
-        <img src={semtelLogo2} alt="Logo SEMTEL" className={styles.orgLogoSmall} />
-        <img src={sopescarLogo} alt="Logo SOPESCAR" className={styles.orgLogoSmall} />
-      </div>
-      <h3>SEMTEL / SOPESCAR</h3>
-      <ul>
-        <li>Divulgação do evento</li>
-      </ul>
-    </div>
-    
-  </div>
-</section>
-
-      {/* Seção Imagem da Estrutura */}
-      <section className={`${styles.section} ${styles.fullWidthSection}`}>
-        {console.log('Renderizando seção "Layout do Evento"...')}
-        <h2 className={styles.sectionTitle}>Conheça o Espaço do Festival</h2>
-        <div className={styles.structureImageContainer}>
-          <img src={estruturaLayoutImg} alt="Implantação da estrutura do evento PVH Pesca Show" />
-          <p>Layout funcional com a disposição de todos os espaços para uma melhor experiência.</p>
-        </div>
-      </section>
-
-{/* Seção de Downloads ATUALIZADA */}
-<section className={`${styles.section} ${styles.downloadSection}`}>
-  {/* O container abaixo é novo, para garantir que o conteúdo fique sobre a imagem */}
-  <div className={styles.downloadContent}>
-    <h2 className={styles.sectionTitle}>Informações Completas</h2>
-    <p>Acesse a apresentação e os regulamentos do evento para conferir todos os detalhes.</p>
-    <div className={styles.downloadButtonsContainer}>
-      <a 
-        href="/APRESENTAÇÃO-PVH-PESCA-SHOW.pdf" 
-        download
-        className={styles.actionButton}
-      >
-        Baixar Apresentação
-      </a>
-      
-      {/* Botão de regulamento antigo, agora especificado */}
-      <a 
-        href="/REGULAMENTO-PVH-PESCA-SHOW.pdf"
-        download="REGULAMENTO-PVH-PESCA-EMBARCADA.pdf"  
-        className={`${styles.actionButton} ${styles.secondaryButton}`}
-      >
-        Regulamento (Pesca Embarcada)
-      </a>
-
-      {/* NOVO botão de regulamento para caiaque */}
-      <a 
-        href="/REGULAMENTO-PVH-PESCA-CAIAQUE.pdf"
-        download="REGULAMENTO-PVH-PESCA-CAIAQUE.pdf"  
-        className={`${styles.actionButton} ${styles.secondaryButton}`}
-      >
-        Regulamento (Pesca em Caiaque)
-      </a>
-    </div>
-  </div>
-</section>
-    </main>
-  );
-}
-
+// --- COMPONENTE DAS REGRAS (Definido separadamente para melhor organização) ---
 function RulesSection() {
   const [activeRules, setActiveRules] = useState('embarcado');
 
@@ -363,9 +132,205 @@ function RulesSection() {
   );
 }
 
-  {/* Seção de Patrocinadores */}
+
+// --- COMPONENTE PRINCIPAL DA PÁGINA ---
+function HomePage() {
+  return (
+    <main className={styles.homeContainer}>
+      <title>PVH Pesca Show - O Festival de Pesca de Porto Velho</title>
+      
+      {/* Seção Principal com Carrossel e Texto */}
+      <div className={styles.homeLayout}>
+        <div className={styles.carouselWrapper}>
+          <Carousel 
+            autoPlay={true} 
+            infiniteLoop={true} 
+            showThumbs={false} 
+            showStatus={false}
+            showArrows={false}
+            interval={5000}
+          >
+            <div>
+              <img src={localEventoImg} alt="1º FESTIVAL DE PESCA - VILA NOVA DE TEOTÔNIO" />
+              <p className="legend">1º FESTIVAL DE PESCA - VILA NOVA DE TEOTÔNIO</p>
+            </div>
+            <div>
+              <img src={pesca2} alt="Peixe tucunaré sendo segurado por um pescador" />
+              <p className="legend">A Emoção da Pesca Esportiva</p>
+            </div>
+            <div>
+              <img src={pesca3} alt="Paisagem de um rio amazônico com céu azul" />
+              <p className="legend">Valorizando a Cultura Ribeirinha</p>
+            </div>
+            <div>
+              <img src={pesca4} alt="Pescador arremessando a linha na água" />
+              <p className="legend">Técnicas e Estratégias de Pesca</p>
+            </div>
+          </Carousel>
+        </div>
+        
+        <div className={styles.content}>
+          <h1>PVH Pesca Show: Mais que um Torneio, uma Celebração!</h1>
+          <p className={styles.justifiedText}>
+            O festival PVH Pesca Show foi pensado como uma iniciativa para fomentar o turismo, valorizar a cultura local e incentivar a prática sustentável da pesca no município de Porto Velho. É uma celebração da nossa cultura, gastronomia, do turismo e da pesca da nossa capital.
+          </p>
+          
+          <div className={styles.buttonContainer}>
+            <Link to="/inscricao" className={styles.actionButton}>
+              Inscreva-se agora no Torneio
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Seção Estrutura do Evento */}
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>Estrutura Completa Para Você</h2>
+        <div className={styles.featuresGrid}>
+          <div className={styles.featureCard}>
+            <img src={gastronomiaIcon} alt="Ícone da Área Gastronômica" className={styles.featureImageIcon} />
+            <h3>Área Gastronômica</h3>
+            <p>Barracas com pratos típicos da região, com destaque para o pescado.</p>
+          </div>
+          <div className={styles.featureCard}>
+            <span className={styles.featureIcon}>🎨</span>
+            <h3>Espaço do Artesanato</h3>
+            <p>Tendas para exposição e venda de produtos artesanais locais.</p>
+          </div>
+          <div className={styles.featureCard}>
+            <span className={styles.featureIcon}>🎶</span>
+            <h3>Palco Principal</h3>
+            <p>Para apresentações musicais e culturais com artistas regionais.</p>
+          </div>
+          <div className={styles.featureCard}>
+            <span className={styles.featureIcon}>🎣</span>
+            <h3>Área de Competição</h3>
+            <p>Espaço delimitado para o torneio de pesca, com segurança e equipe técnica.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção Benefícios do Festival */}
+      <section className={`${styles.section} ${styles.benefitsSection}`}>
+        <div className={styles.benefitContent}>
+          <h2 className={styles.sectionTitle}>Um Evento que Fortalece a Nossa Região</h2>
+          <ul>
+            <li>Fomenta o turismo e movimenta a economia local.</li>
+            <li>Valoriza a cultura ribeirinha.</li>
+            <li>Oferece ampla visibilidade.</li>
+            <li>Reúne esporte, lazer, cultura e gastronomia em um só lugar.</li>
+          </ul>
+        </div>
+        <div className={styles.benefitImage}>
+          <img src={pesca2} alt="Pescador exibindo um peixe tucunaré" />
+        </div>
+      </section>
+
+      {/* Seção Data e Local */}
+      <section className={`${styles.section} ${styles.eventInfoSection}`}>
+        <div className={styles.eventInfoImage}>
+          <img src={localEventoImg} alt="Vila Nova de Teotônio, local do evento" />
+        </div>
+        <div className={styles.eventInfoContent}>
+          <h2 className={styles.sectionTitle}>Data e Local do Encontro</h2>
+          <div className={styles.infoBox}>
+            <h3>Data</h3>
+            <p>27 e 28 de setembro de 2025</p>
+          </div>
+          <div className={styles.infoBox}>
+            <h3>Local</h3>
+            <p>Tradicional Vila Nova de Teotônio / Porto Velho - Rondônia</p>
+          </div>
+          <p className={styles.eventDescription}>
+            O festival reunirá esporte, lazer, gastronomia e cultura regional em um único espaço, abrindo oficialmente as festividades de aniversário de Porto Velho.
+          </p>
+        </div>
+      </section>
+
+      {/* Seção Responsáveis */}
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>Organização e Responsabilidades</h2>
+        <p className={styles.sectionSubtitle}>A realização do festival é fruto da união de esforços entre parceiros.</p>
+        <div className={styles.responsibilitiesGrid}>
+          <div className={styles.responsibilityCard}>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <img src={sopescarLogo} alt="Logo SOPESCAR" className={styles.orgLogo} />
+            </a>
+            <h3>SOPESCAR</h3>
+            <ul>
+              <li>Regras e Inscrições</li>
+              <li>Organização do Campeonato</li>
+              <li>Premiação</li>
+            </ul>
+          </div>
+          <div className={styles.responsibilityCard}>
+            <a href="https://www.portovelho.ro.gov.br/artigo/49898/reestruturacao-secretaria-municipal-de-turismo-esporte-e-lazer-chega-para-fortalecer-as-acoes-e-se-aproximar-da-populacao" target="_blank" rel="noopener noreferrer">
+              <img src={semtelLogo2} alt="Logo SEMTEL" className={styles.orgLogo} />
+            </a>
+            <h3>SEMTEL</h3>
+            <ul>
+              <li>Atrações regionais</li>
+              <li>Estrutura do evento</li>
+            </ul>
+          </div>
+          <div className={styles.responsibilityCard}>
+            <div className={styles.orgLogoCombined}>
+              <img src={semtelLogo2} alt="Logo SEMTEL" className={styles.orgLogoSmall} />
+              <img src={sopescarLogo} alt="Logo SOPESCAR" className={styles.orgLogoSmall} />
+            </div>
+            <h3>SEMTEL / SOPESCAR</h3>
+            <ul>
+              <li>Divulgação do evento</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção Imagem da Estrutura */}
+      <section className={`${styles.section} ${styles.fullWidthSection}`}>
+        <h2 className={styles.sectionTitle}>Conheça o Espaço do Festival</h2>
+        <div className={styles.structureImageContainer}>
+          <img src={estruturaLayoutImg} alt="Implantação da estrutura do evento PVH Pesca Show" />
+          <p>Layout funcional com a disposição de todos os espaços para uma melhor experiência.</p>
+        </div>
+      </section>
+
+      {/* Seção de Downloads */}
+      <section className={`${styles.section} ${styles.downloadSection}`}>
+        <div className={styles.downloadContent}>
+          <h2 className={styles.sectionTitle}>Informações Completas</h2>
+          <p>Acesse a apresentação e os regulamentos do evento para conferir todos os detalhes.</p>
+          <div className={styles.downloadButtonsContainer}>
+            <a 
+              href="/APRESENTAÇÃO-PVH-PESCA-SHOW.pdf" 
+              download
+              className={styles.actionButton}
+            >
+              Baixar Apresentação
+            </a>
+            <a 
+              href="/REGULAMENTO-PVH-PESCA-SHOW.pdf"
+              download="REGULAMENTO-PVH-PESCA-EMBARCADA.pdf"  
+              className={`${styles.actionButton} ${styles.secondaryButton}`}
+            >
+              Regulamento (Pesca Embarcada)
+            </a>
+            <a 
+              href="/REGULAMENTO-PVH-PESCA-CAIAQUE.pdf"
+              download="REGULAMENTO-PVH-PESCA-CAIAQUE.pdf"  
+              className={`${styles.actionButton} ${styles.secondaryButton}`}
+            >
+              Regulamento (Pesca em Caiaque)
+            </a>
+          </div>
+        </div>
+      </section>
+      
+      {/* AQUI VOCÊ CHAMA O COMPONENTE DE REGRAS */}
+      <RulesSection />
+
+      {/* Seção de Patrocinadores */}
       <section className={`${styles.section} ${styles.sponsorsSection}`}>
-        {console.log('Renderizando seção de "Patrocinadores"...')}
         <h2 className={styles.sectionTitle}>Nossos Patrocinadores</h2>
         <div className={styles.sponsorsGrid}>
           <div className={styles.sponsorItem}>
@@ -390,5 +355,9 @@ function RulesSection() {
           </div>
         </div>
       </section>
+      
+    </main>
+  );
+}
 
 export default HomePage;

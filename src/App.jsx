@@ -1,7 +1,8 @@
 // src/App.jsx
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect } from 'react'; // Importe useEffect para hooks
+import ScrollToTop from './components/ScrollToTop';
 
 // Importe seus componentes e páginas
 import Navbar from './components/Navbar';
@@ -10,7 +11,6 @@ import AboutPage from './pages/About';
 import Footer from './components/Footer'; 
 import FormularioPage from './pages/Formulario' ;
 import FormularioKayakPage from './pages/FormularioKayak';
-import ScrollToTop from './components/ScrollToTop';
 
 console.log('App.jsx carregado!'); // Log no carregamento do arquivo
 
@@ -37,6 +37,7 @@ function App() {
           <Route path="/sobre" element={<AboutPage />} />
           <Route path="/inscricao" element={<FormularioPage />} /> {/* Rota do formulário */}
           <Route path='/inscricao-caiaque' element={<FormularioKayakPage/>} /> {/* Rota do formulário de caiaque */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
       <Footer />

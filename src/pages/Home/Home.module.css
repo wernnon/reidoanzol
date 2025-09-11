@@ -358,11 +358,33 @@
   color: #777;
 }
 
-/* Seção de Downloads */
+/* Seção de Downloads ATUALIZADA (com parallax) */
 .downloadSection {
-  background-color: #0073a6;
+  position: relative;
   text-align: center;
   padding: 4rem 2rem;
+  color: #fff;
+  background-image: url('../../assets/fundo-regu.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+.downloadSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 115, 166, 0.85);
+  z-index: 1;
+}
+
+.downloadContent {
+  position: relative;
+  z-index: 2;
 }
 
 .downloadSection .sectionTitle, .downloadSection p {
@@ -388,10 +410,45 @@
 
 .secondaryButton:hover {
   background-color: #ffffff;
-  color: #00a62c;
+  color: #0073a6;
 }
 
-/* Seção Regras do Torneio */
+
+/* --- ESTILOS PARA O SELETOR DE REGRAS (mantido) --- */
+.rulesToggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: 50px;
+  padding: 0.5rem;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.toggleButton {
+  border: none;
+  background-color: transparent;
+  color: #495057;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.activeToggle {
+  background-color: #fff;
+  color: #00a651;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+
+/* --- Estilos para o Grid e Cards de Regras --- */
 .rulesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -405,6 +462,8 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
   border-left: 5px solid #00a651;
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 
 .ruleCard h3 {
@@ -423,6 +482,7 @@
 .ruleCard ul {
   padding-left: 20px;
   margin: 0;
+  flex-grow: 1; 
 }
 
 .ruleCard li {
@@ -432,6 +492,18 @@
 .ruleCard strong {
   color: #333;
 }
+
+.cardPlaceholder {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
+
 
 /* Seção de Patrocinadores */
 .sponsorsSection {
@@ -478,8 +550,6 @@
 }
 
 /* --- Media Queries para Responsividade --- */
-
-/* Telas de Tablet */
 @media (max-width: 992px) {
   .homeLayout {
     flex-direction: column;
@@ -492,7 +562,7 @@
     text-align: center;
   }
   .justifiedText {
-    text-align: left; /* Justificado não funciona bem em colunas estreitas */
+    text-align: left;
   }
   .buttonContainer {
     justify-content: center;
@@ -508,7 +578,6 @@
   }
 }
 
-/* Telas de Celular */
 @media (max-width: 576px) {
   .content h1 {
     font-size: 2rem;
@@ -536,6 +605,10 @@
     grid-template-columns: 1fr;
   }
   .ruleCard {
-      padding: 1.5rem;
+    padding: 1.5rem;
+  }
+  .toggleButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
   }
 }

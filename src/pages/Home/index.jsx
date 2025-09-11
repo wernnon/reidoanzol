@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import React, { useState } from 'react'; // Movido para o topo para organização
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from 'react-responsive-carousel';
 import styles from './Home.module.css';
@@ -11,7 +12,6 @@ import pesca4 from '../../assets/pesca4.jpeg';
 
 // --- IMAGENS DAS SEÇÕES ---
 import sopescarLogo from '../../assets/sopescar-logo.png';
-//import semtelLogo from '../../assets/semtel-logo.png';
 import semtelLogo2 from '../../assets/semtel-logo2.png';
 import localEventoImg from '../../assets/local-evento.jpg';
 import estruturaLayoutImg from '../../assets/estrutura-layout.jpg';
@@ -25,6 +25,115 @@ import logoPatrocinador4 from '../../assets/logo-patrocinador4.png';
 import logoPatrocinador5 from '../../assets/logo-patrocinador5.png';
 
 
+// --- COMPONENTE DAS REGRAS (Definido separadamente para melhor organização) ---
+function RulesSection() {
+  const [activeRules, setActiveRules] = useState('embarcado');
+
+  return (
+    <section className={styles.section}>
+      <h2 className={styles.sectionTitle}>Regras do Torneio (XIII TOPAS)</h2>
+
+      <div className={styles.rulesToggle}>
+        <button
+          className={`${styles.toggleButton} ${activeRules === 'embarcado' ? styles.activeToggle : ''}`}
+          onClick={() => setActiveRules('embarcado')}
+        >
+          Pesca Embarcada
+        </button>
+        <button
+          className={`${styles.toggleButton} ${activeRules === 'caiaque' ? styles.activeToggle : ''}`}
+          onClick={() => setActiveRules('caiaque')}
+        >
+          Pesca em Caiaque
+        </button>
+      </div>
+
+      {/* REGRAS PARA PESCA EMBARCADA */}
+      {activeRules === 'embarcado' && (
+        <div className={styles.rulesGrid}>
+          <div className={styles.ruleCard}>
+            <h3>🏆 Premiação</h3>
+            <div className={styles.cardPlaceholder}>
+              <p>Prêmios a definir.</p>
+              <span>Em breve, mais informações.</span>
+            </div>
+          </div>
+          <div className={styles.ruleCard}>
+            <h3>🎣 Cronograma (Embarcada)</h3>
+            <ul>
+              <li><strong>Data:</strong> Domingo, 28 de Setembro de 2025.</li>
+              <li><strong>Horário:</strong> Largada às 07h30 e término às 12h30.</li>
+              <li><strong>Tolerância:</strong> 30 minutos.</li>
+              <li><strong>Apuração:</strong> À tarde, após o término.</li>
+            </ul>
+          </div>
+          <div className={styles.ruleCard}>
+            <h3>👥 Equipes e Participantes</h3>
+            <ul>
+              <li>Equipes de até 4 pessoas por embarcação.</li>
+              <li>O condutor deve ter habilitação fluvial (ARRAIS).</li>
+              <li><strong>Obrigatório:</strong> Uso de coletes salva-vidas durante o trajeto.</li>
+              <li><strong>Obrigatório:</strong> Todos devem portar Carteira de Pesca válida.</li>
+              <li>Menores devem estar acompanhados por responsável legal na embarcação.</li>
+            </ul>
+          </div>
+          <div className={styles.ruleCard}>
+            <h3>📍 Local (Embarcada)</h3>
+            <p>Nas águas do rio Madeira e afluentes, entre o limite da Usina de Santo Antônio até a região de Morrinhos.</p>
+          </div>
+          <div className={styles.ruleCard}>
+            <h3>📏 Pontuação e Validação</h3>
+            <ul>
+              <li>A pontuação é baseada nos centímetros de cada peixe (apenas um exemplar por espécie).</li>
+              <li>A captura, medição e soltura devem ser registradas em um <strong>vídeo de até 90 segundos, sem cortes</strong>.</li>
+              <li>O vídeo deve mostrar a sobrevivência do peixe na soltura.</li>
+              <li>A medição deve usar as réguas oficiais do evento.</li>
+            </ul>
+          </div>
+          <div className={styles.ruleCard}>
+            <h3>🛠️ Equipamentos</h3>
+            <p><strong>Permitidos:</strong> Carretilhas, molinetes, linha de mão, varas, iscas (conforme lei) e puçá.</p>
+            <p><strong>Proibidos:</strong> Redes, tarrafas, espinhéis e garatéias (uso causa desclassificação).</p>
+          </div>
+        </div>
+      )}
+
+      {/* REGRAS PARA PESCA EM CAIAQUE */}
+      {activeRules === 'caiaque' && (
+        <div className={styles.rulesGrid}>
+          <div className={styles.ruleCard}>
+            <h3>🏆 Premiação (Caiaque)</h3>
+            <div className={styles.cardPlaceholder}>
+              <p>Prêmios a definir.</p>
+              <span>Em breve, mais informações.</span>
+            </div>
+          </div>
+          <div className={styles.ruleCard}>
+            <h3>🛶 Cronograma (Caiaque)</h3>
+            <ul>
+              <li><strong>Data:</strong> Sábado, 27 de Setembro de 2025.</li>
+              <li><strong>Modalidade:</strong> Caiaque Individual.</li>
+              <li><strong>Horário:</strong> Abertura às 07h30 e término às 12h30.</li>
+              <li><strong>Tolerância:</strong> 30 minutos.</li>
+              <li><strong>Apuração:</strong> À tarde, após o término.</li>
+            </ul>
+          </div>
+           <div className={styles.ruleCard}>
+            <h3>📍 Local (Caiaque)</h3>
+            <p>A pesca ocorrerá exclusivamente no lago localizado à margem esquerda da Vila Nova Teotônio.</p>
+          </div>
+          <div className={styles.ruleCard}>
+            <h3>📜 Regras Gerais</h3>
+            <p>As regras de <strong>Inscrição, Pontuação, Validação por Vídeo, Equipamentos</strong> e critérios de <strong>Desempate</strong> seguem o regulamento principal do torneio.</p>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
+
+// --- COMPONENTE PRINCIPAL DA PÁGINA ---
 function HomePage() {
   return (
     <main className={styles.homeContainer}>
@@ -68,11 +177,10 @@ function HomePage() {
           
           <div className={styles.buttonContainer}>
             <Link to="/inscricao" className={styles.actionButton}>
-              Inscrição Pesca Embarcada (Equipes)
+              Inscreva-se agora no Torneio
             </Link>
-            
             <Link to="/inscricao-caiaque" className={styles.actionButton}>
-              Inscrição Pesca em Caiaque (Individual)
+              Inscreva-se agora no Caiaque              
             </Link>
           </div>
         </div>
@@ -148,7 +256,9 @@ function HomePage() {
         <p className={styles.sectionSubtitle}>A realização do festival é fruto da união de esforços entre parceiros.</p>
         <div className={styles.responsibilitiesGrid}>
           <div className={styles.responsibilityCard}>
-            <img src={sopescarLogo} alt="Logo SOPESCAR" className={styles.orgLogo} />
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <img src={sopescarLogo} alt="Logo SOPESCAR" className={styles.orgLogo} />
+            </a>
             <h3>SOPESCAR</h3>
             <ul>
               <li>Regras e Inscrições</li>
@@ -157,7 +267,9 @@ function HomePage() {
             </ul>
           </div>
           <div className={styles.responsibilityCard}>
-            <img src={semtelLogo2} alt="Logo SEMTEL" className={styles.orgLogo} />
+            <a href="https://www.portovelho.ro.gov.br/artigo/49898/reestruturacao-secretaria-municipal-de-turismo-esporte-e-lazer-chega-para-fortalecer-as-acoes-e-se-aproximar-da-populacao" target="_blank" rel="noopener noreferrer">
+              <img src={semtelLogo2} alt="Logo SEMTEL" className={styles.orgLogo} />
+            </a>
             <h3>SEMTEL</h3>
             <ul>
               <li>Atrações regionais</li>
@@ -188,92 +300,38 @@ function HomePage() {
 
       {/* Seção de Downloads */}
       <section className={`${styles.section} ${styles.downloadSection}`}>
-        <h2 className={styles.sectionTitle}>Informações Completas</h2>
-        <p>Acesse a apresentação e o regulamento do evento para conferir todos os detalhes.</p>
-        <div className={styles.downloadButtonsContainer}>
-          <a 
-            href="/APRESENTAÇÃO-PVH-PESCA-SHOW.pdf" 
-            download 
-            className={styles.actionButton}
-          >
-            Baixar Apresentação
-          </a>
-          
-<a 
-  href="/REGULAMENTO-PVH-PESCA-SHOW.pdf"
-  download="REGULAMENTO-PVH-PESCA-SHOW.pdf"  // <-- ADICIONE O NOME DO ARQUIVO AQUI
-  className={`${styles.actionButton} ${styles.secondaryButton}`}
->
-          Baixar Regulamento
-</a>
-        </div>
-      </section>
-
-      {/* Seção Regras do Torneio */}
-      <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>Regras do Torneio (XIII TOPAS)</h2>
-        <div className={styles.rulesGrid}>
-          <div className={styles.ruleCard}>
-            <h3>🏆 Premiação</h3>
-            <ul>
-              <li><strong>1º Lugar:</strong> Barco de alumínio 5,5m com motor 15 HP.</li>
-              <li><strong>2º Lugar:</strong> Barco de alumínio 5,5m.</li>
-              <li><strong>3º Lugar:</strong> Kit com 4 varas e carretilhas.</li>
-              <li><strong>4º Lugar:</strong> 4 barracas de camping.</li>
-              <li><strong>5º Lugar:</strong> 4 caixas de pesca.</li>
-              <li>Haverá sorteio de brindes para competidores e público.</li>
-            </ul>
-          </div>
-          <div className={styles.ruleCard}>
-            <h3>🎣 Modalidades e Cronograma</h3>
-            <ul>
-              <li><strong>27/09 (Sábado):</strong> Caiaque Individual, das 07h30 às 12h30.</li>
-              <li><strong>28/09 (Domingo):</strong> Embarcada, das 07h30 às 12h30.</li>
-              <li>Ambas com tolerância de 30 minutos. Apuração e premiação à tarde.</li>
-            </ul>
-          </div>
-          <div className={styles.ruleCard}>
-            <h3>👥 Equipes e Participantes</h3>
-            <ul>
-              <li>Até 4 pessoas por embarcação.</li>
-              <li>Menores de idade devem estar acompanhados por responsável legal.</li>
-              <li><strong>Obrigatório:</strong> Possuir Carteira de Pesca válida.</li>
-              <li><strong>Obrigatório:</strong> Uso de coletes salva-vidas.</li>
-              <li>O condutor deve ter habilitação fluvial (ARRAIS).</li>
-            </ul>
-          </div>
-          <div className={styles.ruleCard}>
-            <h3>📅 Datas e Local</h3>
-            <p><strong>Data:</strong> 27 e 28 de setembro.</p>
-            <p><strong>Local:</strong> Vila Nova Teotônio, no rio Madeira e afluentes.</p>
-          </div>
-          <div className={styles.ruleCard}>
-            <h3>📏 Pontuação e Validação</h3>
-            <ul>
-              <li>A pontuação é baseada nos centímetros do peixe. Apenas um exemplar de cada espécie pontua.</li>
-              <li>A captura, medição e soltura devem ser registradas em um <strong>vídeo de até 90 segundos, sem cortes.</strong></li>
-              <li>A medição deve usar a régua oficial do evento.</li>
-              <li>Vídeos de má qualidade ou que não mostrem a sobrevivência do peixe serão invalidados.</li>
-            </ul>
-          </div>
-          <div className={styles.ruleCard}>
-            <h3>🛠️ Equipamentos</h3>
-            <p><strong>Permitidos:</strong> Carretilhas, molinetes, linha de mão, varas, iscas (conforme lei) e puçá.</p>
-            <p><strong>Proibidos:</strong> Redes, tarrafas, espinhéis e garatéias. O uso destes itens causa <strong>desclassificação imediata</strong>.</p>
-          </div>
-          <div className={styles.ruleCard}>
-            <h3>📝 Inscrições</h3>
-            <p><strong>Período:</strong> De 05 a 20 de setembro de 2025.</p>
-            <p><strong>Como:</strong> Gratuitas, online neste site ou em lojas de pesca credenciadas.</p>
-            <p><strong>Brinde:</strong> Equipes inscritas até 20/09 garantem uma camiseta do torneio.</p>
-          </div>
-          <div className={styles.ruleCard}>
-            <h3>⚖️ Critério de Desempate</h3>
-            <p>Em caso de empate na pontuação, o critério para desempate será a <strong>maior variedade de espécies</strong> capturadas pela equipe.</p>
+        <div className={styles.downloadContent}>
+          <h2 className={styles.sectionTitle}>Informações Completas</h2>
+          <p>Acesse a apresentação e os regulamentos do evento para conferir todos os detalhes.</p>
+          <div className={styles.downloadButtonsContainer}>
+            <a 
+              href="/APRESENTAÇÃO-PVH-PESCA-SHOW.pdf" 
+              download
+              className={styles.actionButton}
+            >
+              Baixar Apresentação
+            </a>
+            <a 
+              href="/REGULAMENTO-PVH-PESCA-SHOW.pdf"
+              download="REGULAMENTO-PVH-PESCA-EMBARCADA.pdf"  
+              className={`${styles.actionButton} ${styles.secondaryButton}`}
+            >
+              Regulamento (Pesca Embarcada)
+            </a>
+            <a 
+              href="/REGULAMENTO-PVH-PESCA-CAIAQUE.pdf"
+              download="REGULAMENTO-PVH-PESCA-CAIAQUE.pdf"  
+              className={`${styles.actionButton} ${styles.secondaryButton}`}
+            >
+              Regulamento (Pesca em Caiaque)
+            </a>
           </div>
         </div>
       </section>
       
+      {/* AQUI VOCÊ CHAMA O COMPONENTE DE REGRAS */}
+      <RulesSection />
+
       {/* Seção de Patrocinadores */}
       <section className={`${styles.section} ${styles.sponsorsSection}`}>
         <h2 className={styles.sectionTitle}>Nossos Patrocinadores</h2>
@@ -300,6 +358,7 @@ function HomePage() {
           </div>
         </div>
       </section>
+      
     </main>
   );
 }

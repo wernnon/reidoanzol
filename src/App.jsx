@@ -9,6 +9,8 @@ import HomePage from './pages/Home';
 import AboutPage from './pages/About';
 import Footer from './components/Footer'; 
 import FormularioPage from './pages/Formulario' ;
+import FormularioKayakPage from './pages/FormularioKayak';
+import ScrollToTop from './components/ScrollToTop';
 
 console.log('App.jsx carregado!'); // Log no carregamento do arquivo
 
@@ -25,6 +27,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <ScrollToTop />
       {console.log('Componente BrowserRouter renderizado.')}
       <Navbar />
       <div style={{ flex: 1 }}> {/* Div para empurrar o footer para baixo */}
@@ -33,6 +36,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/sobre" element={<AboutPage />} />
           <Route path="/inscricao" element={<FormularioPage />} /> {/* Rota do formulário */}
+          <Route path='/inscricao-caiaque' element={<FormularioKayakPage/>} /> {/* Rota do formulário de caiaque */}
         </Routes>
       </div>
       <Footer />

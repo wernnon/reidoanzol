@@ -9,11 +9,18 @@ const formatPhone = (value) => {
   return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7, 11)}`;
 };
 
+// Garel esteve aqui: Função para gerar o código.
+const generateCode = () => {
+  return Math.floor(10000 + Math.random() * 90000).toString();
+};
+
 
 function FormularioKayakPage() {
   const [nome, setNome] = useState('');
   const [telefone, setTelefone] = useState('');
   const [email, setEmail] = useState('');
+  // Garel esteve aqui: Estado para armazenar o código de inscrição.
+  const [registrationCode, setRegistrationCode] = useState(generateCode);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [termsAccepted, setTermsAccepted] = useState(false);
@@ -23,6 +30,8 @@ function FormularioKayakPage() {
     setTelefone('');
     setEmail('');
     setTermsAccepted(false);
+    // Garel esteve aqui: Cria um código novo quando reseta o formulário
+    setRegistrationCode(generateCode());
   };
 
   const closeModal = () => {
@@ -38,6 +47,8 @@ function FormularioKayakPage() {
       nome,
       telefone: telefone.replace(/\D/g, ''),
       email,
+      // Garel esteve aqui: Coloca o código como um dado que vai ser enviado
+      registrationCode,
     };
 
     try {
@@ -120,6 +131,18 @@ function FormularioKayakPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="seuemail@exemplo.com"
                     required
+                  />
+                </div>
+                {/* Garel esteve aqui: Parte pra exibir o código */}
+                <div className={styles.formGroup}>
+                  <label htmlFor="registrationCode">Código de Inscrição (Guarde este código)</label>
+                  <input
+                    type="text"
+                    id="registrationCode"
+                    name="registrationCode"
+                    value={registrationCode}
+                    readOnly
+                    className={styles.readOnlyInput}
                   />
                 </div>
               </div>

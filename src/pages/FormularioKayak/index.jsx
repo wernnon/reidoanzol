@@ -41,7 +41,7 @@ function FormularioKayakPage() {
     };
 
     try {
-      const response = await fetch("https://reidoanzolapi.vercel.app/api/register-kayak", {
+      const response = await fetch("https://reidoanzol-api.vercel.app/api/register-kayak", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(submissionData),

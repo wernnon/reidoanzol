@@ -4,14 +4,14 @@ import { Carousel } from 'react-responsive-carousel';
 import styles from './Home.module.css';
 
 // --- IMAGENS PRINCIPAIS ---
-import pesca1 from '../../assets/pesca1.jpg';
+//import pesca1 from '../../assets/pesca1.jpg';
 import pesca2 from '../../assets/pesca2.jpg';
 import pesca3 from '../../assets/pesca3.jpg';
 import pesca4 from '../../assets/pesca4.jpeg';
 
 // --- IMAGENS DAS SEÇÕES ---
 import sopescarLogo from '../../assets/sopescar-logo.png';
-import semtelLogo from '../../assets/semtel-logo.png';
+//import semtelLogo from '../../assets/semtel-logo.png';
 import semtelLogo2 from '../../assets/semtel-logo2.png';
 import localEventoImg from '../../assets/local-evento.jpg';
 import estruturaLayoutImg from '../../assets/estrutura-layout.jpg';
@@ -60,7 +60,7 @@ function HomePage() {
           </Carousel>
         </div>
         
-        <div className={styles.content}>
+        <div id="btn_formulario" className={styles.content}>
           <h1>PVH Pesca Show: Mais que um Torneio, uma Celebração!</h1>
           <p className={styles.justifiedText}>
             O festival PVH Pesca Show foi pensado como uma iniciativa para fomentar o turismo, valorizar a cultura local e incentivar a prática sustentável da pesca no município de Porto Velho. É uma celebração da nossa cultura, gastronomia, do turismo e da pesca da nossa capital.
@@ -68,7 +68,11 @@ function HomePage() {
           
           <div className={styles.buttonContainer}>
             <Link to="/inscricao" className={styles.actionButton}>
-              Inscreva-se agora no Torneio
+              Inscrição Pesca Embarcada (Equipes)
+            </Link>
+            
+            <Link to="/inscricao-caiaque" className={styles.actionButton}>
+              Inscrição Pesca em Caiaque (Individual)
             </Link>
           </div>
         </div>

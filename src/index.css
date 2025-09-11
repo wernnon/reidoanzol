@@ -6,6 +6,7 @@ body {
   color: #333333; /* Texto principal em cinza escuro, mais suave que preto puro */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* Garante que o layout ocupe 100% da altura para o footer funcionar */
@@ -18,4 +19,8 @@ body {
 /* Um estilo para o conteúdo principal empurrar o footer para baixo */
 .content-wrap {
   flex: 1;
+}
+
+html {
+  scroll-behavior: smooth;
 }

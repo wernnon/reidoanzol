@@ -45,7 +45,7 @@ function Navbar() {
         <ul className={`${styles.navList} ${isOpen ? styles.active : ''}`}>
           <li><Link to="/" className={styles.navLink} onClick={toggleMenu}>Home</Link></li>
           <li><Link to="/sobre" className={styles.navLink} onClick={toggleMenu}>Sobre</Link></li>
-          <li><Link to="/inscricao" className={`${styles.navLink} ${styles.subscribeLink}`} onClick={toggleMenu}>Inscreva-se</Link></li>
+          <li><a href="#btn_formulario" className={`${styles.navLink} ${styles.subscribeLink}`} onClick={toggleMenu}>Inscreva-se</a></li>
           
           {/* LOGOS PARCEIROS DEPOIS (somente no menu mobile e com links) */}
           <li className={`${styles.centerLogos} ${styles.mobileOnly}`}>

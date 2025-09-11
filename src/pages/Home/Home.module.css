@@ -4,6 +4,7 @@
   width: 100%;
   padding: 2rem 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 /* Layout Principal (Carrossel + Texto) */

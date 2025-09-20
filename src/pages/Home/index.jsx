@@ -169,18 +169,20 @@ function HomePage() {
           </Carousel>
         </div>
         
-         <div className={styles.buttonContainer}>
+        <div id="btn_formulario" className={styles.content}>
+          <h1>PVH Pesca Show: Mais que um Torneio, uma Celebração!</h1>
+          <p className={styles.justifiedText}>
+            O festival PVH Pesca Show foi pensado como uma iniciativa para fomentar o turismo, valorizar a cultura local e incentivar a prática sustentável da pesca no município de Porto Velho. É uma celebração da nossa cultura, gastronomia, do turismo e da pesca da nossa capital.
+          </p>
+          
+          <div className={styles.buttonContainer}>
             <Link to="/inscricao" className={styles.actionButton}>
               Inscreva-se agora no Torneio
             </Link>
-            {/* BOTÃO ALTERADO */}
-            <button 
-              className={`${styles.actionButton} ${styles.disabledButton}`} 
-              disabled
-            >
-              Inscrição Caiaque (Esgotado)
-            </button>
-          
+            <Link to="/inscricao-caiaque" className={styles.actionButton}>
+              Inscreva-se agora no Caiaque              
+            </Link>
+          </div>
         </div>
       </div>
 

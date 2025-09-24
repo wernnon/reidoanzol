@@ -23,6 +23,24 @@ import logoPatrocinador2 from '../../assets/logo-patrocinador2.png';
 import logoPatrocinador3 from '../../assets/logo-patrocinador3.png';
 import logoPatrocinador4 from '../../assets/logo-patrocinador4.png';
 import logoPatrocinador5 from '../../assets/logo-patrocinador5.png';
+import logoPatrocinador6 from '../../assets/logo-patrocinador6.png';
+import logoPatrocinador7 from '../../assets/logo-patrocinador7.png';
+import logoPatrocinador8 from '../../assets/logo-patrocinador8.png';
+import logoPatrocinador9 from '../../assets/logo-patrocinador9.png';
+import logoPatrocinador10 from '../../assets/logo-patrocinador10.png';
+import logoPatrocinador11 from '../../assets/logo-patrocinador11.png';
+import logoPatrocinador12 from '../../assets/logo-patrocinador12.png';
+import logoPatrocinador13 from '../../assets/logo-patrocinador13.png';
+import logoPatrocinador14 from '../../assets/logo-patrocinador14.png';
+import logoPatrocinador15 from '../../assets/logo-patrocinador15.png';
+import logoPatrocinador16 from '../../assets/logo-patrocinador16.png';
+import logoPatrocinador17 from '../../assets/logo-patrocinador17.png';
+import logoPatrocinador18 from '../../assets/logo-patrocinador18.png';
+import logoPatrocinador19 from '../../assets/logo-patrocinador19.png';
+import logoPatrocinador20 from '../../assets/logo-patrocinador20.png';
+import logoPatrocinador21 from '../../assets/logo-patrocinador21.png';
+import logoPatrocinador22 from '../../assets/logo-patrocinador22.png';
+import logoPatrocinador23 from '../../assets/logo-patrocinador23.png';
 
 
 // --- COMPONENTE DAS REGRAS (Definido separadamente para melhor organização) ---
@@ -355,6 +373,78 @@ function HomePage() {
           <div className={styles.sponsorItem}>
             <img src={logoPatrocinador5} alt="Logo Ponce Energia" />
             <p>Ponce Energia</p>
+          </div>
+            <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador6} alt="Logo Marquinhos Variedades" />
+            <p>Ricardão Caça e Pesca</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador7} alt="Logo Marquinhos Variedades" />
+            <p>Lojão Da Pesca</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador8} alt="Logo Marquinhos Variedades" />
+            <p>Mafra</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador9} alt="Logo Marquinhos Variedades" />
+            <p>FecomércioRO</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador10} alt="Logo Marquinhos Variedades" />
+            <p>CLC</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador11} alt="Logo Marquinhos Variedades" />
+            <p>Aventura Caça e Pesca</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador12} alt="Logo Marquinhos Variedades" />
+            <p>Bão de Pesca</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador13} alt="Logo Marquinhos Variedades" />
+            <p>Big Gelo</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador14} alt="Logo Marquinhos Variedades" />
+            <p>China Norte</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador15} alt="Logo Marquinhos Variedades" />
+            <p>Raio De Sol Restaurante</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador16} alt="Logo Marquinhos Variedades" />
+            <p>Queridão Restaurante e Pizzaria</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador17} alt="Logo Marquinhos Variedades" />
+            <p>Rafa Lures - Pesca e Náutica</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador18} alt="Logo Marquinhos Variedades" />
+            <p>Sicoob</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador19} alt="Logo Marquinhos Variedades" />
+            <p>Deputado Estadual - Ribeiro do SINPOL</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador20} alt="Logo Marquinhos Variedades" />
+            <p>Grupo Gama</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador21} alt="Logo Marquinhos Variedades" />
+            <p>Real Barcos</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador22} alt="Logo Marquinhos Variedades" />
+            <p>Albatroz Fishing</p>
+          </div>
+          <div className={styles.sponsorItem}>
+            <img src={logoPatrocinador23} alt="Logo Marquinhos Variedades" />
+            <p>Caiaqueiros De Rondônia</p>
           </div>
         </div>
       </section>

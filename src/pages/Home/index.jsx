@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react'; // Movido para o topo para organização
+import React, { useState } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from 'react-responsive-carousel';
 import styles from './Home.module.css';
@@ -153,9 +153,37 @@ function RulesSection() {
 
 // --- COMPONENTE PRINCIPAL DA PÁGINA ---
 function HomePage() {
+  // Estado para controlar a visibilidade do pop-up
+  const [isPopupVisible, setPopupVisible] = useState(false);
+
+  // Função para mostrar o pop-up, previne a ação padrão do evento
+  const handleShowPopup = (event) => {
+    event.preventDefault(); 
+    setPopupVisible(true);
+  };
+
+  // Função para fechar o pop-up
+  const handleClosePopup = () => {
+    setPopupVisible(false);
+  };
+
   return (
     <main className={styles.homeContainer}>
       <title>PVH Pesca Show - O Festival de Pesca de Porto Velho</title>
+      
+      {/* Pop-up que será exibido condicionalmente */}
+      {isPopupVisible && (
+        <div className={styles.popupOverlay}>
+          <div className={styles.popupContent}>
+            <p>
+              O Festival será um sucesso. Atingimos o limite de inscritos e gostaríamos de agradecer a todos os participantes que farão do XIII TOPAS, categorias caiaque e embarcado, um evento incrível e familiar. Boa sorte a todos os competidores.
+            </p>
+            <button onClick={handleClosePopup} className={styles.popupOkButton}>
+              OK
+            </button>
+          </div>
+        </div>
+      )}
       
       {/* Seção Principal com Carrossel e Texto */}
       <div className={styles.homeLayout}>
@@ -193,13 +221,14 @@ function HomePage() {
             O festival PVH Pesca Show foi pensado como uma iniciativa para fomentar o turismo, valorizar a cultura local e incentivar a prática sustentável da pesca no município de Porto Velho. É uma celebração da nossa cultura, gastronomia, do turismo e da pesca da nossa capital.
           </p>
           
+          {/* BOTÕES ALTERADOS PARA EXIBIR O POP-UP */}
           <div className={styles.buttonContainer}>
-            <Link to="/inscricao" className={styles.actionButton}>
-              Inscreva-se agora no Torneio
-            </Link>
-            <Link to="/inscricao-caiaque" className={styles.actionButton}>
-              Inscreva-se agora no Caiaque              
-            </Link>
+            <button onClick={handleShowPopup} className={`${styles.actionButton} ${styles.disabledButton}`}>
+              Inscrições Encerradas (Torneio)
+            </button>
+            <button onClick={handleShowPopup} className={`${styles.actionButton} ${styles.disabledButton}`}>
+              Inscrições Encerradas (Caiaque)
+            </button>
           </div>
         </div>
       </div>
@@ -347,105 +376,35 @@ function HomePage() {
         </div>
       </section>
       
-      {/* AQUI VOCÊ CHAMA O COMPONENTE DE REGRAS */}
       <RulesSection />
 
       {/* Seção de Patrocinadores */}
       <section className={`${styles.section} ${styles.sponsorsSection}`}>
         <h2 className={styles.sectionTitle}>Nossos Patrocinadores</h2>
         <div className={styles.sponsorsGrid}>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador} alt="Logo Empório de Pescados" />
-            <p>Empório de Pescados</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador2} alt="Logo Ademicon" />
-            <p>Ademicon Consórcio</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador3} alt="Logo Lounge Sushi Bar" />
-            <p>Lounge Sushi Bar</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador4} alt="Logo Marquinhos Variedades" />
-            <p>Marquinhos Variedades</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador5} alt="Logo Ponce Energia" />
-            <p>Ponce Energia</p>
-          </div>
-            <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador6} alt="Logo Marquinhos Variedades" />
-            <p>Ricardão Caça e Pesca</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador7} alt="Logo Marquinhos Variedades" />
-            <p>Lojão Da Pesca</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador8} alt="Logo Marquinhos Variedades" />
-            <p>Mafra</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador9} alt="Logo Marquinhos Variedades" />
-            <p>FecomércioRO</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador10} alt="Logo Marquinhos Variedades" />
-            <p>CLC</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador11} alt="Logo Marquinhos Variedades" />
-            <p>Aventura Caça e Pesca</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador12} alt="Logo Marquinhos Variedades" />
-            <p>Bão de Pesca</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador13} alt="Logo Marquinhos Variedades" />
-            <p>Big Gelo</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador14} alt="Logo Marquinhos Variedades" />
-            <p>China Norte</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador15} alt="Logo Marquinhos Variedades" />
-            <p>Raio De Sol Restaurante</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador16} alt="Logo Marquinhos Variedades" />
-            <p>Queridão Restaurante e Pizzaria</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador17} alt="Logo Marquinhos Variedades" />
-            <p>Rafa Lures - Pesca e Náutica</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador18} alt="Logo Marquinhos Variedades" />
-            <p>Sicoob</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador19} alt="Logo Marquinhos Variedades" />
-            <p>Deputado Estadual - Ribeiro do SINPOL</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador20} alt="Logo Marquinhos Variedades" />
-            <p>Grupo Gama</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador21} alt="Logo Marquinhos Variedades" />
-            <p>Real Barcos</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador22} alt="Logo Marquinhos Variedades" />
-            <p>Albatroz Fishing</p>
-          </div>
-          <div className={styles.sponsorItem}>
-            <img src={logoPatrocinador23} alt="Logo Marquinhos Variedades" />
-            <p>Caiaqueiros De Rondônia</p>
-          </div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador} alt="Logo Empório de Pescados" /><p>Empório de Pescados</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador2} alt="Logo Ademicon" /><p>Ademicon Consórcio</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador3} alt="Logo Lounge Sushi Bar" /><p>Lounge Sushi Bar</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador4} alt="Logo Marquinhos Variedades" /><p>Marquinhos Variedades</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador5} alt="Logo Ponce Energia" /><p>Ponce Energia</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador6} alt="Logo Ricardão Caça e Pesca" /><p>Ricardão Caça e Pesca</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador7} alt="Logo Lojão Da Pesca" /><p>Lojão Da Pesca</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador8} alt="Logo Mafra" /><p>Mafra</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador9} alt="Logo FecomércioRO" /><p>FecomércioRO</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador10} alt="Logo CLC" /><p>CLC</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador11} alt="Logo Aventura Caça e Pesca" /><p>Aventura Caça e Pesca</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador12} alt="Logo Bão de Pesca" /><p>Bão de Pesca</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador13} alt="Logo Big Gelo" /><p>Big Gelo</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador14} alt="Logo China Norte" /><p>China Norte</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador15} alt="Logo Raio De Sol Restaurante" /><p>Raio De Sol Restaurante</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador16} alt="Logo Queridão Restaurante e Pizzaria" /><p>Queridão Restaurante e Pizzaria</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador17} alt="Logo Rafa Lures - Pesca e Náutica" /><p>Rafa Lures - Pesca e Náutica</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador18} alt="Logo Sicoob" /><p>Sicoob</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador19} alt="Logo Deputado Estadual - Ribeiro do SINPOL" /><p>Deputado Estadual - Ribeiro do SINPOL</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador20} alt="Logo Grupo Gama" /><p>Grupo Gama</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador21} alt="Logo Real Barcos" /><p>Real Barcos</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador22} alt="Logo Albatroz Fishing" /><p>Albatroz Fishing</p></div>
+          <div className={styles.sponsorItem}><img src={logoPatrocinador23} alt="Logo Caiaqueiros De Rondônia" /><p>Caiaqueiros De Rondônia</p></div>
         </div>
       </section>
       

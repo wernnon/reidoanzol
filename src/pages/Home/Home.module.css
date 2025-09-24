@@ -550,6 +550,72 @@
 }
 
 
+/* ... (todo o seu CSS existente vai aqui em cima) ... */
+
+/* NOVOS ESTILOS PARA O POP-UP */
+.popupOverlay {
+  position: fixed; /* Fixa o pop-up na tela */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Garante que o pop-up fique na frente de tudo */
+}
+
+.popupContent {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px; /* Largura máxima do pop-up */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espaço entre o texto e o botão */
+}
+
+.popupContent p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  margin: 0; /* Remove margens padrão */
+}
+
+.popupOkButton {
+  background-color: #00a608;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center; /* Centraliza o botão no flex container */
+}
+
+.popupOkButton:hover {
+  background-color: #008c06;
+}
+
+/* NOVO ESTILO PARA DEIXAR OS BOTÕES COM APARÊNCIA DE INATIVOS */
+.disabledButton {
+  background-color: #95a5a6; /* Cor cinza para indicar inatividade */
+  cursor: pointer; /* Mantém o cursor de clique para abrir o pop-up */
+  box-shadow: none; /* Remove a sombra */
+}
+
+.disabledButton:hover {
+  background-color: #7f8c8d; /* Escurece um pouco no hover */
+  transform: none; /* Remove o efeito de levantar */
+}
+
+
 
 /* --- Media Queries para Responsividade --- */
 @media (max-width: 992px) {
@@ -613,4 +679,10 @@
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
   }
+}
+
+.popupContent {
+  /* ...outros estilos... */
+  width: 90%;
+  max-width: 500px; 
 }

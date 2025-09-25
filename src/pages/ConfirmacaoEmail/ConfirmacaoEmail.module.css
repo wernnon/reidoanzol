@@ -1,0 +1,74 @@
+/* CSS 100% Responsivo para a Página de Confirmação */
+
+/* Estilos Base (Mobile-First) - Para telas pequenas */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f0f2f5;
+  box-sizing: border-box;
+}
+
+.card {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  padding: 30px 25px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card h1 {
+  font-size: 1.6rem;
+  color: #28a745;
+  margin-top: 0;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.loginButton {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.loginButton:hover, .loginButton:active {
+  background-color: #0056b3;
+  transform: scale(1.02);
+}
+
+/* Media Query para telas maiores (tablets e desktops) */
+@media (min-width: 600px) {
+  .card {
+    padding: 40px 50px;
+  }
+
+  .card h1 {
+    font-size: 2rem;
+  }
+
+  .loginButton {
+    display: inline-block;
+    width: auto;
+    padding: 15px 40px;
+  }
+}

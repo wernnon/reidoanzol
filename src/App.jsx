@@ -11,6 +11,7 @@ import AboutPage from './pages/About';
 import Footer from './components/Footer'; 
 import FormularioPage from './pages/Formulario' ;
 import FormularioKayakPage from './pages/FormularioKayak';
+import ConfirmacaoEmail from './pages/ConfirmacaoEmail';
 
 console.log('App.jsx carregado!'); // Log no carregamento do arquivo
 
@@ -38,6 +39,7 @@ function App() {
           <Route path="/inscricao" element={<FormularioPage />} /> {/* Rota do formulário */}
           <Route path='/inscricao-caiaque' element={<FormularioKayakPage/>} /> {/* Rota do formulário de caiaque */}
           <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/confirmar-email" element={<ConfirmacaoEmail />} />
         </Routes>
       </div>
       <Footer />

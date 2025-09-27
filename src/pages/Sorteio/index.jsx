@@ -1,10 +1,27 @@
 import React, { useState } from 'react';
 import styles from './Sorteio.module.css';
 import { Link } from 'react-router-dom';
-import InputMask from 'react-input-mask';
+// A linha 'import InputMask' foi removida.
 
-// A URL da API agora vem de uma variável de ambiente do VITE
-const API_URL = import.meta.env.VITE_API_BASE_URL;
+// NOVA FUNÇÃO PARA FORMATAR O TELEFONE MANUALMENTE
+const formatPhoneNumber = (value) => {
+  // Remove tudo que não for dígito
+  const digits = value.replace(/\D/g, '');
+
+  // Limita a 11 dígitos (DDD + 9 dígitos)
+  const truncatedDigits = digits.slice(0, 11);
+
+  // Aplica a máscara (99) 99999-9999
+  if (truncatedDigits.length > 7) {
+    return `(${truncatedDigits.slice(0, 2)}) ${truncatedDigits.slice(2, 7)}-${truncatedDigits.slice(7)}`;
+  } else if (truncatedDigits.length > 2) {
+    return `(${truncatedDigits.slice(0, 2)}) ${truncatedDigits.slice(2)}`;
+  } else if (truncatedDigits.length > 0) {
+    return `(${truncatedDigits}`;
+  } else {
+    return '';
+  }
+};
 
 function SorteioPage() {
   const [nome, setNome] = useState('');
@@ -22,9 +39,7 @@ function SorteioPage() {
 
     try {
       const cleanTelefone = telefone.replace(/\D/g, ''); 
-      
-      // A chamada agora usa a variável API_URL, que será o endereço correto na Vercel
-      const response = await fetch(`${API_URL}/api/register-raffle`, {
+      const response = await fetch('https://reidoanzol-api.vercel.app/api/register-raffle', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -98,12 +113,14 @@ function SorteioPage() {
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="telefone">Telefone (com DDD)</label>
-                <InputMask
-                  mask="(99) 99999-9999"
+                {/* VOLTAMOS A USAR UM INPUT NORMAL COM A NOSSA FUNÇÃO DE FORMATAÇÃO */}
+                <input
+                  type="tel"
                   id="telefone"
                   value={telefone}
-                  onChange={(e) => setTelefone(e.target.value)}
+                  onChange={(e) => setTelefone(formatPhoneNumber(e.target.value))}
                   placeholder="(99) 99999-9999"
+                  maxLength="15"
                   required
                 />
               </div>

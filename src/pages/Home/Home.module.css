@@ -686,3 +686,13 @@
   width: 90%;
   max-width: 500px; 
 }
+
+
+/* NOVO ESTILO PARA O BOTÃO DE SORTEIO */
+.raffleButton {
+  background-color: #e67e22; /* Uma cor de destaque diferente */
+}
+
+.raffleButton:hover {
+  background-color: #d35400;
+}

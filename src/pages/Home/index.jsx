@@ -153,16 +153,13 @@ function RulesSection() {
 
 // --- COMPONENTE PRINCIPAL DA PÁGINA ---
 function HomePage() {
-  // Estado para controlar a visibilidade do pop-up
   const [isPopupVisible, setPopupVisible] = useState(false);
 
-  // Função para mostrar o pop-up, previne a ação padrão do evento
   const handleShowPopup = (event) => {
     event.preventDefault(); 
     setPopupVisible(true);
   };
 
-  // Função para fechar o pop-up
   const handleClosePopup = () => {
     setPopupVisible(false);
   };
@@ -171,7 +168,6 @@ function HomePage() {
     <main className={styles.homeContainer}>
       <title>PVH Pesca Show - O Festival de Pesca de Porto Velho</title>
       
-      {/* Pop-up que será exibido condicionalmente */}
       {isPopupVisible && (
         <div className={styles.popupOverlay}>
           <div className={styles.popupContent}>
@@ -221,7 +217,6 @@ function HomePage() {
             O festival PVH Pesca Show foi pensado como uma iniciativa para fomentar o turismo, valorizar a cultura local e incentivar a prática sustentável da pesca no município de Porto Velho. É uma celebração da nossa cultura, gastronomia, do turismo e da pesca da nossa capital.
           </p>
           
-          {/* BOTÕES ALTERADOS PARA EXIBIR O POP-UP */}
           <div className={styles.buttonContainer}>
             <button onClick={handleShowPopup} className={`${styles.actionButton} ${styles.disabledButton}`}>
               Inscrições Encerradas (Torneio)
@@ -229,6 +224,10 @@ function HomePage() {
             <button onClick={handleShowPopup} className={`${styles.actionButton} ${styles.disabledButton}`}>
               Inscrições Encerradas (Caiaque)
             </button>
+            {/* NOVO BOTÃO PARA O SORTEIO */}
+  <Link to="/sorteio" className={`${styles.actionButton} ${styles.raffleButton}`}>
+    Participe do Sorteio
+  </Link>
           </div>
         </div>
       </div>
@@ -376,6 +375,7 @@ function HomePage() {
         </div>
       </section>
       
+      {/* AQUI VOCÊ CHAMA O COMPONENTE DE REGRAS */}
       <RulesSection />
 
       {/* Seção de Patrocinadores */}

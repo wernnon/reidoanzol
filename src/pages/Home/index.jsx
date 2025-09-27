@@ -23,6 +23,7 @@ import logoPatrocinador2 from '../../assets/logo-patrocinador2.png';
 import logoPatrocinador3 from '../../assets/logo-patrocinador3.png';
 import logoPatrocinador4 from '../../assets/logo-patrocinador4.png';
 import logoPatrocinador5 from '../../assets/logo-patrocinador5.png';
+// Adicione os outros imports de patrocinadores aqui
 import logoPatrocinador6 from '../../assets/logo-patrocinador6.png';
 import logoPatrocinador7 from '../../assets/logo-patrocinador7.png';
 import logoPatrocinador8 from '../../assets/logo-patrocinador8.png';
@@ -43,7 +44,7 @@ import logoPatrocinador22 from '../../assets/logo-patrocinador22.png';
 import logoPatrocinador23 from '../../assets/logo-patrocinador23.png';
 
 
-// --- COMPONENTE DAS REGRAS (Definido separadamente para melhor organização) ---
+// --- COMPONENTE DAS REGRAS (Definido ANTES de ser usado) ---
 function RulesSection() {
   const [activeRules, setActiveRules] = useState('embarcado');
 
@@ -224,10 +225,9 @@ function HomePage() {
             <button onClick={handleShowPopup} className={`${styles.actionButton} ${styles.disabledButton}`}>
               Inscrições Encerradas (Caiaque)
             </button>
-            {/* NOVO BOTÃO PARA O SORTEIO */}
-  <Link to="/sorteio" className={`${styles.actionButton} ${styles.raffleButton}`}>
-    Participe do Sorteio
-  </Link>
+            <Link to="/sorteio" className={`${styles.actionButton} ${styles.raffleButton}`}>
+              Participe do Sorteio
+            </Link>
           </div>
         </div>
       </div>
@@ -375,7 +375,7 @@ function HomePage() {
         </div>
       </section>
       
-      {/* AQUI VOCÊ CHAMA O COMPONENTE DE REGRAS */}
+      {/* Chamada do componente de Regras, agora que ele foi definido acima */}
       <RulesSection />
 
       {/* Seção de Patrocinadores */}

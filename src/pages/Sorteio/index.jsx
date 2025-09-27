@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import styles from './Sorteio.module.css';
 import { Link } from 'react-router-dom';
-import InputMask from 'react-input-mask'; // Esta linha precisa do pacote instalado para funcionar
+import InputMask from 'react-input-mask';
+
+// A URL da API agora vem de uma variável de ambiente do VITE
+const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 function SorteioPage() {
   const [nome, setNome] = useState('');
@@ -19,7 +22,9 @@ function SorteioPage() {
 
     try {
       const cleanTelefone = telefone.replace(/\D/g, ''); 
-      const response = await fetch('http://localhost:3001/api/register-raffle', {
+      
+      // A chamada agora usa a variável API_URL, que será o endereço correto na Vercel
+      const response = await fetch(`${API_URL}/api/register-raffle`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

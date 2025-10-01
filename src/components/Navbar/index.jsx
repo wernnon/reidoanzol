@@ -6,7 +6,7 @@ import styles from './Navbar.module.css';
 import logoPrincipal from '../../assets/logo-festival.png';
 
 // Logos parceiros
-import logoSopescar from '../../assets/sopescar-logo.png';
+import logorei from '../../assets/logo_rei.png';
 import logoSemtel from '../../assets/semtel-logo.png';
 import logoDataRo from '../../assets/dataro-logo.png';
 
@@ -21,16 +21,12 @@ function Navbar() {
     <nav className={styles.navbar}>
       {/* 1. Logotipo Principal (Esquerda) */}
       <Link to="/" className={styles.brand}>
-        <img src={logoPrincipal} alt="Logo PVH Pesca Show" className={styles.logo} />
+        <img src={logorei} alt="Logo Rei Do Anzol" className={styles.logo} />
       </Link>
       
       {/* 2. Logos Centrais para DESKTOP (some em telas menores) */}
       <div className={`${styles.centerLogos} ${styles.desktopOnly}`}>
-        <a href="https://www.instagram.com/so_pescar" target="_blank" rel="noopener noreferrer">
-          <img src={logoSopescar} alt="Logo SOPESCAR" />
-        </a>
-        <a href="https://www.instagram.com/semtel.pvh" target="_blank" rel="noopener noreferrer">
-          <img src={logoSemtel} alt="Logo SEMTEL" />
+        <a href="" target="_blank" rel="noopener noreferrer">
         </a>
         <a href="https://www.instagram.com/dataro_it" target="_blank" rel="noopener noreferrer">
           <img src={logoDataRo} alt="Logo DATA-RO" />
@@ -49,12 +45,6 @@ function Navbar() {
           
           {/* LOGOS PARCEIROS DEPOIS (somente no menu mobile e com links) */}
           <li className={`${styles.centerLogos} ${styles.mobileOnly}`}>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <img src={logoSopescar} alt="Logo SOPESCAR" />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <img src={logoSemtel} alt="Logo SEMTEL" />
-            </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
               <img src={logoDataRo} alt="Logo DATA-RO" />
             </a>

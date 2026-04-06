@@ -1,3 +1,4 @@
+//6f7267206f776e206472
 import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'

@@ -1,25 +1,40 @@
-/* Definindo a nova fonte e o tema base para todo o site */
-body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif; /* Nova fonte aplicada */
-  background-color: #ffffff; /* Fundo branco */
-  color: #333333; /* Texto principal em cinza escuro, mais suave que preto puro */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ==========================================================================
+   1. IMPORTAÇÃO DE FONTES
+   Importa a fonte Montserrat do Google Fonts com vários pesos (espessuras)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================================================
+   2. CONFIGURAÇÕES DA PÁGINA E TEMA BASE
+   ========================================================================== */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Previne rolagem lateral acidental */
+    background-color: #000b18; /* Garante que o fundo "base" do navegador já seja escuro */
+    font-family: 'Montserrat', sans-serif; /* A fonte elegante e moderna */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Garante que o layout ocupe 100% da altura para o footer funcionar */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* ==========================================================================
+   3. ESTRUTURA DO LAYOUT (STICKY FOOTER)
+   Garante que o rodapé fique sempre no final da tela
+   ========================================================================== */
 #root {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; /* 100% da altura da tela de visualização */
 }
 
-/* Um estilo para o conteúdo principal empurrar o footer para baixo */
+/* Envolve o conteúdo das suas páginas. O flex: 1 faz ele crescer e empurrar o footer. */
 .content-wrap {
   flex: 1;
-}
-
-html {
-  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
 }

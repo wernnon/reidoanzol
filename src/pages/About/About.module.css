@@ -1,166 +1,254 @@
 .aboutContainer {
-  width: 100%;
+  position: relative;
+  min-height: 100vh;
+  background-color: #000b18;
+  color: #e6f1ff;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
 }
 
-/* --- Estilos da Seção Hero --- */
+/* --- HERO SECTION --- */
 .heroSection {
-  height: 60vh;
-  min-height: 400px;
-  background-size: cover;
-  background-position: center;
   position: relative;
+  height: 60vh;
+  min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
   text-align: center;
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Efeito Parallax */
+  z-index: 1;
 }
 
 .heroOverlay {
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 11, 24, 0.4), rgba(0, 11, 24, 1));
+  z-index: 2;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-  box-sizing: border-box;
 }
 
-.heroSection h1 {
-  font-size: 4rem;
-  font-weight: 700;
+.heroContent {
+  z-index: 3;
+  padding: 0 5%;
+}
+
+.heroContent h1 {
+  font-size: 5rem;
+  font-weight: 900;
   margin: 0;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  letter-spacing: 2px;
+  background: linear-gradient(to right, #00cec9, #0984e3);
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
 }
 
-.heroSection p {
+.tagline {
   font-size: 1.5rem;
-  margin-top: 0.5rem;
-  max-width: 800px;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  color: #dfe4ea;
+  margin-top: 10px;
+  font-weight: 500;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.8);
 }
 
-/* --- Estilos Gerais das Seções --- */
-.section {
-  width: 90%;
-  max-width: 1400px; /* Largura máxima para telas grandes/TVs */
-  margin: 4rem auto;
-  padding: 2rem;
-  border-radius: 15px;
-  box-sizing: border-box;
+.heroDivider {
+  width: 100px;
+  height: 4px;
+  background: #00cec9;
+  margin: 2rem auto 0;
+  border-radius: 2px;
 }
 
-.sectionTitle {
-  font-size: 2.2rem;
-  color: #00a651;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.sectionSubtitle {
-  max-width: 600px;
-  margin: -1.5rem auto 2.5rem auto;
-  font-size: 1.1rem;
-  color: #666;
-  line-height: 1.6;
-  text-align: center;
-}
-
-/* --- Seção de Missão --- */
-.missionContent {
-  max-width: 900px;
+/* --- WRAPPER CONTEÚDO PRINCIPAL --- */
+.contentWrapper {
+  max-width: 1200px;
   margin: 0 auto;
-  text-align: center;
+  padding: 4rem 5%;
+  position: relative;
+  z-index: 10;
 }
 
-.missionContent p {
+/* --- SECTION HEADERS --- */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.sectionHeader h2 {
+  font-size: 2.2rem;
+  color: #fff;
+  margin: 0 0 10px 0;
+}
+
+.sectionHeader p {
+  color: #8892b0;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- MISSÃO E VISÃO --- */
+.missionSection {
+  margin-bottom: 6rem;
+  background: rgba(10, 25, 47, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 4rem;
+  border-radius: 24px;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.missionSection::before {
+  content: '';
+  position: absolute; top: -50px; left: -50px; width: 150px; height: 150px;
+  background: radial-gradient(circle, rgba(0, 206, 201, 0.2) 0%, transparent 70%);
+  border-radius: 50%; pointer-events: none;
+}
+
+.gradientTitle {
+  font-size: 2.5rem;
+  margin: 0 0 1.5rem 0;
+  background: linear-gradient(135deg, #00e676, #00cec9);
+  -webkit-text-fill-color: transparent;
+}
+
+.missionText p {
   font-size: 1.2rem;
   line-height: 1.8;
-  color: #555;
+  color: #a4b0be;
+  margin-bottom: 1.5rem;
+}
+.missionText strong { color: #fff; }
+
+.badgesWrapper {
+  display: flex; gap: 15px; margin-top: 2rem; flex-wrap: wrap;
 }
 
-/* --- Seção de Atividades --- */
+.missionBadge {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(0, 230, 118, 0.1);
+  color: #00e676; border: 1px solid rgba(0, 230, 118, 0.3);
+  padding: 8px 16px; border-radius: 20px; font-weight: 600;
+}
+
+/* --- O QUE FAZEMOS (CARDS) --- */
 .activitiesSection {
-  background-color: #f9f9f9;
+  margin-bottom: 6rem;
 }
 
 .activitiesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
 }
 
 .activityCard {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: rgba(10, 25, 47, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-top: 4px solid #00a651;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .activityCard:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-color: rgba(9, 132, 227, 0.4);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(9, 132, 227, 0.1);
 }
 
+.iconWrap {
+  width: 70px; height: 70px;
+  background: rgba(9, 132, 227, 0.1);
+  color: #0984e3;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1.5rem;
+  transition: transform 0.3s;
+}
+.activityCard:hover .iconWrap { transform: scale(1.1); background: #0984e3; color: #fff; }
+
 .activityCard h3 {
-  font-size: 1.4rem;
-  color: #333;
-  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 1rem;
 }
 
 .activityCard p {
   font-size: 1rem;
-  color: #666;
+  color: #8892b0;
   line-height: 1.6;
+  margin: 0;
 }
 
-/* --- Seção de Galeria --- */
+/* --- GALERIA --- */
+.gallerySection {
+  margin-bottom: 4rem;
+}
+
 .galleryGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
+}
+
+.galleryItem {
+  position: relative;
+  height: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .galleryItem img {
   width: 100%;
-  height: 250px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: transform 0.6s ease;
 }
 
-.galleryItem img:hover {
-  transform: scale(1.05);
-  filter: brightness(1.1);
+.imageOverlay {
+  position: absolute;
+  bottom: 0; left: 0; width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  padding: 30px 20px 20px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.galleryItem:hover img { transform: scale(1.1); }
+.galleryItem:hover .imageOverlay { opacity: 1; }
+
+.imageOverlay span {
+  color: #fff; font-weight: bold; font-size: 1.1rem;
+  border-left: 3px solid #00cec9; padding-left: 10px;
 }
 
 
-/* --- Media Queries --- */
-
-/* Telas de Tablet */
+/* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
-  .heroSection h1 {
-    font-size: 3rem;
-  }
-  .heroSection p {
-    font-size: 1.2rem;
-  }
-  .sectionTitle {
-    font-size: 1.8rem;
-  }
+  .heroContent h1 { font-size: 3.5rem; }
+  .tagline { font-size: 1.2rem; }
+  .missionSection { padding: 2rem; border-radius: 15px; }
+  .gradientTitle { font-size: 2rem; }
+  .contentWrapper { padding: 3rem 5%; }
 }
 
-/* Telas de Celular */
-@media (max-width: 576px) {
-  .heroSection h1 {
-    font-size: 2.5rem;
-  }
-  .heroSection p {
-    font-size: 1.1rem;
-  }
+@media (max-width: 480px) {
+  .heroContent h1 { font-size: 2.5rem; }
+  .badgesWrapper { flex-direction: column; align-items: flex-start; }
 }

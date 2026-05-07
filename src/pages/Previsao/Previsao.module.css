@@ -1,0 +1,150 @@
+.forecastContainer {
+  position: relative;
+  min-height: 100vh;
+  padding: 8rem 5% 4rem 5%;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+/* Transição suave de fundo ao trocar de local */
+.ambientBackground {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 0; pointer-events: none; transition: background 1s ease-in-out;
+}
+
+.contentWrapper { position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; }
+
+/* HEADER */
+.header { text-align: center; margin-bottom: 2rem; }
+.header h2 { font-size: 2.5rem; margin: 0 0 10px 0; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+.subtitle { color: #f1f2f6; font-size: 1.1rem; text-shadow: 0 1px 5px rgba(0,0,0,0.5); }
+
+/* LOADING */
+.loadingBox {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  height: 400px; color: #fff; font-size: 1.2rem; text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+.spinIcon { font-size: 5rem; animation: pulse 2s infinite ease-in-out; }
+@keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } 100% { transform: scale(1); opacity: 0.8; } }
+
+/* SELETOR DE PONTOS DE PESCA */
+.spotSelector {
+  display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; margin-bottom: 2rem;
+  scrollbar-width: none;
+}
+.spotSelector::-webkit-scrollbar { display: none; }
+
+.spotBtn {
+  flex: 0 0 auto; display: flex; align-items: center; gap: 15px;
+  background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 20px; border-radius: 15px; cursor: pointer; transition: all 0.3s;
+  text-align: left; color: #fff; min-width: 220px; backdrop-filter: blur(10px);
+}
+.spotBtn:hover { background: rgba(0, 0, 0, 0.6); transform: translateY(-3px); }
+
+.activeSpot {
+  background: rgba(0, 206, 201, 0.4); border-color: #00cec9;
+  box-shadow: 0 5px 15px rgba(0, 206, 201, 0.3);
+}
+
+.spotIcon { font-size: 2rem; color: #00cec9; }
+.activeSpot .spotIcon { color: #fff; }
+.spotText strong { display: block; font-size: 1.05rem; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
+.spotText span { font-size: 0.8rem; color: #dfe4ea; text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
+
+/* DASHBOARD GRID E CARDS */
+.dashboardGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+
+.card {
+  /* Escureci um pouco o fundo para manter contraste no céu claro */
+  background: rgba(10, 15, 30, 0.7); border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px; padding: 2rem; backdrop-filter: blur(15px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.cardTitle { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 1.2rem; margin: 0 0 1.5rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+
+/* WEATHER CARD */
+.weatherCard { grid-column: span 1; display: flex; flex-direction: column; justify-content: space-between; }
+@media (min-width: 1024px) { .weatherCard { grid-column: span 2; } }
+
+.weatherHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.locationBadge { display: inline-flex; align-items: center; gap: 8px; font-weight: bold; font-size: 1.2rem; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+.iconAccent { color: #00cec9; }
+.liveBadge { background: #ff4d4f; color: #fff; font-weight: bold; padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; animation: blink 2s infinite; }
+@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
+/* ÍCONES DE CLIMA ESTILIZADOS */
+.weatherMain { display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; }
+.iconSun { font-size: 6rem; color: #fbc531; filter: drop-shadow(0 0 20px rgba(251, 197, 49, 0.6)); }
+.iconMoon { font-size: 6rem; color: #dfe6e9; filter: drop-shadow(0 0 15px rgba(223, 230, 233, 0.4)); }
+.iconCloud { font-size: 6rem; color: #b2bec3; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3)); }
+.iconRain { font-size: 6rem; color: #74b9ff; filter: drop-shadow(0 0 10px rgba(116, 185, 255, 0.5)); }
+
+.tempBox h1 { font-size: 4.5rem; margin: 0; line-height: 1; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+.tempBox span { color: #00cec9; font-size: 1.3rem; font-weight: bold; text-shadow: 0 1px 3px rgba(0,0,0,0.5); text-transform: uppercase; }
+
+.weatherGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; background: rgba(0, 0, 0, 0.4); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+@media (min-width: 768px) { .weatherGrid { grid-template-columns: repeat(4, 1fr); } }
+
+.detailItem { display: flex; align-items: center; gap: 12px; color: #fff; }
+.detailItem small { color: #a4b0be; font-size: 0.85rem; text-transform: uppercase; }
+.detailItem strong { font-size: 1.1rem; }
+.detailIcon { font-size: 1.5rem; color: #74b9ff; }
+.detailIconHuge { font-size: 2.2rem; color: #74b9ff; margin-left: -5px; }
+
+/* HIDROLOGIA CARD */
+.waterInfo { display: flex; flex-direction: column; gap: 1rem; }
+.waterData { display: flex; justify-content: space-between; align-items: center; background: rgba(0, 0, 0, 0.3); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+.label { color: #a4b0be; font-weight: 500; }
+.valueHighlight { color: #00cec9; font-weight: bold; font-size: 1.3rem; }
+.value { display: flex; align-items: center; gap: 8px; font-weight: bold; color: #fff;}
+.trendDown { color: #00e676; display: flex; align-items: center; gap: 5px; font-weight: bold; }
+.trendUp { color: #ff4d4f; display: flex; align-items: center; gap: 5px; font-weight: bold; }
+
+/* SOLUNAR CARD */
+.solunarCard { border-color: rgba(156, 136, 255, 0.3); }
+
+.activitySection { margin-bottom: 2rem; }
+.activityHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 1.1rem; color: #fff; }
+.moonBadge { display: flex; align-items: center; gap: 5px; background: rgba(156, 136, 255, 0.2); color: #c8d6e5; padding: 5px 12px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(156, 136, 255, 0.4); }
+
+.progressBarBg { width: 100%; height: 12px; background: rgba(0, 0, 0, 0.5); border-radius: 10px; overflow: hidden; border: 1px inset rgba(255,255,255,0.1); }
+.progressBarFill { height: 100%; border-radius: 10px; box-shadow: inset 0 0 10px rgba(255,255,255,0.5); }
+
+.speciesSection h5 { display: flex; align-items: center; gap: 8px; color: #fff; margin: 0 0 15px 0; font-size: 1rem; }
+.speciesTags { display: flex; flex-wrap: wrap; gap: 10px; }
+.speciesTag { background: rgba(9, 132, 227, 0.2); border: 1px solid rgba(9, 132, 227, 0.4); color: #fff; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
+
+@media (max-width: 768px) {
+  .weatherMain { flex-direction: column; text-align: center; }
+  .weatherGrid { grid-template-columns: repeat(2, 1fr); }
+  .weatherHeader { flex-direction: column; gap: 1rem; align-items: flex-start; }
+}
+
+/* ... [MANTENHA TODO O CSS DA RESPOSTA ANTERIOR E ADICIONE ISTO] ... */
+
+/* DICA DO PILOTEIRO */
+.tipCard { background: linear-gradient(135deg, rgba(10, 25, 47, 0.8), rgba(251, 197, 49, 0.05)); }
+.tipContent { background: rgba(0, 0, 0, 0.3); padding: 1.5rem; border-radius: 12px; border-left: 4px solid #fbc531; margin-bottom: 1.5rem; }
+.tipContent p { margin: 0; font-size: 1.05rem; line-height: 1.6; color: #f1f2f6; font-style: italic; }
+
+/* PROGRESS BAR ÍNDICE DE AÇÃO */
+.statusBadge { padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; }
+.scoreText { font-size: 0.85rem; color: #a4b0be; text-align: center; margin-top: 15px; }
+
+/* HORÁRIOS SOLARES E LUA */
+.sunMoonGrid { display: flex; flex-direction: column; gap: 1rem; }
+.sunMoonItem { display: flex; align-items: center; gap: 15px; background: rgba(0, 0, 0, 0.2); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+.sunIcon { font-size: 2.5rem; color: #fbc531; }
+.moonIconWrap { font-size: 2.5rem; color: #dcdde1; display: flex; }
+.sunText { display: flex; flex-direction: column; }
+.sunText small { color: #a4b0be; font-size: 0.85rem; }
+.sunText strong { color: #fff; font-size: 1.2rem; }
+
+/* Ajuste no Grid para ficar bonito com 5 cards */
+@media (min-width: 1024px) {
+  .dashboardGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .weatherCard { grid-column: span 3; } /* Cabeçalho Gigante na 1a linha */
+  .tipCard { grid-column: span 2; }    /* Dica e espécies usa 2 colunas */
+}

@@ -1,0 +1,210 @@
+/* ==========================================================================
+   1. FUNDO E ESTRUTURA GERAL
+   ========================================================================== */
+.registerContainer {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* No desktop centra o cartão perfeitamente */
+  background-color: #000b18; /* Azul Escuro Abissal */
+  padding: 5rem 1rem 3rem 1rem; /* Padding top generoso para o scroll no mobile */
+  font-family: 'Montserrat', sans-serif;
+  overflow-y: auto;
+}
+
+.ambientBackground {
+  position: fixed; /* Fixed para não bugar com o scroll */
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at 85% 20%, rgba(0, 77, 64, 0.4) 0%, transparent 50%),
+              radial-gradient(circle at 15% 80%, rgba(0, 58, 112, 0.5) 0%, transparent 50%);
+  z-index: 0;
+}
+
+/* Botão de Voltar */
+.backButton {
+  position: absolute;
+  top: 2rem; left: 2rem; z-index: 10;
+  display: flex; align-items: center; gap: 8px;
+  color: #8892b0; text-decoration: none; font-weight: 600; font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.05); padding: 10px 20px; border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+.backButton:hover { color: #00e676; background: rgba(255, 255, 255, 0.1); transform: translateX(-5px); border-color: rgba(0, 230, 118, 0.3); }
+
+/* ==========================================================================
+   2. CARTÃO DE VIDRO (GLASSMORPHISM)
+   ========================================================================== */
+.glassCard {
+  position: relative; z-index: 5;
+  width: 100%; max-width: 600px; /* Cartão ligeiramente mais largo para acomodar 2 colunas */
+  margin: auto; /* Truque mágico para scroll perfeito */
+  background: rgba(10, 25, 47, 0.75);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+  padding: 3rem 3.5rem; display: flex; flex-direction: column;
+}
+
+.cardHeader { text-align: center; margin-bottom: 2rem; }
+.logo { height: 70px; object-fit: contain; margin-bottom: 1rem; filter: drop-shadow(0 0 15px rgba(0, 230, 118, 0.2)); }
+.cardHeader h2 { color: #ffffff; font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; }
+.cardHeader p { color: #8892b0; font-size: 0.95rem; line-height: 1.5; }
+
+/* ==========================================================================
+   3. O FORMULÁRIO E LINHAS DUPLAS (ANTI-VAZAMENTO)
+   ========================================================================== */
+.registerForm { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 1.2rem; 
+  width: 100%; /* Força o formulário a respeitar a caixa de vidro */
+}
+
+/* Flexbox para alinhar dois inputs lado a lado (Ex: CPF e Data) */
+.rowGroup {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.rowGroup .inputGroup { 
+  flex: 1; 
+  min-width: 0; /* A CURA DO VAZAMENTO: Impede que o input estique a caixa mãe */
+}
+
+.inputGroup { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.4rem; 
+  width: 100%;
+}
+
+.inputGroup label { 
+  color: #e6f1ff; 
+  font-size: 0.85rem; 
+  font-weight: 600; 
+  margin-left: 5px; 
+}
+
+.inputWrapper {
+  position: relative; 
+  display: flex; 
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3); 
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px; 
+  overflow: hidden; 
+  transition: all 0.3s ease;
+  width: 100%; /* Garante que a borda verde do focus fique no tamanho certo */
+  box-sizing: border-box;
+}
+
+.inputWrapper:focus-within { 
+  border-color: #00e676; 
+  box-shadow: 0 0 10px rgba(0, 230, 118, 0.2); 
+  background: rgba(0, 0, 0, 0.5); 
+}
+
+.inputIcon { 
+  color: #8892b0; 
+  font-size: 1.1rem; 
+  margin-left: 15px; 
+  transition: color 0.3s ease; 
+  flex-shrink: 0; /* Impede o ícone de ser esmagado */
+}
+
+.inputWrapper:focus-within .inputIcon { 
+  color: #00e676; 
+}
+
+/* O Campo de Texto em si */
+.inputWrapper input {
+  flex: 1; 
+  width: 100%;
+  min-width: 0; /* A CURA DO VAZAMENTO 2 */
+  background: transparent; 
+  border: none; 
+  padding: 12px 15px;
+  color: #ffffff; 
+  font-size: 0.95rem; 
+  font-family: 'Montserrat', sans-serif; 
+  outline: none;
+  box-sizing: border-box;
+  color-scheme: dark; /* Faz o calendário do datepicker ficar escuro */
+}
+
+.inputWrapper input::placeholder { 
+  color: #4a5568; 
+  /* Adiciona reticências se o placeholder for maior que a tela do celular */
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  overflow: hidden;
+}
+
+.togglePasswordBtn {
+  background: transparent; 
+  border: none; 
+  color: #8892b0; 
+  font-size: 1.1rem;
+  margin-right: 15px; 
+  cursor: pointer; 
+  transition: color 0.3s ease;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  flex-shrink: 0;
+}
+.togglePasswordBtn:hover { color: #ffffff; }
+
+/* Botão Submeter */
+.submitBtn {
+  margin-top: 1rem; 
+  background: #00e676; 
+  color: #000000; 
+  border: none;
+  padding: 1rem; 
+  border-radius: 12px; 
+  font-size: 1.1rem; 
+  font-weight: 700;
+  cursor: pointer; 
+  box-shadow: 0 5px 15px rgba(0, 230, 118, 0.3);
+  transition: all 0.3s ease; 
+  text-transform: uppercase; 
+  letter-spacing: 1px;
+  width: 100%; /* Garante alinhamento perfeito */
+  box-sizing: border-box;
+}
+.submitBtn:hover { 
+  background: #ffffff; 
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3); 
+}
+
+/* ==========================================================================
+   4. RODAPÉ DO CARTÃO
+   ========================================================================== */
+.cardFooter { margin-top: 2rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1.5rem; }
+.cardFooter p { color: #8892b0; font-size: 0.9rem; }
+.loginLink { color: #00e676; font-weight: 700; text-decoration: none; margin-left: 5px; transition: color 0.3s ease; }
+.loginLink:hover { color: #ffffff; text-decoration: underline; }
+
+/* ==========================================================================
+   5. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* No Tablet/Mobile, quebramos as linhas duplas para empilhadas (1 coluna) */
+  .rowGroup { flex-direction: column; gap: 1.2rem; }
+  
+  .glassCard { padding: 2.5rem 2rem; max-width: 90%; }
+  
+  .backButton { top: 1rem; left: 1rem; padding: 8px 12px; font-size: 0.8rem; }
+}
+
+@media (max-width: 480px) {
+  .registerContainer { padding-top: 4.5rem; }
+  .glassCard { padding: 2rem 1.2rem; }
+  .cardHeader h2 { font-size: 1.5rem; }
+  .logo { height: 50px; }
+  .inputWrapper input { padding: 10px 12px; font-size: 0.9rem; }
+}

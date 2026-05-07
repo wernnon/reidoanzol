@@ -1,6 +1,12 @@
-/* src/App.css */
+/* ==========================================================================
+   APP.CSS - ESTILOS DO COMPONENTE RAIZ
+   ========================================================================== */
+
+/* Reforço da estrutura Flexbox para garantir que o footer vá para o fundo */
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+
+/* Adicione aqui futuras classes específicas da estrutura principal do seu App */

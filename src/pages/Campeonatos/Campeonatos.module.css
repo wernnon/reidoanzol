@@ -1,0 +1,133 @@
+.champContainer {
+  position: relative;
+  min-height: 100vh;
+  background-color: #000b18;
+  color: #e6f1ff;
+  padding: 8rem 5% 4rem 5%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.ambientBackground {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at 80% 10%, rgba(241, 196, 15, 0.1) 0%, transparent 40%),
+              radial-gradient(circle at 20% 90%, rgba(9, 132, 227, 0.1) 0%, transparent 50%);
+  z-index: 0; pointer-events: none;
+}
+
+.contentWrapper { position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; }
+
+/* CABEÇALHO */
+.header { text-align: center; margin-bottom: 3rem; }
+.goldIcon { color: #fbc531; font-size: 2.2rem; filter: drop-shadow(0 0 15px rgba(251, 197, 49, 0.4)); margin-right: 10px; }
+.header h2 { display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 0 0 10px 0; color: #fff; }
+.subtitle { color: #8892b0; font-size: 1.1rem; }
+
+/* TABS */
+.tabs { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; }
+.tabBtn {
+  background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.1); color: #8892b0;
+  padding: 12px 30px; border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 1.1rem; transition: 0.3s;
+}
+.tabBtn:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+.activeTab { background: #fbc531; border-color: #fbc531; color: #000; box-shadow: 0 0 20px rgba(251, 197, 49, 0.3); }
+
+/* SEÇÃO DE EVENTOS */
+.eventsSection { display: flex; flex-direction: column; gap: 4rem; }
+
+/* HIGHLIGHT CARD (MEGA EVENTO) */
+.highlightCard {
+  display: grid; grid-template-columns: 1fr 1fr;
+  background: rgba(10, 25, 47, 0.6); border: 1px solid rgba(251, 197, 49, 0.3);
+  border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.highlightImage { position: relative; height: 100%; min-height: 350px; }
+.highlightImage img { width: 100%; height: 100%; object-fit: cover; }
+.overlayGradient { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, transparent, rgba(10, 25, 47, 1)); }
+.megaBadge { position: absolute; top: 20px; left: 20px; background: #e74c3c; color: #fff; padding: 6px 15px; border-radius: 20px; font-weight: bold; font-size: 0.85rem; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.5); }
+
+.highlightContent { padding: 3rem; display: flex; flex-direction: column; justify-content: center; z-index: 2; }
+.hlHeader h3 { font-size: 2.2rem; color: #fff; margin: 0 0 10px 0; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+.hlHeader p { display: flex; align-items: center; gap: 8px; color: #a4b0be; font-size: 1.1rem; margin-top: 0; }
+.detailIcon { color: #0984e3; }
+
+.hlGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+.hlItem { display: flex; align-items: center; gap: 15px; }
+.hlIcon { font-size: 1.8rem; color: #00cec9; }
+.hlIconGold { font-size: 1.8rem; color: #fbc531; }
+.hlItem small { display: block; color: #8892b0; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 2px; }
+.hlItem strong { display: block; color: #fff; font-size: 1.1rem; }
+
+.registerBtnGigante {
+  background: linear-gradient(135deg, #fbc531, #e1b12c); border: none; color: #000;
+  padding: 15px 30px; border-radius: 12px; font-weight: bold; font-size: 1.2rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+  transition: all 0.3s; box-shadow: 0 10px 25px rgba(251, 197, 49, 0.3);
+}
+.registerBtnGigante:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(251, 197, 49, 0.5); }
+
+/* GRID DE OUTROS EVENTOS */
+.sectionTitle { font-size: 1.8rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+.eventsGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
+
+.eventCard {
+  background: rgba(10, 25, 47, 0.8); border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px; padding: 1.5rem; display: flex; flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.eventHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.eventIconWrap { background: rgba(9, 132, 227, 0.1); color: #0984e3; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+.eventType { background: rgba(255,255,255,0.1); color: #dfe4ea; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+
+.eventTitle { font-size: 1.3rem; color: #fff; margin: 0 0 1.5rem 0; }
+
+.eventDetailsList { list-style: none; padding: 0; margin: 0 0 1.5rem 0; display: flex; flex-direction: column; gap: 12px; }
+.eventDetailsList li { display: flex; align-items: center; gap: 10px; color: #a4b0be; font-size: 0.95rem; }
+.listIcon { color: #8892b0; }
+.listIconGold { color: #fbc531; }
+.prizeHighlight { color: #fbc531 !important; font-weight: bold; font-size: 1.1rem !important; }
+
+.eventFooter { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; margin-top: auto; }
+.eventFee { color: #fff; font-weight: bold; }
+.registerBtnSmall { background: transparent; color: #00cec9; border: 1px solid #00cec9; padding: 8px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+.registerBtnSmall:hover { background: #00cec9; color: #000; }
+
+/* RANKING ESTADUAL */
+.rankingSection { max-width: 800px; margin: 0 auto; }
+.rankingHeaderBox { text-align: center; margin-bottom: 3rem; background: rgba(10, 25, 47, 0.6); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
+.rankingHeaderBox h3 { color: #fff; font-size: 1.8rem; margin: 0 0 10px 0; }
+.rankingHeaderBox p { color: #8892b0; margin: 0; }
+
+.rankingList { display: flex; flex-direction: column; gap: 1rem; }
+.rankingItem {
+  display: flex; align-items: center; gap: 1.5rem; background: rgba(10, 25, 47, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.05); padding: 1rem 1.5rem; border-radius: 15px;
+}
+.podiumItem { background: linear-gradient(90deg, rgba(251, 197, 49, 0.05), rgba(10, 25, 47, 0.8)); border-left: 4px solid #fbc531; }
+
+.rankNumber { width: 40px; font-size: 1.5rem; font-weight: bold; display: flex; justify-content: center; }
+
+.anglerProfile { display: flex; align-items: center; gap: 15px; flex: 1; }
+.anglerAvatar { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); }
+.anglerInfo h4 { margin: 0 0 3px 0; color: #fff; font-size: 1.1rem; }
+.anglerInfo span { color: #a4b0be; font-size: 0.85rem; }
+
+.anglerPoints { font-size: 1.1rem; color: #a4b0be; }
+.anglerPoints strong { color: #00cec9; font-size: 1.3rem; }
+
+/* RESPONSIVIDADE */
+@media (max-width: 900px) {
+  .highlightCard { grid-template-columns: 1fr; }
+  .highlightImage { min-height: 250px; }
+  .overlayGradient { background: linear-gradient(to top, rgba(10, 25, 47, 1), transparent); }
+}
+
+@media (max-width: 600px) {
+  .hlGrid { grid-template-columns: 1fr; }
+  .tabs { flex-direction: column; }
+  .rankingItem { flex-direction: column; text-align: center; gap: 1rem; position: relative; }
+  .rankNumber { position: absolute; top: 15px; left: 15px; }
+  .anglerProfile { flex-direction: column; }
+}

@@ -1,698 +1,275 @@
-/* Estilos Gerais */
-.homeContainer {
-  text-align: center;
-  width: 100%;
-  padding: 2rem 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+/* ==========================================================================
+   1. VARIÁVEIS GLOBAIS E TEMA PROFUNDO (DARK/NATURE MODE)
+   ========================================================================== */
+:root {
+  --green-neon: #00e676; /* Verde chamativo e tecnológico */
+  --green-dark: #00b35c;
+  --bg-dark: #000b18; /* Azul escuro abissal (Quase preto) */
+  --bg-card: rgba(10, 25, 47, 0.7); /* Vidro escuro */
+  --text-light: #e6f1ff;
+  --text-muted: #8892b0;
+  --border-glass: rgba(255, 255, 255, 0.1);
 }
 
-/* Layout Principal (Carrossel + Texto) */
-.homeLayout {
+.homeContainer {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.highlightText { color: var(--green-neon); text-shadow: 0 0 10px rgba(0, 230, 118, 0.4); }
+
+/* ==========================================================================
+   2. HERO SECTION (A Nova Central)
+   ========================================================================== */
+.heroSection {
+  position: relative;
+  padding: 6rem 0;
+  min-height: 80vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2.5rem;
+  overflow: hidden;
+}
+
+/* O Fundo Misterioso e Profundo */
+.heroBackground {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at 80% 20%, rgba(0, 77, 64, 0.3) 0%, transparent 40%),
+              radial-gradient(circle at 20% 80%, rgba(0, 58, 112, 0.4) 0%, var(--bg-dark) 60%);
+  z-index: 0;
+}
+
+.homeLayout {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
   width: 90%;
-  max-width: 1400px; /* Largura máxima para telas grandes/TVs */
+  max-width: 1400px;
   margin: 0 auto;
   flex-wrap: wrap;
 }
 
-.content {
+/* O Cartão de Vidro com o Texto */
+.contentCard {
   flex: 1;
-  max-width: 500px;
-  padding: 2rem 1.5rem;
-  background-color: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: left;
+  min-width: 350px;
+  max-width: 600px;
+  padding: 3rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 24px;
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
-.content h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #00a651;
+.mainTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.1;
   margin-bottom: 1.5rem;
-  line-height: 1.2;
+  color: #fff;
 }
 
 .justifiedText {
   font-size: 1.1rem;
-  color: #555;
-  line-height: 1.8;
-  margin-bottom: 2rem;
-  text-align: justify;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
 }
+.justifiedText strong { color: #fff; }
 
-.buttonContainer {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
+/* Botões do Hero */
+.buttonGroup { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 .actionButton {
-  background-color: #00a608;
-  color: white;
-  border: none;
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 115, 166, 0.3);
+  display: flex; justify-content: center; align-items: center; gap: 10px;
+  padding: 1rem 1.8rem; border-radius: 50px; font-weight: 700; font-size: 1rem;
+  text-decoration: none; transition: all 0.3s ease;
 }
 
-.actionButton:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 115, 166, 0.4);
+.primaryBtn {
+  background: var(--green-neon); color: #000;
+  box-shadow: 0 5px 20px rgba(0, 230, 118, 0.3);
 }
+.primaryBtn:hover { background: #fff; transform: translateY(-3px); }
 
-/* Estilos para o Carrossel */
+.secondaryBtn {
+  background: transparent; color: #fff; border: 1px solid var(--border-glass);
+}
+.secondaryBtn:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+
+
+/* Carrossel Redesenhado */
 .carouselWrapper {
   flex: 1;
-  max-width: 600px;
-  border-radius: 15px;
+  min-width: 350px;
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  border: 1px solid var(--border-glass);
 }
 
-.carouselWrapper :global(.carousel) :global(.slide) img {
-  width: 100%;
-  height: 450px;
-  object-fit: cover;
+.premiumCarousel :global(.carousel) :global(.slide) img {
+  height: 550px; object-fit: cover;
 }
 
-.carouselWrapper :global(.carousel) :global(.slide) :global(.legend) {
-  background-color: rgba(0, 0, 0, 0.4);
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: 700;
-  padding: 1rem 1.5rem;
-  text-align: left;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+.premiumCarousel :global(.carousel) :global(.slide) :global(.legend) {
+  background: linear-gradient(0deg, var(--bg-dark) 0%, transparent 100%);
+  color: #fff; font-size: 1.5rem; font-weight: 800;
+  padding: 3rem 2rem 2rem 2rem; opacity: 1; border-radius: 0;
 }
 
-.carouselWrapper :global(.carousel) :global(.control-arrow),
-.carouselWrapper :global(.carousel) :global(.control-dots) {
-  display: none;
-}
-
-/* Estilos Gerais das Seções */
-.section {
+/* ==========================================================================
+   3. SECÇÕES DAS FUNCIONALIDADES (PREVISÃO, DIÁRIO, BOOKING)
+   ========================================================================== */
+.featureSection {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
   width: 90%;
-  max-width: 1400px; /* Garante consistência em telas grandes */
-  margin: 4rem auto;
-  padding: 2rem;
-  border-radius: 15px;
-  box-sizing: border-box;
-}
-
-.sectionTitle {
-  font-size: 2.2rem;
-  color: #00a651;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.sectionSubtitle {
-  max-width: 600px;
-  margin: -1.5rem auto 2.5rem auto;
-  font-size: 1.1rem;
-  color: #666;
-  line-height: 1.6;
-}
-
-/* Grid da Estrutura do Evento */
-.featuresGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.featureCard {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.featureCard:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.featureIcon {
-  font-size: 3rem;
-  display: block;
-  margin-bottom: 1rem;
-}
-
-.featureImageIcon {
-  height: 50px; /* Tamanho Fixo para a Imagem */
-  width: 50px;  /* Tamanho Fixo para a Imagem */
-  margin-bottom: 1rem;
-  object-fit: contain;
-}
-
-.featureCard h3 {
-  font-size: 1.4rem;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-
-.featureCard p {
-  font-size: 1rem;
-  color: #666;
-  line-height: 1.5;
-}
-
-/* Seção de Benefícios */
-.benefitsSection {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  background-color: #f9f9f9;
+  max-width: 1400px;
+  margin: 8rem auto;
   flex-wrap: wrap;
 }
 
-.benefitContent, .benefitImage {
-  flex: 1;
-  min-width: 300px;
+.reverseLayout { flex-direction: row-reverse; }
+
+.featureText { flex: 1; min-width: 350px; }
+.sectionTitle { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; color: #fff; }
+.subtitle { font-size: 1.15rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 3rem; }
+
+/* Lista de Vantagens (Perks) */
+.perksGrid { display: flex; flex-direction: column; gap: 2rem; }
+.perkItem { display: flex; gap: 1.5rem; align-items: flex-start; }
+.perkIcon {
+  background: rgba(0, 230, 118, 0.1); color: var(--green-neon);
+  width: 50px; height: 50px; border-radius: 12px;
+  display: flex; justify-content: center; align-items: center;
+  font-size: 1.5rem; flex-shrink: 0; border: 1px solid rgba(0, 230, 118, 0.2);
 }
+.perkItem h4 { font-size: 1.2rem; color: #fff; margin: 0 0 0.5rem 0; }
+.perkItem p { margin: 0; color: var(--text-muted); line-height: 1.5; font-size: 0.95rem; }
 
-.benefitContent ul {
-  list-style-type: none;
-  padding: 0;
-  text-align: left;
+
+/* Gráficos e Mockups das Funcionalidades */
+.featureGraphic { flex: 1; min-width: 350px; display: flex; justify-content: center; }
+
+.mockupCard {
+  width: 100%; max-width: 450px;
+  background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border-glass);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5); overflow: hidden;
 }
-
-.benefitContent li {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 1rem;
-  padding-left: 2rem;
-  position: relative;
+.mockupHeader {
+  background: rgba(255,255,255,0.05); padding: 1.5rem; font-weight: 700; color: #fff;
+  border-bottom: 1px solid var(--border-glass); display: flex; align-items: center; gap: 10px;
 }
+.mockupHeader svg { color: var(--green-neon); }
+.mockupBody { padding: 2rem; }
 
-.benefitContent li::before {
-  content: '✔';
-  color: #00a651;
-  position: absolute;
-  left: 0;
-  font-size: 1.2rem;
+/* Linhas de Status */
+.statRow { display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); }
+.statRow:last-child { border-bottom: none; }
+.statRow strong { color: #fff; }
+.textGreen { color: var(--green-neon) !important; }
+.textHighlight { color: #ffeb3b !important; }
+
+/* Gráfico de Barras Falso */
+.barChart { width: 100%; height: 25px; background: rgba(255,255,255,0.1); border-radius: 12.5px; margin-top: 1rem; overflow: hidden; }
+.barFill { height: 100%; background: linear-gradient(90deg, var(--green-dark), var(--green-neon)); border-radius: 12.5px; display: flex; align-items: center; padding-left: 10px; font-size: 0.8rem; font-weight: bold; color: #000; }
+
+.roundedImage { width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid var(--border-glass); }
+
+/* ==========================================================================
+   4. SEÇÃO DO LEGADO (HISTÓRIA DO TORNEIO)
+   ========================================================================== */
+.legacySection {
+  width: 90%; max-width: 1200px; margin: 8rem auto;
+  background: url('../../assets/local-evento.jpg') center/cover fixed;
+  border-radius: 30px; position: relative; overflow: hidden;
 }
-
-.benefitImage img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+.legacySection::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(0, 11, 24, 0.95), rgba(0, 58, 112, 0.85));
 }
-
-/* Seção de Data e Local */
-.eventInfoSection {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  flex-wrap: wrap;
+.legacyContent {
+  position: relative; z-index: 2; padding: 6rem 3rem; text-align: center;
 }
+.legacyIcon { font-size: 4rem; color: #ffeb3b; margin-bottom: 1.5rem; filter: drop-shadow(0 0 15px rgba(255, 235, 59, 0.5)); }
+.legacyContent h2 { font-size: 2.5rem; color: #fff; margin-bottom: 1.5rem; }
+.legacyContent p { font-size: 1.2rem; color: var(--text-light); max-width: 700px; margin: 0 auto 2.5rem auto; line-height: 1.6; }
 
-.eventInfoImage, .eventInfoContent {
-  flex: 1;
-  min-width: 320px;
+.outlineBtn {
+  background: transparent; color: #fff; border: 2px solid #fff; padding: 1rem 2rem;
+  border-radius: 50px; font-weight: 700; cursor: pointer; transition: 0.3s;
 }
+.outlineBtn:hover { background: #fff; color: #000; }
 
-.eventInfoImage img {
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+/* ==========================================================================
+   5. PATROCINADORES (MARQUEE INFINITO)
+   ========================================================================== */
+.sponsorsSection { padding: 5rem 0; border-top: 1px solid var(--border-glass); background: #00050d; }
+.sectionTitleWhite { text-align: center; font-size: 2rem; color: #fff; margin-bottom: 3rem; }
+
+.marqueeContainer {
+  width: 100%; overflow: hidden; position: relative;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
-
-.eventInfoContent .sectionTitle {
-  text-align: left;
+.marqueeTrack {
+  display: flex; width: max-content; gap: 3rem; padding: 1rem 0;
+  animation: scrollMarquee 40s linear infinite;
 }
-
-.infoBox {
-  background: #f9f9f9;
-  padding: 1rem 1.5rem;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  border-left: 5px solid #00a651;
-}
-
-.infoBox h3 {
-  margin: 0 0 0.25rem 0;
-  color: #333;
-}
-
-.infoBox p {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #555;
-}
-
-.eventDescription {
-  margin-top: 1.5rem;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #555;
-}
-
-/* Seção de Responsáveis */
-.responsibilitiesGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.responsibilityCard {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  border-top: 5px solid #00a651;
-}
-
-.orgLogo {
-  height: 90px;
-  width: auto;
-  max-width: 150px;
-  margin: 0 auto 1.5rem auto;
-}
-
-.orgLogoCombined {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin: 0 auto 1.5rem auto;
-  height: 90px;
-}
-
-.orgLogoSmall {
-  height: 95px;
-  width: auto;
-  max-width: 150px;
-  margin: 0 auto 1.5rem auto;
-}
-
-.responsibilityCard h3 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-.responsibilityCard ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.responsibilityCard li {
-  color: #666;
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-/* Seção da Imagem da Estrutura */
-.fullWidthSection {
-  max-width: 100%;
-  background-color: #f4f8f6;
-}
-
-.structureImageContainer {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.structureImageContainer img {
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.structureImageContainer p {
-  margin-top: 1rem;
-  font-style: italic;
-  color: #777;
-}
-
-/* Seção de Downloads ATUALIZADA (com parallax) */
-.downloadSection {
-  position: relative;
-  text-align: center;
-  padding: 4rem 2rem;
-  color: #fff;
-  background-image: url('../../assets/fundo-regu.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  z-index: 0;
-}
-
-.downloadSection::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 115, 166, 0.85);
-  z-index: 1;
-}
-
-.downloadContent {
-  position: relative;
-  z-index: 2;
-}
-
-.downloadSection .sectionTitle, .downloadSection p {
-  color: #fff;
-}
-
-.downloadSection p {
-  margin-bottom: 2rem;
-}
-
-.downloadButtonsContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.secondaryButton {
-  background-color: transparent;
-  border: 2px solid #ffffff;
-}
-
-.secondaryButton:hover {
-  background-color: #ffffff;
-  color: #0073a6;
-}
-
-
-/* --- ESTILOS PARA O SELETOR DE REGRAS (mantido) --- */
-.rulesToggle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  background-color: #e9ecef;
-  border-radius: 50px;
-  padding: 0.5rem;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.toggleButton {
-  border: none;
-  background-color: transparent;
-  color: #495057;
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.activeToggle {
-  background-color: #fff;
-  color: #00a651;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-
-/* --- Estilos para o Grid e Cards de Regras --- */
-.rulesGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 1.5rem;
-}
-
-.ruleCard {
-  background-color: #fff;
-  padding: 1.5rem 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-  border-left: 5px solid #00a651;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-}
-
-.ruleCard h3 {
-  font-size: 1.4rem;
-  color: #333;
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-.ruleCard p, .ruleCard li {
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.ruleCard ul {
-  padding-left: 20px;
-  margin: 0;
-  flex-grow: 1; 
-}
-
-.ruleCard li {
-  margin-bottom: 0.5rem;
-}
-
-.ruleCard strong {
-  color: #333;
-}
-
-.cardPlaceholder {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #888;
-  font-style: italic;
-}
-
-
-/* Seção de Patrocinadores */
-.sponsorsSection {
-  background-color: #34495e;
-}
-
-.sponsorsSection .sectionTitle {
-  color: #ffffff;
-}
-
-.sponsorsGrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  padding: 1rem 0;
-}
+.marqueeTrack:hover { animation-play-state: paused; }
+@keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 .sponsorItem {
-  background-color: #ffffff;
-  padding: 1rem;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  min-width: 150px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: rgba(255,255,255,0.03); padding: 1rem 2rem; border-radius: 15px;
+  display: flex; justify-content: center; align-items: center;
+  width: 180px; height: 100px; border: 1px solid var(--border-glass);
 }
+.sponsorItem img { max-width: 100%; max-height: 70px; object-fit: contain; filter: grayscale(100%) brightness(150%); transition: 0.3s; }
+.sponsorItem:hover img { filter: grayscale(0%) brightness(100%); transform: scale(1.1); }
 
-.sponsorItem img {
-  height: 60px;
-  width: auto;
-  max-width: 120px;
-  object-fit: contain;
-}
-
-.sponsorItem p {
-  margin: 0;
-  font-weight: 600;
-  color: #34495e;
-}
-
-
-/* ... (todo o seu CSS existente vai aqui em cima) ... */
-
-/* NOVOS ESTILOS PARA O POP-UP */
+/* ==========================================================================
+   6. POP-UP DE AVISOS
+   ========================================================================== */
 .popupOverlay {
-  position: fixed; /* Fixa o pop-up na tela */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro semi-transparente */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000; /* Garante que o pop-up fique na frente de tudo */
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 11, 24, 0.85); backdrop-filter: blur(10px);
+  display: flex; justify-content: center; align-items: center; z-index: 9999;
 }
-
 .popupContent {
-  background-color: #ffffff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  width: 90%;
-  max-width: 500px; /* Largura máxima do pop-up */
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem; /* Espaço entre o texto e o botão */
+  background: var(--bg-card); border: 1px solid var(--border-glass); padding: 3rem;
+  border-radius: 24px; text-align: center; max-width: 450px; width: 90%;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.8); display: flex; flex-direction: column; align-items: center;
+}
+.popupContent h2 { color: #fff; margin-bottom: 1rem; }
+.popupContent p { color: var(--text-muted); line-height: 1.6; margin-bottom: 2rem; }
+.popupOkButton { background: var(--green-neon); color: #000; border: none; padding: 1rem 3rem; border-radius: 50px; font-weight: 700; cursor: pointer; }
+
+/* ==========================================================================
+   7. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .homeLayout, .featureSection { flex-direction: column; text-align: center; gap: 3rem; }
+  .reverseLayout { flex-direction: column; }
+  .contentCard, .featureText, .featureGraphic { width: 100%; max-width: 100%; }
+  .buttonGroup { justify-content: center; }
+  .perkItem { flex-direction: column; align-items: center; text-align: center; }
 }
 
-.popupContent p {
-  font-size: 1.1rem;
-  color: #333;
-  line-height: 1.6;
-  margin: 0; /* Remove margens padrão */
-}
-
-.popupOkButton {
-  background-color: #00a608;
-  color: white;
-  border: none;
-  padding: 0.8rem 2rem;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-self: center; /* Centraliza o botão no flex container */
-}
-
-.popupOkButton:hover {
-  background-color: #008c06;
-}
-
-/* NOVO ESTILO PARA DEIXAR OS BOTÕES COM APARÊNCIA DE INATIVOS */
-.disabledButton {
-  background-color: #95a5a6; /* Cor cinza para indicar inatividade */
-  cursor: pointer; /* Mantém o cursor de clique para abrir o pop-up */
-  box-shadow: none; /* Remove a sombra */
-}
-
-.disabledButton:hover {
-  background-color: #7f8c8d; /* Escurece um pouco no hover */
-  transform: none; /* Remove o efeito de levantar */
-}
-
-
-
-/* --- Media Queries para Responsividade --- */
-@media (max-width: 992px) {
-  .homeLayout {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .carouselWrapper, .content {
-    max-width: 100%;
-  }
-  .content {
-    text-align: center;
-  }
-  .justifiedText {
-    text-align: left;
-  }
-  .buttonContainer {
-    justify-content: center;
-  }
-  .benefitsSection {
-    flex-direction: column-reverse;
-  }
-  .eventInfoSection {
-    flex-direction: column;
-  }
-  .eventInfoContent .sectionTitle {
-    text-align: center;
-  }
-}
-
-@media (max-width: 576px) {
-  .content h1 {
-    font-size: 2rem;
-  }
-  .justifiedText {
-    font-size: 1rem;
-  }
-  .actionButton {
-    padding: 0.8rem 2rem;
-    font-size: 0.9rem;
-  }
-  .carouselWrapper :global(.carousel) :global(.slide) img {
-    height: 300px;
-  }
-  .carouselWrapper :global(.carousel) :global(.slide) :global(.legend) {
-    font-size: 1.2rem;
-  }
-  .sectionTitle {
-    font-size: 1.8rem;
-  }
-  .sectionSubtitle {
-    font-size: 1rem;
-  }
-  .rulesGrid {
-    grid-template-columns: 1fr;
-  }
-  .ruleCard {
-    padding: 1.5rem;
-  }
-  .toggleButton {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
-}
-
-.popupContent {
-  /* ...outros estilos... */
-  width: 90%;
-  max-width: 500px; 
-}
-
-
-/* NOVO ESTILO PARA O BOTÃO DE SORTEIO */
-.raffleButton {
-  background-color: #e67e22; /* Uma cor de destaque diferente */
-}
-
-.raffleButton:hover {
-  background-color: #d35400;
+@media (max-width: 600px) {
+  .mainTitle { font-size: 2.2rem; }
+  .sectionTitle { font-size: 2rem; }
+  .contentCard { padding: 1.5rem; }
+  .heroSection { padding: 4rem 0; }
+  .legacyContent { padding: 4rem 1.5rem; }
+  .premiumCarousel :global(.carousel) :global(.slide) img { height: 400px; }
 }
